@@ -1,1751 +1,928 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    
-    <!-- SEO 및 소셜 미디어 태그 -->
-    <title>💍 나영 ♥ 상현 Wedding Project</title>
-    <meta name="description" content="김나영 & 이상현의 2026.4.18 웨딩 준비 현황을 실시간으로 확인하세요">
-    <meta name="keywords" content="웨딩, 결혼준비, 나영, 상현, 2026">
-    <meta name="author" content="NYSH Wedding Team">
-    
-    <!-- Open Graph (카카오톡, 페이스북 공유용) -->
-    <meta property="og:title" content="💍 나영 ♥ 상현 Wedding Project">
-    <meta property="og:description" content="2026.4.18 웨딩 준비 현황 실시간 대시보드">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI2MzAiIHZpZXdCb3g9IjAgMCAxMjAwIDYzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjMwIiBmaWxsPSJ1cmwoI3BhaW50MF9saW5lYXJfMF8xKSIvPgo8dGV4dCB4PSI2MDAiIHk9IjI1MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjcyIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPu2bhOyYgSDirpQg7IOB7ZiEPC90ZXh0Pgo8dGV4dCB4PSI2MDAiIHk9IjM1MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ4IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+V2VkZGluZyBQcm9qZWN0PC90ZXh0Pgo8dGV4dCB4PSI2MDAiIHk9IjQ1MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjM2IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MjAyNi4wNC4xODwvdGV4dD4KPHN2ZyB4PSI0NTAiIHk9IjEwMCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBmaWxsPSJub25lIj4KPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIvPgo8L3N2Zz4KPHN2ZyB4PSI2NTAiIHk9IjEwMCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBmaWxsPSJub25lIj4KPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNDAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4zKSIvPgo8L3N2Zz4KPGRlZj4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzBfMSIgeDE9IjAiIHkxPSIwIiB4Mj0iMTIwMCIgeTI9IjYzMCI+CjxzdG9wIHN0b3AtY29sb3I9IiNmZjZiOWQiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNjY3ZWVhIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+">
-    
-    <!-- 트위터 카드 -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="💍 나영 ♥ 상현 Wedding Project">
-    <meta name="twitter:description" content="2026.4.18 웨딩 준비 현황 실시간 대시보드">
-    
-    <!-- iOS PWA 설정 -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="나영♥상현 Wedding">
-    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiByeD0iNDAiIGZpbGw9InVybCgjZ3JhZGllbnQpIi8+Cjx0ZXh0IHg9IjkwIiB5PSIxMjAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+💍</text+Cjx0ZXh0IHg9IjkwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5OWVNIQGJX2Rkaab0kPC90ZXh0Pgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJncmFkaWVudCI+CjxzdG9wIHN0b3AtY29sb3I9IiNmZjZiOWQiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNjY3ZWVhIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+">
-    
-    <!-- Android PWA 설정 -->
-    <meta name="theme-color" content="#667eea">
-    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoi64Sk7JiBIOKrmCDsg4Htm4QgV2VkZGluZyIsInNob3J0X25hbWUiOiJOWVNIIFdlZGRpbmciLCJzdGFydF91cmwiOiIvIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiI2ZmZmZmZiIsInRoZW1lX2NvbG9yIjoiIzY2N2VlYSIsImljb25zIjpbeyJzcmMiOiJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUIzYVdSMGFEMGlNVGd3SWlCb1pXbG5hSFE5SWpFNE1DSWlJSFpwWlhkQ2IzZzlJakFnTUNBeE9EQWdNVGd3SWlCbWFXeHNQU0p1YjI1bElpQjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaVBnbzhjbVZqZENCM2FXUjBhRDBpTVRnd0lpQm9aV2xuYUhROUlqRTRNQ0lpSUhKNFBTSTBNQ0lpSUdacGJHdzlJblZ5YkNncFoyeGhibVJwWlc1MEtTSXZQZ284ZEdWNGRDQjRQU0k1TUNJZ2VUMGlNVEl3SWlCbWIyNTBMV1poYldsc2VUMGlRWEpwWVd3c0lITmhibk10YzJWeWFXWWlJR1p2Ym5RdGMybDZaVDBpT0RBaUlIUmxlSFF0WVc1amFHOXlQU0p0YVdSa2JHVWlQajV0a0xxUXVwQnJTOTlQQzlwWlhoMFBnbzhjSFJsZUhRZ2VEMGlPVEFpSUhrOUlqRTFNQ0lpSUdadmJuUXRabUZ0YVd4NVBTSkJjbWxoYkN3Z2MyRnVjeTF6WlhKcFppSWdabTl1ZEMxemFYcGxQU0l4Tmpra0lpQm1iMjUwTFhkbGFXZG9kRDBpWW05c1pDSWdabWxzYkQwaWQyaHBkR1VpSUhSbGVIUXRZVzVqYUc5eVBTSnRhV1JrYkdVaVBqNVVWRlJOYjJSa2FXNW5QQzkwWlhoMFBnbzhaR1ZtY3o0S1BHeHBibVZoY2tkeVlXUnBaVzUwSUdsa1BTSm5jbUZrYVdWdWRDSStDanh6ZEc5d0lITjBiM0F0WTI5c2IzSTlJaU5tWmpaa09UUWLPZ280YzNSdmNDQnZabVp6WlhROUlqRWlJSE4wYjNBdFkyOXNiM0k5SWlNMk5qZGxaV0VpTHc0OEwyeHBibVZoY2tkeVlXUnBaVzUwUGdvOEwyUmxabk0rQ2p3dmMzWm5QZz09Iiwic2l6ZXMiOiIxODB4MTgwIiwidHlwZSI6ImltYWdlL3N2Zyt4bWwifV19">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="30" cy="30" r="8" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="70" r="6" fill="rgba(255,255,255,0.05)"/><path d="M20,50 Q50,20 80,50 Q50,80 20,50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
-            background-attachment: fixed;
-            background-size: cover, 200px 200px;
-            min-height: 100vh;
-            padding: 10px;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-            backdrop-filter: blur(15px);
-            animation: slideIn 0.8s ease-out;
-        }
-        
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
-            padding: 30px 20px;
-            text-align: center;
-            color: #333;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="4" fill="rgba(255,255,255,0.3)"/><circle cx="80" cy="20" r="3" fill="rgba(255,255,255,0.2)"/><circle cx="50" cy="80" r="5" fill="rgba(255,255,255,0.25)"/></svg>');
-            background-size: 150px 150px;
-            opacity: 0.6;
-            animation: float 20s infinite linear;
-        }
-        
-        @keyframes float {
-            from { transform: translateX(-20px); }
-            to { transform: translateX(20px); }
-        }
-        
-        .header h1 {
-            margin: 0 0 15px 0;
-            font-size: 2.2em;
-            font-weight: 300;
-            position: relative;
-            z-index: 2;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .dev-mode-trigger {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 30px;
-            height: 30px;
-            background: rgba(255,255,255,0.8);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            opacity: 0.7;
-            transition: all 0.3s ease;
-            z-index: 3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-        
-        .dev-mode-trigger:hover {
-            opacity: 1;
-            transform: scale(1.1);
-        }
-        
-        .couple-info {
-            margin: 15px 0;
-            font-size: 1.1em;
-            font-weight: 500;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .wedding-info {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .info-item {
-            background: rgba(255,255,255,0.9);
-            padding: 12px 20px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
-            font-size: 0.9em;
-        }
-        
-        .info-item:hover {
-            transform: translateY(-2px);
-        }
+/**
+ * NYSH Wedding Project - 완전 개선 Apps Script v2.3
+ * 
+ * 🎯 v2.3 주요 개선사항:
+ * - 새 카테고리 4개 추가 (법적절차, 음향, 교통, 축의금)
+ * - 실행일 로직 완전 최적화
+ * - 월별 일정 개선 (결제일 + 실행일)
+ * - Summary 개선 (예상 총 지출, 진행률 UI 데이터)
+ * - 메모 항상 표시 지원
+ * - 계약금/잔금 분리 처리
+ */
 
-        .control-panel {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            padding: 15px;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-        
-        .control-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 10px;
-        }
-        
-        .btn {
-            background: rgba(255,255,255,0.9);
-            color: #667eea;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-decoration: none;
-            display: inline-block;
-            touch-action: manipulation;
-        }
-        
-        .btn:hover, .btn:active {
-            background: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
-        
-        .btn.refresh {
-            background: #28a745;
-            color: white;
-        }
-        
-        .btn.refresh:hover {
-            background: #218838;
-        }
-        
-        .status-indicator {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            margin-right: 6px;
-            animation: pulse 2s infinite;
-        }
-        
-        .status-connected { background: #28a745; }
-        .status-loading { background: #ffc107; }
-        .status-error { background: #dc3545; }
-        
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
-        }
-
-        .dev-panel {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            display: none;
-            z-index: 10000;
-            backdrop-filter: blur(5px);
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        
-        .dev-panel.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .dev-content {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            max-width: 500px;
-            width: 100%;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-        
-        .dev-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #eee;
-        }
-        
-        .dev-close {
-            background: #dc3545;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 12px;
-        }
-        
-        .config-item {
-            margin-bottom: 15px;
-        }
-        
-        .config-item label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: #333;
-            font-size: 14px;
-        }
-        
-        .config-input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 14px;
-            transition: border-color 0.3s ease;
-        }
-        
-        .config-input:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-        
-        .config-actions {
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .btn-apply {
-            background: #28a745;
-            color: white;
-        }
-        
-        .btn-test {
-            background: #007bff;
-            color: white;
-        }
-        
-        .tabs {
-            display: flex;
-            background: #f8f9fa;
-            border-bottom: 1px solid #dee2e6;
-            overflow-x: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-        
-        .tabs::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .tab {
-            padding: 12px 16px;
-            cursor: pointer;
-            border: none;
-            background: none;
-            font-size: 12px;
-            font-weight: 500;
-            color: #666;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            min-width: 110px;
-            position: relative;
-            flex-shrink: 0;
-        }
-        
-        .tab.active {
-            background: white;
-            color: #667eea;
-            border-bottom: 3px solid #667eea;
-        }
-        
-        .tab:hover {
-            background: #e9ecef;
-            color: #495057;
-        }
-        
-        .content {
-            padding: 20px;
-            min-height: 400px;
-        }
-        
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.5s ease-in;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        /* 모바일 최적화 Summary 스타일 */
-        .wedding-status {
-            background: linear-gradient(135deg, #ff6b9d, #ffa8cc);
-            color: white;
-            padding: 25px 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
-        }
-        
-        .wedding-status h2 {
-            margin: 0 0 12px 0;
-            font-size: 1.4em;
-            font-weight: 300;
-            line-height: 1.3;
-        }
-        
-        .progress-info {
-            margin: 15px 0;
-            font-size: 1em;
-        }
-        
-        .summary-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .summary-card {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 20px 15px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-            transition: transform 0.3s ease;
-        }
-        
-        .summary-card:hover, .summary-card:active {
-            transform: translateY(-3px);
-        }
-        
-        .summary-card h3 {
-            margin: 0 0 8px 0;
-            font-size: 1.8em;
-            font-weight: 300;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        
-        .summary-card p {
-            margin: 0;
-            opacity: 0.9;
-            font-size: 12px;
-            font-weight: 500;
-        }
-        
-        /* 모바일 최적화 3개월 할일 스타일 */
-        .upcoming-tasks {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
-        }
-        
-        .upcoming-tasks h3 {
-            margin: 0 0 15px 0;
-            font-size: 1.3em;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .task-list {
-            list-style: none;
-        }
-        
-        .task-item {
-            background: rgba(255,255,255,0.1);
-            padding: 12px;
-            margin: 8px 0;
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-            font-size: 14px;
-        }
-        
-        .task-main {
-            margin-bottom: 5px;
-        }
-        
-        .task-date {
-            font-size: 11px;
-            opacity: 0.9;
-            background: rgba(255,255,255,0.2);
-            padding: 3px 6px;
-            border-radius: 8px;
-            display: inline-block;
-        }
-        
-        .task-priority {
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            margin-right: 8px;
-        }
-        
-        .priority-high { background: #ff4757; }
-        .priority-medium { background: #ffa502; }
-        .priority-low { background: #2ed573; }
-        
-        /* 모바일 최적화 월별 결제 스타일 */
-        .payment-schedule {
-            background: linear-gradient(135deg, #4834d4, #686de0);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-            box-shadow: 0 10px 30px rgba(72, 52, 212, 0.3);
-        }
-        
-        .payment-schedule h3 {
-            margin: 0 0 15px 0;
-            font-size: 1.3em;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .payment-month {
-            background: rgba(255,255,255,0.1);
-            padding: 15px;
-            margin: 12px 0;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .month-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .month-title {
-            font-size: 1.1em;
-            font-weight: 600;
-        }
-        
-        .month-total {
-            background: rgba(255,255,255,0.2);
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-weight: 600;
-            font-size: 14px;
-        }
-        
-        .payment-item {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            font-size: 13px;
-        }
-        
-        .payment-item:last-child {
-            border-bottom: none;
-        }
-        
-        .payment-info {
-            margin-bottom: 5px;
-        }
-        
-        .payment-amount {
-            font-weight: 600;
-            display: inline-block;
-            margin-right: 10px;
-        }
-        
-        .payment-status {
-            font-size: 11px;
-            padding: 3px 8px;
-            border-radius: 8px;
-            background: rgba(255,255,255,0.2);
-            display: inline-block;
-        }
-        
-        /* 파일 관리 스타일 */
-        .file-management {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-        
-        .file-management h3 {
-            margin: 0 0 15px 0;
-            font-size: 1.3em;
-            text-align: center;
-        }
-        
-        .file-description {
-            text-align: center;
-            margin-bottom: 15px;
-            font-size: 1em;
-            opacity: 0.9;
-        }
-        
-        .file-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 15px 0;
-            flex-wrap: wrap;
-        }
-        
-        .file-btn {
-            background: rgba(255,255,255,0.9);
-            color: #667eea;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-decoration: none;
-            display: inline-block;
-            min-width: 150px;
-        }
-        
-        .file-btn:hover, .file-btn:active {
-            background: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
-        
-        .usage-guide {
-            background: rgba(255,255,255,0.1);
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 15px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .usage-title {
-            font-size: 1.1em;
-            font-weight: 600;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-        
-        .usage-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .usage-item {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            font-size: 13px;
-            line-height: 1.4;
-        }
-        
-        .usage-item:last-child {
-            border-bottom: none;
-        }
-        
-        .usage-item strong {
-            color: #ffd700;
-        }
-        
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .category-card {
-            background: white;
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .category-card:hover, .category-card:active {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-        
-        .category-card h4 {
-            margin: 0 0 12px 0;
-            color: #667eea;
-            font-size: 15px;
-        }
-        
-        .progress-bar {
-            width: 100%;
-            height: 6px;
-            background: #e9ecef;
-            border-radius: 3px;
-            overflow: hidden;
-            margin: 8px 0;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 3px;
-            transition: width 0.8s ease;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            font-size: 12px;
-        }
-        
-        th, td {
-            padding: 10px 8px;
-            text-align: left;
-            border-bottom: 1px solid #f8f9fa;
-        }
-        
-        th {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            font-weight: 600;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        tr:hover {
-            background: linear-gradient(135deg, #f8f9ff, #faf6ff);
-        }
-        
-        .status-완료 {
-            background: linear-gradient(135deg, #d1e7dd, #a3d9a4);
-            color: #0f5132;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: 600;
-        }
-        
-        .status-진행중 {
-            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-            color: #664d03;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: 600;
-        }
-        
-        .status-미정 {
-            background: linear-gradient(135deg, #f8d7da, #fab1a0);
-            color: #721c24;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: 600;
-        }
-        
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: #666;
-            font-size: 14px;
-        }
-        
-        .loading::after {
-            content: '';
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #667eea;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-left: 10px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        .error {
-            background: linear-gradient(135deg, #f8d7da, #fab1a0);
-            color: #721c24;
-            padding: 15px;
-            border-radius: 12px;
-            margin: 12px 0;
-            border-left: 4px solid #dc3545;
-            font-size: 14px;
-        }
-        
-        .success {
-            background: linear-gradient(135deg, #d1e7dd, #a3d9a4);
-            color: #0f5132;
-            padding: 15px;
-            border-radius: 12px;
-            margin: 12px 0;
-            border-left: 4px solid #28a745;
-            font-size: 14px;
-        }
-        
-        .money-cell {
-            text-align: right;
-            font-weight: 600;
-            font-size: 11px;
-            color: #2c3e50;
-        }
-        
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #28a745;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 20px;
-            z-index: 1000;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(40, 167, 69, 0.3);
-            font-size: 14px;
-            max-width: calc(100vw - 40px);
-        }
-        
-        .notification.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .notification.error {
-            background: #dc3545;
-            box-shadow: 0 10px 30px rgba(220, 53, 69, 0.3);
-        }
-        
-        .notification.info {
-            background: #17a2b8;
-            box-shadow: 0 10px 30px rgba(23, 162, 184, 0.3);
-        }
-        
-        /* 모바일 최적화 */
-        @media (max-width: 768px) {
-            body {
-                padding: 5px;
-            }
-            
-            .container {
-                border-radius: 12px;
-            }
-            
-            .header {
-                padding: 20px 15px;
-            }
-            
-            .header h1 {
-                font-size: 1.8em;
-            }
-            
-            .wedding-info {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .info-item {
-                padding: 10px 15px;
-                font-size: 0.85em;
-            }
-            
-            .summary-cards {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
-            
-            .summary-card {
-                padding: 15px 10px;
-            }
-            
-            .summary-card h3 {
-                font-size: 1.5em;
-            }
-            
-            .control-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 8px;
-            }
-            
-            .btn {
-                min-width: 200px;
-                padding: 12px 20px;
-            }
-            
-            .tabs {
-                flex-wrap: wrap;
-            }
-            
-            .tab {
-                flex: 1;
-                min-width: 90px;
-                text-align: center;
-                font-size: 11px;
-                padding: 10px 8px;
-            }
-            
-            .content {
-                padding: 15px;
-            }
-            
-            .category-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-            
-            table {
-                font-size: 10px;
-            }
-            
-            th, td {
-                padding: 6px 4px;
-            }
-            
-            .dev-content {
-                padding: 20px 15px;
-                margin: 10px;
-            }
-            
-            .config-input {
-                font-size: 16px; /* iOS 줌 방지 */
-            }
-            
-            .config-actions {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .notification {
-                right: 10px;
-                left: 10px;
-                text-align: center;
-            }
-        }
-        
-        /* iOS Safari 최적화 */
-        @supports (-webkit-touch-callout: none) {
-            .container {
-                -webkit-overflow-scrolling: touch;
-            }
-            
-            .tabs {
-                -webkit-overflow-scrolling: touch;
-            }
-        }
-        
-        /* 다크모드 지원 */
-        @media (prefers-color-scheme: dark) {
-            .container {
-                background: rgba(40, 44, 52, 0.95);
-                color: #e6e6e6;
-            }
-            
-            .category-card {
-                background: rgba(60, 64, 72, 0.9);
-                color: #e6e6e6;
-            }
-            
-            table {
-                background: rgba(60, 64, 72, 0.9);
-                color: #e6e6e6;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <button class="dev-mode-trigger" onclick="toggleDevMode()" title="설정">⚙️</button>
-            <h1>💍 나영 ♥ 상현 Wedding Project</h1>
-            <div class="couple-info">
-                <span>👰 신부: 김나영</span> ♥ 
-                <span>🤵 신랑: 이상현</span>
-            </div>
-            <div class="wedding-info">
-                <div class="info-item">
-                    <strong>💍 Wedding Day:</strong> <span id="wedding-date">2026.4.18 (SAT) 16:30</span>
-                </div>
-                <div class="info-item">
-                    <strong>🏨</strong> <span id="venue-name">강변 웨딩 스퀘어</span>
-                </div>
-                <div class="info-item">
-                    <strong>D-Day:</strong> <span id="dday">계산중...</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="control-panel">
-            <div class="control-buttons">
-                <button class="btn refresh" onclick="loadAllData()">🔄 데이터 새로고침</button>
-                <a href="https://docs.google.com/spreadsheets/d/13Y7RRprcp-lNjInoJHEL3q83FWw_NksjW6bHEOh4qDo/edit" class="btn" id="sheets-link" target="_blank">📊 Google Sheets에서 편집</a>
-                <button class="btn" onclick="showConnectionStatus()">📡 연결 상태</button>
-            </div>
-            <div id="status-info">
-                <span class="status-indicator status-loading"></span>
-                <span style="font-size: 12px; opacity: 0.9;">시스템 초기화 중...</span>
-            </div>
-        </div>
-        
-        <div class="tabs">
-            <button class="tab active" onclick="showTab('summary')">💍 Summary</button>
-            <button class="tab" onclick="showTab('venue')">🏰 웨딩홀</button>
-            <button class="tab" onclick="showTab('fashion')">👗 의상</button>
-            <button class="tab" onclick="showTab('photo')">📷 촬영</button>
-            <button class="tab" onclick="showTab('travel')">✈️ 여행</button>
-            <button class="tab" onclick="showTab('invitation')">💌 청첩장</button>
-            <button class="tab" onclick="showTab('jewelry')">💎 예물</button>
-            <button class="tab" onclick="showTab('family')">👨‍👩‍👧‍👦 가족</button>
-        </div>
-        
-        <div class="content">
-            <!-- Summary 탭 -->
-            <div id="summary" class="tab-content active">
-                <div id="summary-loading" class="loading">웨딩 프로젝트 데이터를 불러오는 중</div>
-                <div id="summary-content" style="display: none;">
-                    
-                    <!-- 웨딩 프로젝트 현황 -->
-                    <div class="wedding-status">
-                        <h2>💕 나영아, 우리의 Wedding Project 현황</h2>
-                        <div class="progress-info">
-                            <strong>전체 진행률: <span id="overall-progress">45%</span></strong>
-                        </div>
-                        <div>함께 만들어가는 특별한 하루까지 <span id="days-left">305</span>일 💖</div>
-                    </div>
-                    
-                    <!-- 주요 지표 카드 -->
-                    <div class="summary-cards">
-                        <div class="summary-card">
-                            <h3 id="dday-card">계산중</h3>
-                            <p>D-Day</p>
-                        </div>
-                        <div class="summary-card">
-                            <h3 id="progress-card">계산중</h3>
-                            <p>전체 진행률</p>
-                        </div>
-                        <div class="summary-card">
-                            <h3 id="budget-card">계산중</h3>
-                            <p>총 예산</p>
-                        </div>
-                        <div class="summary-card">
-                            <h3 id="expense-card">계산중</h3>
-                            <p>현재 지출</p>
-                        </div>
-                    </div>
-                    
-                    <!-- 3개월 내 할일 -->
-                    <div id="upcoming-tasks" class="upcoming-tasks" style="display: none;">
-                        <h3>🔥 3개월 내 꼭 해야 할 일!</h3>
-                        <ul id="upcoming-list" class="task-list"></ul>
-                    </div>
-                    
-                    <!-- 월별 결제 예정 -->
-                    <div id="payment-schedule" class="payment-schedule" style="display: none;">
-                        <h3>💰 월별 결제 예정</h3>
-                        <div id="payment-list"></div>
-                    </div>
-                    
-                    <!-- 카테고리별 현황 -->
-                    <h3 style="margin: 25px 0 15px 0; font-size: 1.3em;">📊 카테고리별 현황</h3>
-                    <div id="category-overview" class="category-grid"></div>
-                    
-                    <!-- 파일 관리 -->
-                    <div class="file-management">
-                        <h3>🔄 파일 관리</h3>
-                        <div class="file-description">
-                            나영아, 우리 함께 관리하는 Wedding Project! 💕
-                        </div>
-                        
-                        <div class="file-buttons">
-                            <button class="file-btn" onclick="window.print()">
-                                💻 HTML 파일로 저장하기
-                            </button>
-                        </div>
-                        
-                        <div class="usage-guide">
-                            <div class="usage-title">💕 우리의 웨딩보고서 사용 방법:</div>
-                            <ul class="usage-list">
-                                <li class="usage-item">
-                                    <strong>💡 편집할 때:</strong> 📊 Google Sheets에서 직접 데이터 편집 → 🔄 새로고침으로 실시간 반영
-                                </li>
-                                <li class="usage-item">
-                                    <strong>📱 확인할 때:</strong> 예쁜 HTML 화면으로 진행상황 확인하고 서로 공유
-                                </li>
-                                <li class="usage-item">
-                                    <strong>📋 결혼계획서 summary:</strong> 💻 HTML 저장해서 현황보고용
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <!-- 다른 탭들 -->
-            <div id="venue" class="tab-content">
-                <h2 style="margin-bottom: 20px; font-size: 1.4em;">🏰 웨딩홀 관리</h2>
-                <div class="loading">웨딩홀 데이터를 불러오는 중</div>
-                <div id="venue-content" style="display: none;"></div>
-            </div>
-            
-            <div id="fashion" class="tab-content">
-                <h2 style="margin-bottom: 20px; font-size: 1.4em;">👗 의상 & 뷰티</h2>
-                <div class="loading">의상 데이터를 불러오는 중</div>
-                <div id="fashion-content" style="display: none;"></div>
-            </div>
-            
-            <div id="photo" class="tab-content">
-                <h2 style="margin-bottom: 20px; font-size: 1.4em;">📷 촬영 & 영상</h2>
-                <div class="loading">촬영 데이터를 불러오는 중</div>
-                <div id="photo-content" style="display: none;"></div>
-            </div>
-            
-            <div id="travel" class="tab-content">
-                <h2 style="margin-bottom: 20px; font-size: 1.4em;">✈️ 신혼여행</h2>
-                <div class="loading">여행 데이터를 불러오는 중</div>
-                <div id="travel-content" style="display: none;"></div>
-            </div>
-            
-            <div id="invitation" class="tab-content">
-                <h2 style="margin-bottom: 20px; font-size: 1.4em;">💌 청첩장 & 하객</h2>
-                <div class="loading">청첩장 데이터를 불러오는 중</div>
-                <div id="invitation-content" style="display: none;"></div>
-            </div>
-            
-            <div id="jewelry" class="tab-content">
-                <h2 style="margin-bottom: 20px; font-size: 1.4em;">💎 예물 & 반지</h2>
-                <div class="loading">예물 데이터를 불러오는 중</div>
-                <div id="jewelry-content" style="display: none;"></div>
-            </div>
-            
-            <div id="family" class="tab-content">
-                <h2 style="margin-bottom: 20px; font-size: 1.4em;">👨‍👩‍👧‍👦 가족 행사</h2>
-                <div class="loading">가족 행사 데이터를 불러오는 중</div>
-                <div id="family-content" style="display: none;"></div>
-            </div>
-        </div>
-    </div>
+// ========== 설정 ==========
+const CONFIG = {
+  SHEET_ID: '13Y7RRprcp-lNjInoJHEL3q83FWw_NksjW6bHEOh4qDo',
+  WEDDING_DATE: '2026-04-18',
+  
+  // v2.3 확장 시트 구조 정의
+  SHEETS: {
+    SUMMARY: 'Summary',
+    VENUE: 'Venue', 
+    FASHION: 'Fashion',
+    PHOTO: 'Photo',
+    TRAVEL: 'Travel',
+    INVITATION: 'Invitation', 
+    JEWELRY: 'Jewelry',
+    FAMILY: 'Family',
     
-    <!-- 개발자 모드 패널 -->
-    <div id="dev-panel" class="dev-panel">
-        <div class="dev-content">
-            <div class="dev-header">
-                <h3>🛠️ 설정</h3>
-                <button class="dev-close" onclick="toggleDevMode()">✕</button>
-            </div>
-            
-            <div class="config-item">
-                <label for="api-url-input">📡 Apps Script 웹앱 URL:</label>
-                <input type="text" id="api-url-input" class="config-input" 
-                       placeholder="https://script.google.com/macros/s/.../exec">
-                <small style="color: #666; font-size: 11px; display: block; margin-top: 5px;">
-                    Apps Script 배포 후 받은 웹앱 URL을 입력하세요
-                </small>
-            </div>
-            
-            <div class="config-item">
-                <label for="sheets-url-input">📊 Google Sheets 편집 URL:</label>
-                <input type="text" id="sheets-url-input" class="config-input" 
-                       placeholder="https://docs.google.com/spreadsheets/d/.../edit">
-                <small style="color: #666; font-size: 11px; display: block; margin-top: 5px;">
-                    웨딩 프로젝트 Google Sheets URL을 입력하세요
-                </small>
-            </div>
-            
-            <div class="config-actions">
-                <button class="btn btn-apply" onclick="applyConfiguration()">✅ 설정 적용</button>
-                <button class="btn btn-test" onclick="testConnection()">🧪 연결 테스트</button>
-                <button class="btn" onclick="resetConfiguration()">🔄 초기화</button>
-            </div>
-            
-            <div id="dev-status" style="margin-top: 15px; padding: 10px; background: #f8f9fa; border-radius: 8px; font-size: 12px;">
-                <strong>현재 설정:</strong><br>
-                API URL: <span id="current-api">설정됨</span><br>
-                Sheets URL: <span id="current-sheets">설정됨</span>
-            </div>
-        </div>
-    </div>
-    
-    <div id="notification" class="notification"></div>
+    // 🆕 새로 추가된 카테고리
+    LEGAL: 'Legal',        // 📋 법적절차  
+    SOUND: 'Sound',        // 🎵 음향/엔터테인먼트
+    TRANSPORT: 'Transport', // 🚗 교통/차량
+    GIFT: 'Gift'           // 💰 축의금관리
+  },
+  
+  // v2.3 표준 컬럼 정의 (실행일 포함)
+  COLUMNS: {
+    CATEGORY: '구분',
+    ITEM: '항목', 
+    VENDOR: '업체명',
+    CONTACT: '연락처',
+    DEPOSIT: '계약금',
+    BALANCE: '잔금', 
+    DUE_DATE: '결제일',
+    EXECUTION_DATE: '실행일',     // 🆕 실행일 컬럼
+    STATUS: '상태',
+    NOTES: '메모'
+  },
+  
+  // 카테고리별 아이콘 및 이름
+  CATEGORY_INFO: {
+    'Venue': { icon: '🏰', name: '웨딩홀' },
+    'Fashion': { icon: '👗', name: '의상 & 뷰티' },
+    'Photo': { icon: '📷', name: '촬영 & 영상' },
+    'Travel': { icon: '✈️', name: '신혼여행' },
+    'Invitation': { icon: '💌', name: '청첩장 & 하객' },
+    'Jewelry': { icon: '💎', name: '예물 & 반지' },
+    'Family': { icon: '👨‍👩‍👧‍👦', name: '가족 행사' },
+    'Legal': { icon: '📋', name: '법적절차' },        // 🆕
+    'Sound': { icon: '🎵', name: '음향/엔터테인먼트' },  // 🆕
+    'Transport': { icon: '🚗', name: '교통/차량' },    // 🆕
+    'Gift': { icon: '💰', name: '축의금관리' }         // 🆕
+  }
+};
 
-    <script>
-        // ========== 설정 ==========
-        const CONFIG = {
-            API_URL: 'https://script.google.com/macros/s/AKfycbxDU71pvtljoWPptNTMSVWH3YIkNkbuPaix0Meqw4iOPkKkZ1ObCim9Yv9tfun93jJB/exec',
-            SHEETS_URL: 'https://docs.google.com/spreadsheets/d/13Y7RRprcp-lNjInoJHEL3q83FWw_NksjW6bHEOh4qDo/edit',
-            AUTO_REFRESH_MINUTES: 5,
-            WEDDING_DATE: '2026-04-18'
+// ========== 메인 API 엔드포인트 ==========
+function doGet(e) {
+  const startTime = new Date();
+  
+  try {
+    const action = e.parameter.action || 'getSummary';
+    const sheet = e.parameter.sheet;
+    
+    console.log(`🔄 API 호출 v2.3: ${action}`);
+    
+    let result;
+    
+    switch(action) {
+      case 'getSummary':
+        result = getSummaryV23();
+        break;
+      case 'getAllSheets':
+        result = getAllSheetsV23();
+        break;
+      case 'getSheet':
+        if (!sheet) throw new Error('시트 이름이 필요합니다');
+        result = getSheetDataV23(sheet);
+        break;
+      case 'getStats':
+        result = getWeddingStatsV23();
+        break;
+      case 'migrate':
+        result = migrateToV23();
+        break;
+      case 'createNewSheets':
+        result = createNewCategorySheets();
+        break;
+      case 'test':
+        result = { message: 'API v2.3 테스트 성공!', timestamp: new Date().toISOString() };
+        break;
+      default:
+        throw new Error(`지원하지 않는 액션: ${action}`);
+    }
+    
+    const executionTime = new Date() - startTime;
+    console.log(`✅ API 완료 v2.3: ${action} (${executionTime}ms)`);
+    
+    return createResponse(true, result, `v2.3 실행 시간: ${executionTime}ms`);
+    
+  } catch (error) {
+    const executionTime = new Date() - startTime;
+    console.error('❌ API 오류:', error);
+    
+    return createResponse(false, null, `오류: ${error.toString()} (${executionTime}ms)`);
+  }
+}
+
+// ========== 응답 생성 ==========
+function createResponse(success, data, message = '') {
+  const response = {
+    success: success,
+    data: data,
+    message: message,
+    timestamp: new Date().toISOString(),
+    version: '2.3'
+  };
+  
+  return ContentService
+    .createTextOutput(JSON.stringify(response))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+// ========== 🎯 완전 최적화된 Summary API v2.3 ==========
+function getSummaryV23() {
+  try {
+    console.log('📊 Summary v2.3 생성 시작...');
+    
+    const allData = getAllSheetsV23();
+    const stats = calculateStatsV23(allData);
+    
+    return {
+      // 각 시트 데이터 (11개 카테고리)
+      Venue: allData.Venue || [],
+      Fashion: allData.Fashion || [],
+      Photo: allData.Photo || [],
+      Travel: allData.Travel || [],
+      Invitation: allData.Invitation || [],
+      Jewelry: allData.Jewelry || [],
+      Family: allData.Family || [],
+      Legal: allData.Legal || [],        // 🆕
+      Sound: allData.Sound || [],        // 🆕
+      Transport: allData.Transport || [], // 🆕
+      Gift: allData.Gift || [],          // 🆕
+      Summary: allData.Summary || [],
+      
+      // Summary 정보
+      basic: allData.Summary || [],
+      statistics: stats,
+      upcomingTasks: getUpcomingTasks3MonthsV23(allData),    
+      budgetByCategory: getBudgetByCategoryV23(allData),
+      monthlySchedule: getMonthlyScheduleV23(allData), // 🆕 월별 일정 (실행일 포함)
+      categoryInfo: CONFIG.CATEGORY_INFO // 🆕 카테고리 정보
+    };
+    
+  } catch (error) {
+    console.error('❌ Summary 생성 오류:', error);
+    return getDefaultSummary();
+  }
+}
+
+// ========== 🎯 최적화된 데이터 로드 v2.3 ==========
+function getAllSheetsV23() {
+  const allData = {};
+  
+  try {
+    const ss = SpreadsheetApp.openById(CONFIG.SHEET_ID);
+    console.log(`📊 스프레드시트 연결: ${ss.getName()}`);
+    
+    Object.values(CONFIG.SHEETS).forEach(sheetName => {
+      try {
+        const sheet = ss.getSheetByName(sheetName);
+        if (sheet) {
+          console.log(`📋 ${sheetName} 처리 중...`);
+          allData[sheetName] = processSheetDataV23(sheet, sheetName);
+          console.log(`✅ ${sheetName} 완료: ${allData[sheetName].length}개 행`);
+        } else {
+          console.log(`⚠️ ${sheetName} 시트 없음 - 빈 배열로 초기화`);
+          allData[sheetName] = [];
+        }
+      } catch (error) {
+        console.error(`❌ ${sheetName} 처리 실패:`, error);
+        allData[sheetName] = [];
+      }
+    });
+    
+    return allData;
+    
+  } catch (error) {
+    console.error('❌ 데이터 로드 실패:', error);
+    return getDefaultAllData();
+  }
+}
+
+// ========== 🎯 시트 데이터 처리 v2.3 ==========
+function processSheetDataV23(sheet, sheetName) {
+  try {
+    const range = sheet.getDataRange();
+    const values = range.getValues();
+    
+    if (values.length <= 1) return [];
+    
+    const headers = values[0].map(h => String(h).trim());
+    const data = [];
+    
+    // 실행일 컬럼 존재 여부 확인
+    const hasExecutionDate = headers.includes(CONFIG.COLUMNS.EXECUTION_DATE);
+    const hasNotes = headers.includes(CONFIG.COLUMNS.NOTES);
+    
+    console.log(`📋 ${sheetName} 컬럼 확인 - 실행일: ${hasExecutionDate}, 메모: ${hasNotes}`);
+    
+    for (let i = 1; i < values.length; i++) {
+      try {
+        const row = {};
+        let hasData = false;
+        
+        // 기본 데이터 매핑
+        for (let j = 0; j < headers.length; j++) {
+          const value = values[i][j];
+          const cleanValue = cleanCellValue(value);
+          row[headers[j]] = cleanValue;
+          
+          if (cleanValue !== '') hasData = true;
+        }
+        
+        if (hasData && sheetName !== CONFIG.SHEETS.SUMMARY) {
+          // 계산된 필드 추가
+          row._totalBudget = calculateRowBudgetV23(row);
+          row._deposit = parseFloat(row[CONFIG.COLUMNS.DEPOSIT]) || 0;
+          row._balance = parseFloat(row[CONFIG.COLUMNS.BALANCE]) || 0;
+          row._isCompleted = isStatusCompletedV23(row[CONFIG.COLUMNS.STATUS]);
+          
+          // 날짜 파싱 (안전하게)
+          row._executionDate = hasExecutionDate ? 
+            parseDateStringV23(row[CONFIG.COLUMNS.EXECUTION_DATE]) : null;
+          row._dueDate = parseDateStringV23(row[CONFIG.COLUMNS.DUE_DATE]);
+          row._targetDate = row._executionDate || row._dueDate || null;
+          
+          // 메모 처리
+          row._hasNotes = hasNotes && row[CONFIG.COLUMNS.NOTES] && 
+                         String(row[CONFIG.COLUMNS.NOTES]).trim() !== '';
+          
+          data.push(row);
+        } else if (hasData) {
+          data.push(row);
+        }
+        
+      } catch (rowError) {
+        console.error(`행 처리 오류 (${sheetName} ${i+1}):`, rowError);
+      }
+    }
+    
+    return data;
+    
+  } catch (error) {
+    console.error(`시트 처리 오류 (${sheetName}):`, error);
+    return [];
+  }
+}
+
+// ========== 🆕 월별 일정 v2.3 (실행일 포함) ==========
+function getMonthlyScheduleV23(allData) {
+  const schedule = {};
+  const today = new Date();
+  const weddingDate = new Date(CONFIG.WEDDING_DATE);
+  
+  if (!allData || typeof allData !== 'object') {
+    return {};
+  }
+  
+  Object.keys(allData).forEach(category => {
+    if (category === CONFIG.SHEETS.SUMMARY) return;
+    
+    const categoryData = allData[category];
+    if (!Array.isArray(categoryData)) return;
+    
+    categoryData.forEach(row => {
+      if (!row || typeof row !== 'object' || row._isCompleted) return;
+      
+      const paymentDate = row._dueDate;
+      if (!paymentDate || !(paymentDate instanceof Date)) return;
+      if (paymentDate < today || paymentDate > weddingDate) return;
+      
+      const monthKey = `${paymentDate.getFullYear()}-${String(paymentDate.getMonth() + 1).padStart(2, '0')}`;
+      
+      if (!schedule[monthKey]) {
+        schedule[monthKey] = [];
+      }
+      
+      const budget = Math.round((row._totalBudget || 0) / 10000);
+      
+      if (budget > 0) {
+        schedule[monthKey].push({
+          category: category,
+          item: row[CONFIG.COLUMNS.ITEM] || '',
+          paymentDate: formatDateV23(paymentDate),
+          executionDate: row._executionDate ? formatDateV23(row._executionDate) : '', // 🆕 실행일
+          budget: budget,
+          deposit: Math.round((row._deposit || 0) / 10000),
+          balance: Math.round((row._balance || 0) / 10000),
+          status: row[CONFIG.COLUMNS.STATUS] || '미정',
+          vendor: row[CONFIG.COLUMNS.VENDOR] || '',
+          notes: row[CONFIG.COLUMNS.NOTES] || '' // 🆕 메모
+        });
+      }
+    });
+  });
+  
+  // 각 월별로 결제일 순 정렬
+  Object.keys(schedule).forEach(monthKey => {
+    if (Array.isArray(schedule[monthKey])) {
+      schedule[monthKey].sort((a, b) => new Date(a.paymentDate) - new Date(b.paymentDate));
+    }
+  });
+  
+  return schedule;
+}
+
+// ========== 🆕 3개월 내 할일 v2.3 (실행일 우선) ==========
+function getUpcomingTasks3MonthsV23(allData) {
+  const tasks = [];
+  const today = new Date();
+  const threeMonthsLater = new Date(today.getTime() + (90 * 24 * 60 * 60 * 1000));
+  
+  if (!allData || typeof allData !== 'object') {
+    return [];
+  }
+  
+  Object.keys(allData).forEach(category => {
+    if (category === CONFIG.SHEETS.SUMMARY) return;
+    
+    const categoryData = allData[category];
+    if (!Array.isArray(categoryData)) return;
+    
+    categoryData.forEach(row => {
+      if (!row || typeof row !== 'object' || row._isCompleted) return;
+      
+      const targetDate = row._targetDate;
+      if (!targetDate || !(targetDate instanceof Date)) return;
+      
+      if (targetDate <= threeMonthsLater) {
+        tasks.push({
+          category: category,
+          item: row[CONFIG.COLUMNS.ITEM] || '',
+          paymentDate: row._dueDate ? formatDateV23(row._dueDate) : '',
+          executionDate: row._executionDate ? formatDateV23(row._executionDate) : '', // 🆕
+          status: row[CONFIG.COLUMNS.STATUS] || '',
+          priority: calculatePriorityV23(targetDate, today),
+          vendor: row[CONFIG.COLUMNS.VENDOR] || '',
+          targetDate: targetDate,
+          notes: row[CONFIG.COLUMNS.NOTES] || '' // 🆕 메모
+        });
+      }
+    });
+  });
+  
+  return tasks
+    .sort((a, b) => {
+      const dateA = a.targetDate instanceof Date ? a.targetDate : new Date(0);
+      const dateB = b.targetDate instanceof Date ? b.targetDate : new Date(0);
+      return dateA - dateB;
+    })
+    .slice(0, 12); // 더 많이 표시
+}
+
+// ========== 🎯 통계 계산 v2.3 (예상 총 지출) ==========
+function calculateStatsV23(allData) {
+  try {
+    let totalExpectedExpense = 0; // 🆕 예상 총 지출
+    let currentExpense = 0; 
+    let completedTasks = 0;
+    let totalTasks = 0;
+    
+    const categoryStats = {};
+    
+    if (!allData || typeof allData !== 'object') {
+      return getDefaultStats();
+    }
+    
+    Object.keys(allData).forEach(sheetName => {
+      if (sheetName === CONFIG.SHEETS.SUMMARY) return;
+      
+      const data = allData[sheetName];
+      
+      if (!Array.isArray(data)) {
+        categoryStats[sheetName] = { 
+          budget: 0, completed: 0, total: 0, progress: 0,
+          icon: CONFIG.CATEGORY_INFO[sheetName]?.icon || '📋',
+          name: CONFIG.CATEGORY_INFO[sheetName]?.name || sheetName
         };
+        return;
+      }
+      
+      let categoryBudget = 0;
+      let categoryCompleted = 0;
+      
+      data.forEach(row => {
+        if (!row || typeof row !== 'object') return;
         
-        // ========== 전역 변수 ==========
-        let currentData = {};
-        let lastUpdated = null;
-        let autoRefreshInterval = null;
+        const budget = typeof row._totalBudget === 'number' ? row._totalBudget : 0;
+        totalExpectedExpense += budget; // 🆕 모든 예산 합계
         
-        // ========== 개발자 모드 ==========
-        function toggleDevMode() {
-            const panel = document.getElementById('dev-panel');
-            const isVisible = panel.classList.contains('show');
-            
-            if (isVisible) {
-                panel.classList.remove('show');
-                setTimeout(() => {
-                    panel.style.display = 'none';
-                }, 300);
-            } else {
-                panel.style.display = 'flex';
-                setTimeout(() => {
-                    panel.classList.add('show');
-                }, 10);
-                
-                document.getElementById('api-url-input').value = CONFIG.API_URL;
-                document.getElementById('sheets-url-input').value = CONFIG.SHEETS_URL;
-                updateDevStatus();
-            }
+        if (row._isCompleted === true) {
+          currentExpense += budget;
+          completedTasks++;
+          categoryCompleted++;
         }
         
-        function applyConfiguration() {
-            const apiUrl = document.getElementById('api-url-input').value.trim();
-            const sheetsUrl = document.getElementById('sheets-url-input').value.trim();
+        totalTasks++;
+        categoryBudget += budget;
+      });
+      
+      categoryStats[sheetName] = {
+        budget: categoryBudget,
+        completed: categoryCompleted,
+        total: data.length,
+        progress: data.length > 0 ? Math.round((categoryCompleted / data.length) * 100) : 0,
+        icon: CONFIG.CATEGORY_INFO[sheetName]?.icon || '📋',
+        name: CONFIG.CATEGORY_INFO[sheetName]?.name || sheetName
+      };
+    });
+    
+    // D-Day 계산
+    const weddingDate = new Date(CONFIG.WEDDING_DATE);
+    const today = new Date();
+    const daysLeft = Math.ceil((weddingDate - today) / (1000 * 60 * 60 * 24));
+    
+    return {
+      daysLeft: daysLeft > 0 ? daysLeft : 0,
+      totalExpectedExpense: Math.round(totalExpectedExpense / 10000), // 🆕 예상 총 지출
+      currentExpense: Math.round(currentExpense / 10000),
+      completedTasks: completedTasks,
+      totalTasks: totalTasks,
+      overallProgress: totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0,
+      categoryStats: categoryStats,
+      expenseUtilization: totalExpectedExpense > 0 ? 
+        Math.round((currentExpense / totalExpectedExpense) * 100) : 0
+    };
+    
+  } catch (error) {
+    console.error('통계 계산 오류:', error);
+    return getDefaultStats();
+  }
+}
+
+// ========== 🚀 v2.3 마이그레이션 (새 카테고리 + 실행일) ==========
+function migrateToV23() {
+  console.log('🚀 v2.3 마이그레이션 시작...');
+  
+  try {
+    const ss = SpreadsheetApp.openById(CONFIG.SHEET_ID);
+    const results = [];
+    
+    // 1. 새 카테고리 시트 생성
+    results.push(createNewCategorySheets());
+    
+    // 2. 기존 시트에 실행일 컬럼 추가
+    const allSheets = Object.values(CONFIG.SHEETS).filter(name => name !== 'Summary');
+    
+    allSheets.forEach(sheetName => {
+      try {
+        const sheet = ss.getSheetByName(sheetName);
+        if (sheet) {
+          const result = addExecutionDateColumnV23(sheet, sheetName);
+          results.push(result);
+        }
+      } catch (error) {
+        console.error(`${sheetName} 마이그레이션 실패:`, error);
+        results.push(`❌ ${sheetName}: ${error.message}`);
+      }
+    });
+    
+    // 3. Summary 시트 업데이트
+    results.push(updateSummarySheetV23(ss));
+    
+    console.log('✅ v2.3 마이그레이션 완료');
+    
+    return {
+      success: true,
+      message: 'v2.3 마이그레이션 완료 (새 카테고리 + 실행일)',
+      results: results,
+      timestamp: new Date().toISOString()
+    };
+    
+  } catch (error) {
+    console.error('❌ 마이그레이션 실패:', error);
+    return {
+      success: false,
+      message: error.toString(),
+      results: [],
+      timestamp: new Date().toISOString()
+    };
+  }
+}
+
+// ========== 🆕 새 카테고리 시트 생성 ==========
+function createNewCategorySheets() {
+  try {
+    const ss = SpreadsheetApp.openById(CONFIG.SHEET_ID);
+    const newCategories = ['Legal', 'Sound', 'Transport', 'Gift'];
+    const results = [];
+    
+    newCategories.forEach(categoryName => {
+      try {
+        let sheet = ss.getSheetByName(categoryName);
+        
+        if (!sheet) {
+          // 새 시트 생성
+          sheet = ss.insertSheet(categoryName);
+          
+          // 헤더 설정
+          const headers = Object.values(CONFIG.COLUMNS);
+          sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+          
+          // 헤더 스타일 적용
+          const headerRange = sheet.getRange(1, 1, 1, headers.length);
+          headerRange.setBackground('#667eea')
+                    .setFontColor('white')
+                    .setFontWeight('bold')
+                    .setFontSize(11)
+                    .setHorizontalAlignment('center');
+          
+          // 상태 컬럼에 데이터 검증 추가
+          const statusColIndex = headers.indexOf(CONFIG.COLUMNS.STATUS) + 1;
+          if (statusColIndex > 0) {
+            const validation = SpreadsheetApp.newDataValidation()
+              .requireValueInList(['완료', '진행중', '미정'], true)
+              .setAllowInvalid(false)
+              .setHelpText('상태를 선택하세요: 완료, 진행중, 미정')
+              .build();
             
-            if (!apiUrl || !sheetsUrl) {
-                showNotification('⚠️ 모든 URL을 입력해주세요', 'error');
-                return;
-            }
-            
-            CONFIG.API_URL = apiUrl;
-            CONFIG.SHEETS_URL = sheetsUrl;
-            
-            document.getElementById('sheets-link').href = sheetsUrl;
-            
-            updateDevStatus();
-            showNotification('✅ 설정이 적용되었습니다', 'success');
-            
-            setTimeout(testConnection, 500);
+            const statusRange = sheet.getRange(2, statusColIndex, 50, 1);
+            statusRange.setDataValidation(validation);
+          }
+          
+          // 컬럼 너비 자동 조정
+          sheet.autoResizeColumns(1, headers.length);
+          
+          results.push(`✅ ${categoryName}: 새 시트 생성 완료`);
+        } else {
+          results.push(`⚠️ ${categoryName}: 이미 존재하는 시트`);
         }
         
-        function updateDevStatus() {
-            document.getElementById('current-api').textContent = 
-                CONFIG.API_URL ? '설정됨' : '미설정';
-            document.getElementById('current-sheets').textContent = 
-                CONFIG.SHEETS_URL ? '설정됨' : '미설정';
-        }
-        
-        function resetConfiguration() {
-            if (confirm('설정을 초기화하시겠습니까?')) {
-                document.getElementById('api-url-input').value = '';
-                document.getElementById('sheets-url-input').value = '';
-                showNotification('🔄 설정이 초기화되었습니다', 'info');
-            }
-        }
-        
-        // ========== API 통신 ==========
-        async function callAPI(action = 'getSummary', params = {}) {
-            if (!CONFIG.API_URL) {
-                throw new Error('API URL이 설정되지 않았습니다. 설정 메뉴에서 설정해주세요.');
-            }
-            
-            try {
-                const url = new URL(CONFIG.API_URL);
-                url.searchParams.append('action', action);
-                
-                Object.keys(params).forEach(key => {
-                    url.searchParams.append(key, params[key]);
-                });
-                
-                console.log(`🔄 API 호출: ${action}`, params);
-                
-                const response = await fetch(url);
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-                }
-                
-                const data = await response.json();
-                
-                if (!data.success) {
-                    throw new Error(data.message || 'API 오류');
-                }
-                
-                console.log(`✅ API 성공: ${action}`);
-                return data;
-                
-            } catch (error) {
-                console.error('❌ API 오류:', error);
-                throw error;
-            }
-        }
-        
-        // ========== 데이터 로드 ==========
-        async function loadAllData() {
-            try {
-                updateStatusIndicator('loading', '웨딩 데이터를 불러오는 중...');
-                
-                const result = await callAPI('getSummary');
-                currentData = result.data;
-                lastUpdated = new Date();
-                
-                console.log('✅ 데이터 로드 완료:', currentData);
-                
-                updateAllTabs();
-                updateStatusIndicator('connected', `업데이트: ${formatTime(lastUpdated)}`);
-                showNotification('✅ 데이터가 성공적으로 업데이트되었습니다!', 'success');
-                
-            } catch (error) {
-                console.error('❌ 데이터 로드 실패:', error);
-                updateStatusIndicator('error', '연결 실패: ' + error.message);
-                showNotification('❌ 데이터 로드 실패: ' + error.message, 'error');
-            }
-        }
-        
-        // ========== UI 업데이트 ==========
-        function updateAllTabs() {
-            updateSummaryTab();
-            updateDataTabs();
-            updateDDay();
-        }
-        
-        // Summary 탭 업데이트
-        function updateSummaryTab() {
-            if (!currentData || !currentData.statistics) {
-                return;
-            }
-            
-            const stats = currentData.statistics;
-            
-            // 웨딩 현황 업데이트
-            document.getElementById('overall-progress').textContent = `${stats.overallProgress}%`;
-            document.getElementById('days-left').textContent = stats.daysLeft;
-            
-            // 메인 카드 업데이트
-            document.getElementById('dday-card').textContent = `${stats.daysLeft}일`;
-            document.getElementById('progress-card').textContent = `${stats.overallProgress}%`;
-            document.getElementById('budget-card').textContent = `${stats.totalBudget.toLocaleString()}만원`;
-            document.getElementById('expense-card').textContent = `${stats.totalExpense.toLocaleString()}만원`;
-            
-            // 3개월 내 할일 업데이트
-            if (currentData.upcomingTasks && currentData.upcomingTasks.length > 0) {
-                updateUpcomingTasks(currentData.upcomingTasks);
-            }
-            
-            // 월별 결제 예정 업데이트
-            if (currentData.monthlySchedule) {
-                updatePaymentSchedule(currentData.monthlySchedule);
-            }
-            
-            // 카테고리별 현황 업데이트
-            if (stats.categoryStats) {
-                updateCategoryOverview(stats.categoryStats);
-            }
-            
-            // 로딩 숨기고 콘텐츠 표시
-            document.getElementById('summary-loading').style.display = 'none';
-            document.getElementById('summary-content').style.display = 'block';
-        }
-        
-        // 3개월 내 할일 업데이트
-        function updateUpcomingTasks(tasks) {
-            const upcomingContainer = document.getElementById('upcoming-tasks');
-            const upcomingList = document.getElementById('upcoming-list');
-            
-            if (tasks.length === 0) {
-                upcomingContainer.style.display = 'none';
-                return;
-            }
-            
-            upcomingList.innerHTML = '';
-            tasks.slice(0, 8).forEach(task => {
-                const li = document.createElement('li');
-                li.className = 'task-item';
-                
-                const priorityClass = task.priority >= 90 ? 'priority-high' : 
-                                     task.priority >= 70 ? 'priority-medium' : 'priority-low';
-                
-                const displayDate = task.executionDate || task.dueDate;
-                const dateLabel = task.executionDate ? '실행일' : '결제일';
-                
-                li.innerHTML = `
-                    <div class="task-main">
-                        <span class="task-priority ${priorityClass}"></span>
-                        <strong>${getCategoryName(task.category)}</strong>: ${task.item}
-                        ${task.vendor ? `(${task.vendor})` : ''}
-                    </div>
-                    <div class="task-date">
-                        📅 ${dateLabel}: ${displayDate}
-                    </div>
-                `;
-                upcomingList.appendChild(li);
-            });
-            
-            upcomingContainer.style.display = 'block';
-        }
-        
-        // 월별 결제 예정 업데이트 (지난 날짜 필터링 추가)
-        function updatePaymentSchedule(monthlySchedule) {
-            const paymentContainer = document.getElementById('payment-schedule');
-            const paymentList = document.getElementById('payment-list');
-            
-            if (!monthlySchedule || Object.keys(monthlySchedule).length === 0) {
-                paymentContainer.style.display = 'none';
-                return;
-            }
-            
-            paymentList.innerHTML = '';
-            
-            // 현재 날짜 기준으로 필터링
-            const today = new Date();
-            const currentMonth = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}`;
-            
-            // 월별로 정렬하고 현재 월 이후만 표시
-            const sortedMonths = Object.keys(monthlySchedule)
-                .filter(monthKey => monthKey >= currentMonth) // 🆕 지난 달 제외
-                .sort();
-            
-            if (sortedMonths.length === 0) {
-                paymentContainer.style.display = 'none';
-                return;
-            }
-            
-            sortedMonths.slice(0, 6).forEach(monthKey => {
-                const monthData = monthlySchedule[monthKey];
-                if (monthData.length === 0) return;
-                
-                const monthTotal = monthData.reduce((sum, item) => sum + item.budget, 0);
-                
-                const monthDiv = document.createElement('div');
-                monthDiv.className = 'payment-month';
-                
-                const monthName = new Date(monthKey + '-01').toLocaleDateString('ko-KR', {
-                    year: 'numeric',
-                    month: 'long'
-                });
-                
-                monthDiv.innerHTML = `
-                    <div class="month-header">
-                        <div class="month-title">${monthName}</div>
-                        <div class="month-total">${monthTotal.toLocaleString()}만원</div>
-                    </div>
-                `;
-                
-                monthData.slice(0, 5).forEach(item => {
-                    const itemDiv = document.createElement('div');
-                    itemDiv.className = 'payment-item';
-                    
-                    const statusText = item.status === '완료' ? '완료' : 
-                                     item.status === '진행중' ? '준비중' : '예정';
-                    
-                    itemDiv.innerHTML = `
-                        <div class="payment-info">
-                            <strong>${getCategoryName(item.category)}</strong>: ${item.item}
-                            <div style="font-size: 11px; color: rgba(255,255,255,0.8); margin-top: 3px;">
-                                📅 ${item.executionDate || item.date}
-                                ${item.vendor ? ` | ${item.vendor}` : ''}
-                            </div>
-                        </div>
-                        <div style="margin-top: 5px;">
-                            <span class="payment-amount">${item.budget.toLocaleString()}만원</span>
-                            <span class="payment-status">${statusText}</span>
-                        </div>
-                    `;
-                    
-                    monthDiv.appendChild(itemDiv);
-                });
-                
-                paymentList.appendChild(monthDiv);
-            });
-            
-            paymentContainer.style.display = 'block';
-        }
-        
-        // 카테고리 현황 업데이트
-        function updateCategoryOverview(categoryStats) {
-            const container = document.getElementById('category-overview');
-            container.innerHTML = '';
-            
-            Object.keys(categoryStats).forEach(category => {
-                const stats = categoryStats[category];
-                
-                const card = document.createElement('div');
-                card.className = 'category-card';
-                card.innerHTML = `
-                    <h4>${getCategoryIcon(category)} ${getCategoryName(category)}</h4>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: ${stats.progress}%"></div>
-                    </div>
-                    <p style="font-size: 13px; margin-top: 8px;">
-                        <strong>${stats.progress}%</strong> 완료 | 
-                        <strong>${Math.round(stats.budget/10000).toLocaleString()}만원</strong>
-                    </p>
-                    <small style="color: #666;">${stats.completed}/${stats.total} 항목 완료</small>
-                `;
-                container.appendChild(card);
-            });
-        }
-        
-        // 데이터 탭 업데이트 (실행일 컬럼 포함)
-        function updateDataTabs() {
-            const tabNames = ['venue', 'fashion', 'photo', 'travel', 'invitation', 'jewelry', 'family'];
-            
-            const sheetMapping = {
-                'venue': 'Venue',
-                'fashion': 'Fashion', 
-                'photo': 'Photo',
-                'travel': 'Travel',
-                'invitation': 'Invitation',
-                'jewelry': 'Jewelry',
-                'family': 'Family'
-            };
-            
-            tabNames.forEach(tabName => {
-                const sheetName = sheetMapping[tabName];
-                const data = currentData[sheetName] || [];
-                
-                const contentElement = document.getElementById(`${tabName}-content`);
-                const loadingElement = contentElement.parentElement.querySelector('.loading');
-                
-                if (data.length > 0) {
-                    contentElement.innerHTML = createTable(data);
-                } else {
-                    contentElement.innerHTML = `
-                        <div class="error">
-                            <h4>📋 데이터가 없습니다</h4>
-                            <p>Google Sheets에서 "${getCategoryName(tabName)}" 시트에 데이터를 추가해주세요.</p>
-                            <p><small>시트명: ${sheetName}</small></p>
-                        </div>
-                    `;
-                }
-                
-                loadingElement.style.display = 'none';
-                contentElement.style.display = 'block';
-            });
-        }
-        
-        // 테이블 생성 (실행일 컬럼 포함)
-        function createTable(data) {
-            if (!data || data.length === 0) {
-                return '<div class="error">데이터가 없습니다.</div>';
-            }
-            
-            // 헤더 (실행일 포함)
-            const headers = ['구분', '항목', '업체명', '연락처', '계약금', '잔금', '결제일', '실행일', '상태', '메모'];
-            
-            let html = '<table><thead><tr>';
-            headers.forEach(header => {
-                html += `<th>${header}</th>`;
-            });
-            html += '</tr></thead><tbody>';
-            
-            data.forEach(row => {
-                html += '<tr>';
-                headers.forEach(header => {
-                    const cellValue = row[header] || '';
-                    
-                    if (header === '상태') {
-                        html += `<td>${formatStatus(cellValue)}</td>`;
-                    }
-                    else if (header.includes('금액') || header.includes('계약금') || header.includes('잔금')) {
-                        const value = parseFloat(cellValue) || 0;
-                        html += `<td class="money-cell">${value > 0 ? Math.round(value/10000).toLocaleString() + '만원' : '-'}</td>`;
-                    }
-                    else if (header === '결제일' || header === '실행일') {
-                        html += `<td style="font-size: 11px; color: #666;">${cellValue}</td>`;
-                    }
-                    else {
-                        html += `<td>${cellValue}</td>`;
-                    }
-                });
-                html += '</tr>';
-            });
-            
-            html += '</tbody></table>';
-            return html;
-        }
-        
-        // ========== 유틸리티 함수 ==========
-        
-        function formatStatus(status) {
-            if (!status) return '-';
-            
-            if (status.includes('완료')) {
-                return `<span class="status-완료">${status}</span>`;
-            } else if (status.includes('진행')) {
-                return `<span class="status-진행중">${status}</span>`;
-            } else if (status.includes('미정')) {
-                return `<span class="status-미정">${status}</span>`;
-            }
-            return status;
-        }
-        
-        function getCategoryIcon(category) {
-            const icons = {
-                'Venue': '🏰', 'venue': '🏰',
-                'Fashion': '👗', 'fashion': '👗',
-                'Photo': '📷', 'photo': '📷',
-                'Travel': '✈️', 'travel': '✈️',
-                'Invitation': '💌', 'invitation': '💌',
-                'Jewelry': '💎', 'jewelry': '💎',
-                'Family': '👨‍👩‍👧‍👦', 'family': '👨‍👩‍👧‍👦'
-            };
-            return icons[category] || '📋';
-        }
-        
-        function getCategoryName(category) {
-            const names = {
-                'Venue': '웨딩홀', 'venue': '웨딩홀',
-                'Fashion': '의상 & 뷰티', 'fashion': '의상 & 뷰티',
-                'Photo': '촬영 & 영상', 'photo': '촬영 & 영상',
-                'Travel': '신혼여행', 'travel': '신혼여행',
-                'Invitation': '청첩장 & 하객', 'invitation': '청첩장 & 하객',
-                'Jewelry': '예물 & 반지', 'jewelry': '예물 & 반지',
-                'Family': '가족 행사', 'family': '가족 행사'
-            };
-            return names[category] || category;
-        }
-        
-        function updateDDay() {
-            const weddingDate = new Date(CONFIG.WEDDING_DATE);
-            const today = new Date();
-            const diffTime = weddingDate - today;
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            
-            document.getElementById('dday').textContent = `${diffDays}일 남음`;
-        }
-        
-        function formatTime(date) {
-            return date.toLocaleString('ko-KR', {
-                month: 'short',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-        }
-        
-        function updateStatusIndicator(status, message) {
-            const statusInfo = document.getElementById('status-info');
-            const indicator = statusInfo.querySelector('.status-indicator');
-            
-            indicator.classList.remove('status-connected', 'status-loading', 'status-error');
-            indicator.classList.add(`status-${status}`);
-            
-            statusInfo.innerHTML = `
-                <span class="status-indicator status-${status}"></span>
-                <span style="font-size: 12px; opacity: 0.9;">${message}</span>
-            `;
-        }
-        
-        function showNotification(message, type = 'success') {
-            const notification = document.getElementById('notification');
-            notification.textContent = message;
-            notification.className = `notification ${type}`;
-            notification.classList.add('show');
-            
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 4000);
-        }
-        
-        async function testConnection() {
-            try {
-                updateStatusIndicator('loading', '연결 테스트 중...');
-                
-                const result = await callAPI('test');
-                
-                updateStatusIndicator('connected', '연결 성공');
-                showNotification('✅ 연결 테스트 성공!', 'success');
-                
-                setTimeout(() => {
-                    loadAllData();
-                }, 500);
-                
-            } catch (error) {
-                updateStatusIndicator('error', '연결 실패: ' + error.message);
-                showNotification('❌ 연결 실패: ' + error.message, 'error');
-            }
-        }
-        
-        function showConnectionStatus() {
-            const message = lastUpdated 
-                ? `✅ 연결됨 | 마지막 업데이트: ${formatTime(lastUpdated)}`
-                : '🔄 연결 확인 중...';
-                
-            showNotification(message, lastUpdated ? 'success' : 'info');
-        }
-        
-        function showTab(tabName) {
-            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-            
-            event.target.classList.add('active');
-            document.getElementById(tabName).classList.add('active');
-        }
-        
-        function setupAutoRefresh() {
-            if (CONFIG.AUTO_REFRESH_MINUTES > 0) {
-                autoRefreshInterval = setInterval(() => {
-                    console.log('자동 새로고침 실행...');
-                    loadAllData();
-                }, CONFIG.AUTO_REFRESH_MINUTES * 60 * 1000);
-                
-                console.log(`자동 새로고침 설정됨: ${CONFIG.AUTO_REFRESH_MINUTES}분 간격`);
-            }
-        }
-        
-        // ========== 초기화 ==========
-        window.addEventListener('load', function() {
-            console.log('💍 NYSH Wedding Project 초기화...');
-            
-            updateDDay();
-            
-            if (CONFIG.API_URL) {
-                setupAutoRefresh();
-                loadAllData();
-            } else {
-                updateStatusIndicator('error', 'API URL이 설정되지 않음');
-                showNotification('⚙️ 설정 메뉴에서 API URL을 설정해주세요', 'info');
-                setTimeout(toggleDevMode, 1000);
-            }
-            
-            console.log('✅ 시스템 준비 완료!');
-        });
-        
-        // 키보드 단축키
-        document.addEventListener('keydown', function(e) {
-            // Ctrl + Shift + D = 설정 모드
-            if (e.ctrlKey && e.shiftKey && e.key === 'D') {
-                e.preventDefault();
-                toggleDevMode();
-            }
-        });
-        
-        // 터치 이벤트 최적화
-        document.addEventListener('touchstart', function() {}, {passive: true});
-        
-        // 정리
-        window.addEventListener('beforeunload', function() {
-            if (autoRefreshInterval) {
-                clearInterval(autoRefreshInterval);
-            }
-        });
-        
-    </script>
-</body>
-</html>
+      } catch (error) {
+        console.error(`${categoryName} 시트 생성 실패:`, error);
+        results.push(`❌ ${categoryName}: ${error.message}`);
+      }
+    });
+    
+    return results.join(', ');
+    
+  } catch (error) {
+    console.error('새 카테고리 시트 생성 실패:', error);
+    return `❌ 새 카테고리 시트 생성 실패: ${error.message}`;
+  }
+}
+
+// ========== 실행일 컬럼 추가 v2.3 ==========
+function addExecutionDateColumnV23(sheet, sheetName) {
+  try {
+    const range = sheet.getDataRange();
+    const values = range.getValues();
+    
+    if (values.length === 0) {
+      return `⚠️ ${sheetName}: 데이터가 없습니다`;
+    }
+    
+    const headers = values[0];
+    
+    // 이미 실행일 컬럼이 있는지 확인
+    if (headers.includes('실행일')) {
+      return `✅ ${sheetName}: 실행일 컬럼이 이미 존재합니다`;
+    }
+    
+    // 결제일 컬럼 위치 찾기
+    const dueDateIndex = headers.indexOf('결제일');
+    
+    if (dueDateIndex === -1) {
+      return `⚠️ ${sheetName}: 결제일 컬럼을 찾을 수 없습니다`;
+    }
+    
+    // 실행일 컬럼을 결제일 다음에 삽입
+    const insertIndex = dueDateIndex + 2;
+    
+    // 컬럼 삽입
+    sheet.insertColumnAfter(dueDateIndex + 1);
+    
+    // 헤더 설정
+    sheet.getRange(1, insertIndex).setValue('실행일');
+    
+    // 헤더 스타일 적용
+    const headerRange = sheet.getRange(1, insertIndex);
+    headerRange.setBackground('#667eea')
+              .setFontColor('white')
+              .setFontWeight('bold')
+              .setFontSize(11)
+              .setHorizontalAlignment('center');
+    
+    // 상태 컬럼 드롭다운 다시 설정 (컬럼이 밀렸으므로)
+    const statusColIndex = headers.indexOf('상태') + (insertIndex <= headers.indexOf('상태') + 1 ? 2 : 1);
+    if (statusColIndex > 0) {
+      const statusRange = sheet.getRange(2, statusColIndex, sheet.getLastRow() - 1, 1);
+      const validation = SpreadsheetApp.newDataValidation()
+        .requireValueInList(['완료', '진행중', '미정'], true)
+        .setAllowInvalid(false)
+        .setHelpText('상태를 선택하세요: 완료, 진행중, 미정')
+        .build();
+      
+      statusRange.setDataValidation(validation);
+    }
+    
+    // 컬럼 너비 자동 조정
+    sheet.autoResizeColumns(1, sheet.getLastColumn());
+    
+    return `✅ ${sheetName}: 실행일 컬럼 추가 완료`;
+    
+  } catch (error) {
+    console.error(`실행일 컬럼 추가 실패 (${sheetName}):`, error);
+    return `❌ ${sheetName}: ${error.message}`;
+  }
+}
+
+// ========== Summary 시트 업데이트 v2.3 ==========
+function updateSummarySheetV23(ss) {
+  try {
+    let sheet = ss.getSheetByName('Summary');
+    
+    if (!sheet) {
+      sheet = ss.insertSheet('Summary');
+    }
+    
+    // 기존 내용 삭제
+    sheet.clear();
+    
+    // v2.3 Summary 구조 생성 (11개 카테고리 포함)
+    const summaryData = [
+      ['항목', '값', '항목', '값'],
+      ['D-Day', '=DAYS("2026-04-18",TODAY())&"일"', '전체진행률', '=ROUND(AVERAGE(D13:D23),0)&"%"'],
+      ['예상총지출', '=ROUND((SUM(Venue!E:E,Venue!F:F,Fashion!E:E,Fashion!F:F,Photo!E:E,Photo!F:F,Travel!E:E,Travel!F:F,Invitation!E:E,Invitation!F:F,Jewelry!E:E,Jewelry!F:F,Family!E:E,Family!F:F,Legal!E:E,Legal!F:F,Sound!E:E,Sound!F:F,Transport!E:E,Transport!F:F,Gift!E:E,Gift!F:F))/10000,0)&"만원"', '현재지출', '=ROUND((SUMIFS(Venue!E:E,Venue!I:I,"*완료*")+SUMIFS(Venue!F:F,Venue!I:I,"*완료*")+SUMIFS(Fashion!E:E,Fashion!I:I,"*완료*")+SUMIFS(Fashion!F:F,Fashion!I:I,"*완료*")+SUMIFS(Photo!E:E,Photo!I:I,"*완료*")+SUMIFS(Photo!F:F,Photo!I:I,"*완료*")+SUMIFS(Travel!E:E,Travel!I:I,"*완료*")+SUMIFS(Travel!F:F,Travel!I:I,"*완료*")+SUMIFS(Invitation!E:E,Invitation!I:I,"*완료*")+SUMIFS(Invitation!F:F,Invitation!I:I,"*완료*")+SUMIFS(Jewelry!E:E,Jewelry!I:I,"*완료*")+SUMIFS(Jewelry!F:F,Jewelry!I:I,"*완료*")+SUMIFS(Family!E:E,Family!I:I,"*완료*")+SUMIFS(Family!F:F,Family!I:I,"*완료*")+SUMIFS(Legal!E:E,Legal!I:I,"*완료*")+SUMIFS(Legal!F:F,Legal!I:I,"*완료*")+SUMIFS(Sound!E:E,Sound!I:I,"*완료*")+SUMIFS(Sound!F:F,Sound!I:I,"*완료*")+SUMIFS(Transport!E:E,Transport!I:I,"*완료*")+SUMIFS(Transport!F:F,Transport!I:I,"*완료*")+SUMIFS(Gift!E:E,Gift!I:I,"*완료*")+SUMIFS(Gift!F:F,Gift!I:I,"*완료*"))/10000,0)&"만원"'],
+      ['웨딩홀', '강변웨딩스퀘어', '웨딩날짜', '2026.4.18'],
+      ['신부', '김나영', '신랑', '이상현'],
+      ['플래너', '베리굿 봄도영실장', '진행상태', '=IF(D2="100%","완료!","진행중")'],
+      ['', '', '', ''],
+      ['카테고리별 현황 (v2.3)', '', '', ''],
+      ['카테고리', '완료 현황', '', '진행률'],
+      ['🏰 웨딩홀', '=COUNTIFS(Venue!I:I,"*완료*")&"/"&(COUNTA(Venue!A:A)-1)&" 완료"', '', '=IF(COUNTA(Venue!A:A)>1,ROUND(COUNTIFS(Venue!I:I,"*완료*")/(COUNTA(Venue!A:A)-1)*100,0),0)'],
+      ['👗 의상뷰티', '=COUNTIFS(Fashion!I:I,"*완료*")&"/"&(COUNTA(Fashion!A:A)-1)&" 완료"', '', '=IF(COUNTA(Fashion!A:A)>1,ROUND(COUNTIFS(Fashion!I:I,"*완료*")/(COUNTA(Fashion!A:A)-1)*100,0),0)'],
+      ['📷 촬영영상', '=COUNTIFS(Photo!I:I,"*완료*")&"/"&(COUNTA(Photo!A:A)-1)&" 완료"', '', '=IF(COUNTA(Photo!A:A)>1,ROUND(COUNTIFS(Photo!I:I,"*완료*")/(COUNTA(Photo!A:A)-1)*100,0),0)'],
+      ['✈️ 신혼여행', '=COUNTIFS(Travel!I:I,"*완료*")&"/"&(COUNTA(Travel!A:A)-1)&" 완료"', '', '=IF(COUNTA(Travel!A:A)>1,ROUND(COUNTIFS(Travel!I:I,"*완료*")/(COUNTA(Travel!A:A)-1)*100,0),0)'],
+      ['💌 청첩장', '=COUNTIFS(Invitation!I:I,"*완료*")&"/"&(COUNTA(Invitation!A:A)-1)&" 완료"', '', '=IF(COUNTA(Invitation!A:A)>1,ROUND(COUNTIFS(Invitation!I:I,"*완료*")/(COUNTA(Invitation!A:A)-1)*100,0),0)'],
+      ['💎 예물반지', '=COUNTIFS(Jewelry!I:I,"*완료*")&"/"&(COUNTA(Jewelry!A:A)-1)&" 완료"', '', '=IF(COUNTA(Jewelry!A:A)>1,ROUND(COUNTIFS(Jewelry!I:I,"*완료*")/(COUNTA(Jewelry!A:A)-1)*100,0),0)'],
+      ['👨‍👩‍👧‍👦 가족행사', '=COUNTIFS(Family!I:I,"*완료*")&"/"&(COUNTA(Family!A:A)-1)&" 완료"', '', '=IF(COUNTA(Family!A:A)>1,ROUND(COUNTIFS(Family!I:I,"*완료*")/(COUNTA(Family!A:A)-1)*100,0),0)'],
+      ['📋 법적절차', '=COUNTIFS(Legal!I:I,"*완료*")&"/"&(COUNTA(Legal!A:A)-1)&" 완료"', '', '=IF(COUNTA(Legal!A:A)>1,ROUND(COUNTIFS(Legal!I:I,"*완료*")/(COUNTA(Legal!A:A)-1)*100,0),0)'],
+      ['🎵 음향엔터', '=COUNTIFS(Sound!I:I,"*완료*")&"/"&(COUNTA(Sound!A:A)-1)&" 완료"', '', '=IF(COUNTA(Sound!A:A)>1,ROUND(COUNTIFS(Sound!I:I,"*완료*")/(COUNTA(Sound!A:A)-1)*100,0),0)'],
+      ['🚗 교통차량', '=COUNTIFS(Transport!I:I,"*완료*")&"/"&(COUNTA(Transport!A:A)-1)&" 완료"', '', '=IF(COUNTA(Transport!A:A)>1,ROUND(COUNTIFS(Transport!I:I,"*완료*")/(COUNTA(Transport!A:A)-1)*100,0),0)'],
+      ['💰 축의금관리', '=COUNTIFS(Gift!I:I,"*완료*")&"/"&(COUNTA(Gift!A:A)-1)&" 완료"', '', '=IF(COUNTA(Gift!A:A)>1,ROUND(COUNTIFS(Gift!I:I,"*완료*")/(COUNTA(Gift!A:A)-1)*100,0),0)']
+    ];
+    
+    // 데이터 입력
+    sheet.getRange(1, 1, summaryData.length, 4).setValues(summaryData);
+    
+    // 스타일 적용
+    applySummaryStylesV23(sheet);
+    
+    return '✅ Summary: v2.3 구조로 업데이트 완료 (11개 카테고리)';
+    
+  } catch (error) {
+    console.error('Summary 업데이트 실패:', error);
+    return `❌ Summary: ${error.message}`;
+  }
+}
+
+// ========== Summary 스타일 적용 v2.3 ==========
+function applySummaryStylesV23(sheet) {
+  // 헤더 스타일
+  const headerRange = sheet.getRange('A1:D1');
+  headerRange.setBackground('#667eea')
+           .setFontColor('white')
+           .setFontWeight('bold')
+           .setFontSize(12);
+  
+  // 카테고리 제목 스타일
+  const categoryHeaderRange = sheet.getRange('A9:D9');
+  categoryHeaderRange.setBackground('#f8f9fa')
+                    .setFontWeight('bold')
+                    .setFontSize(14);
+  
+  // 카테고리 서브헤더 스타일
+  const subHeaderRange = sheet.getRange('A10:D10');
+  subHeaderRange.setBackground('#e9ecef')
+               .setFontWeight('bold')
+               .setFontSize(10);
+  
+  // 조건부 서식 (진행률) - 11개 카테고리 반영
+  const progressRange = sheet.getRange('D11:D21');
+  
+  const rules = [
+    SpreadsheetApp.newConditionalFormatRule()
+      .whenNumberEqualTo(100)
+      .setBackground('#d1e7dd')
+      .setFontColor('#0f5132')
+      .setRanges([progressRange])
+      .build(),
+    SpreadsheetApp.newConditionalFormatRule()
+      .whenNumberGreaterThanOrEqualTo(50)
+      .setBackground('#fff3cd')
+      .setFontColor('#664d03')
+      .setRanges([progressRange])
+      .build(),
+    SpreadsheetApp.newConditionalFormatRule()
+      .whenNumberLessThan(50)
+      .setBackground('#f8d7da')
+      .setFontColor('#721c24')
+      .setRanges([progressRange])
+      .build()
+  ];
+  
+  sheet.setConditionalFormatRules(rules);
+  sheet.autoResizeColumns(1, 4);
+}
+
+// ========== 개별 시트 데이터 v2.3 ==========
+function getSheetDataV23(sheetName) {
+  try {
+    const ss = SpreadsheetApp.openById(CONFIG.SHEET_ID);
+    const sheet = ss.getSheetByName(sheetName);
+    
+    if (!sheet) {
+      throw new Error(`시트를 찾을 수 없습니다: ${sheetName}`);
+    }
+    
+    return processSheetDataV23(sheet, sheetName);
+    
+  } catch (error) {
+    console.error(`시트 데이터 로드 실패 (${sheetName}):`, error);
+    return [];
+  }
+}
+
+// ========== 통계만 반환 v2.3 ==========
+function getWeddingStatsV23() {
+  try {
+    const allData = getAllSheetsV23();
+    return calculateStatsV23(allData);
+  } catch (error) {
+    console.error('통계 로드 실패:', error);
+    return getDefaultStats();
+  }
+}
+
+// ========== 카테고리별 예산 v2.3 ==========
+function getBudgetByCategoryV23(allData) {
+  const budgetByCategory = {};
+  
+  try {
+    if (!allData || typeof allData !== 'object') {
+      return {};
+    }
+    
+    Object.keys(allData).forEach(category => {
+      if (category === CONFIG.SHEETS.SUMMARY) return;
+      
+      const categoryData = allData[category];
+      if (!Array.isArray(categoryData)) return;
+      
+      const totalBudget = categoryData.reduce((sum, row) => {
+        if (!row || typeof row !== 'object') return sum;
+        const budget = typeof row._totalBudget === 'number' ? row._totalBudget : 0;
+        return sum + budget;
+      }, 0);
+      
+      if (totalBudget > 0) {
+        budgetByCategory[category] = Math.round(totalBudget / 10000);
+      }
+    });
+    
+    return budgetByCategory;
+    
+  } catch (error) {
+    console.error('카테고리별 예산 계산 오류:', error);
+    return {};
+  }
+}
+
+// ========== 유틸리티 함수들 v2.3 ==========
+
+function cleanCellValue(value) {
+  if (value === null || value === undefined) return '';
+  if (typeof value === 'number') return value;
+  if (value instanceof Date) return formatDateV23(value);
+  return String(value).trim();
+}
+
+function calculateRowBudgetV23(row) {
+  const deposit = parseFloat(row[CONFIG.COLUMNS.DEPOSIT]) || 0;
+  const balance = parseFloat(row[CONFIG.COLUMNS.BALANCE]) || 0;
+  return deposit + balance;
+}
+
+function isStatusCompletedV23(status) {
+  if (!status) return false;
+  return String(status).includes('완료');
+}
+
+function calculatePriorityV23(targetDate, today) {
+  const daysUntil = Math.ceil((targetDate - today) / (1000 * 60 * 60 * 24));
+  
+  if (daysUntil < 0) return 100;
+  if (daysUntil <= 7) return 95;
+  if (daysUntil <= 14) return 90;
+  if (daysUntil <= 30) return 80;
+  if (daysUntil <= 60) return 70;
+  return 60;
+}
+
+function parseDateStringV23(dateStr) {
+  if (!dateStr) return null;
+  
+  const str = String(dateStr).trim();
+  if (!str) return null;
+  
+  const patterns = [
+    /(\d{4})\.(\d{1,2})\.(\d{1,2})/,
+    /(\d{4})-(\d{1,2})-(\d{1,2})/,
+    /(\d{1,2})\/(\d{1,2})\/(\d{4})/,
+    /(\d{4})년\s*(\d{1,2})월\s*(\d{1,2})일/,
+    /(\d{4})년\s*(\d{1,2})월/,
+    /(\d{1,2})월\s*(\d{1,2})일/,
+    /(\d{1,2})월/
+  ];
+  
+  for (let pattern of patterns) {
+    const match = str.match(pattern);
+    if (match) {
+      if (pattern.source.includes('년.*월.*일')) {
+        return new Date(parseInt(match[1]), parseInt(match[2]) - 1, parseInt(match[3]));
+      } else if (pattern.source.includes('년.*월')) {
+        return new Date(parseInt(match[1]), parseInt(match[2]) - 1, 1);
+      } else if (pattern.source.includes('월.*일')) {
+        return new Date(new Date().getFullYear(), parseInt(match[1]) - 1, parseInt(match[2]));
+      } else if (pattern.source === '(\\d{1,2})월') {
+        return new Date(new Date().getFullYear(), parseInt(match[1]) - 1, 1);
+      } else {
+        const year = parseInt(match[1]);
+        const month = parseInt(match[2]) - 1;
+        const day = parseInt(match[3]) || 1;
+        return new Date(year, month, day);
+      }
+    }
+  }
+  
+  const parsed = new Date(str);
+  return isNaN(parsed.getTime()) ? null : parsed;
+}
+
+function formatDateV23(date) {
+  if (!date || !(date instanceof Date)) return '';
+  
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  
+  return `${year}.${month}.${day}`;
+}
+
+// ========== 기본값 반환 함수들 v2.3 ==========
+
+function getDefaultSummary() {
+  return {
+    Venue: [], Fashion: [], Photo: [], Travel:[],
+    Invitation: [], Jewelry: [], Family: [], 
+    Legal: [], Sound: [], Transport: [], Gift: [], // 🆕
+    Summary: [],
+    basic: [], statistics: getDefaultStats(),
+    upcomingTasks: [], budgetByCategory: {}, monthlySchedule: {},
+    categoryInfo: CONFIG.CATEGORY_INFO
+  };
+}
+
+function getDefaultAllData() {
+  const defaultData = {};
+  Object.values(CONFIG.SHEETS).forEach(sheetName => {
+    defaultData[sheetName] = [];
+  });
+  return defaultData;
+}
+
+function getDefaultStats() {
+  return {
+    daysLeft: 0, totalExpectedExpense: 0, currentExpense: 0,
+    completedTasks: 0, totalTasks: 0, overallProgress: 0,
+    categoryStats: {}, expenseUtilization: 0
+  };
+}
+
+// ========== 테스트 함수들 v2.3 ==========
+
+function quickTestV23() {
+  console.log('🧪 v2.3 빠른 테스트 시작...');
+  
+  try {
+    const ss = SpreadsheetApp.openById(CONFIG.SHEET_ID);
+    console.log('✅ 스프레드시트 연결:', ss.getName());
+    
+    const summary = getSummaryV23();
+    console.log('✅ Summary v2.3 테스트 성공');
+    console.log('📊 통계:', summary.statistics);
+    console.log('🔥 3개월 할일:', summary.upcomingTasks.length, '개');
+    console.log('💳 월별 일정:', Object.keys(summary.monthlySchedule).length, '개월');
+    console.log('📋 카테고리:', Object.keys(summary.categoryInfo).length, '개');
+    
+    console.log('🎉 v2.3 빠른 테스트 통과!');
+    return true;
+    
+  } catch (error) {
+    console.error('❌ v2.3 테스트 실패:', error);
+    return false;
+  }
+}
