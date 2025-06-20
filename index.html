@@ -819,12 +819,12 @@
         <!-- 제어판 -->
         <div class="control-panel">
             <div class="control-buttons">
-                <button class="btn refresh" onclick="loadAllData()">🔄 데이터 새로고침</button>
+                <button class="btn refresh" onclick="refreshData()">🔄 데이터 새로고침</button>
                 <a href="https://docs.google.com/spreadsheets/d/13Y7RRprcp-lNjInoJHEL3q83FWw_NksjW6bHEOh4qDo/edit" class="btn" target="_blank">📊 Google Sheets 편집</a>
             </div>
             <div id="status-info">
-                <span class="status-indicator status-loading"></span>
-                <span style="font-size: 13px; opacity: 0.9;">Wedding Project 초기화 중...</span>
+                <span class="status-indicator status-connected"></span>
+                <span style="font-size: 13px; opacity: 0.9;">Wedding Project 준비 중...</span>
             </div>
         </div>
         
@@ -1184,6 +1184,9 @@
         
         // ========== API 통신 ==========
         async function callAPI(action = 'getSummary', params = {}) {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000); // 5초 타임아웃
+            
             try {
                 const url = new URL(CONFIG.API_URL);
                 url.searchParams.append('action', action);
@@ -1192,14 +1195,14 @@
                     url.searchParams.append(key, params[key]);
                 });
                 
-                console.log(`🔄 API 호출: ${action}`);
-                
                 const response = await fetch(url, { 
-                    timeout: 8000,
+                    signal: controller.signal,
                     headers: {
                         'Accept': 'application/json',
                     }
                 });
+                
+                clearTimeout(timeoutId);
                 
                 if (!response.ok) {
                     throw new Error(`HTTP ${response.status}`);
@@ -1211,37 +1214,102 @@
                     throw new Error(data.message || 'API 오류');
                 }
                 
-                console.log(`✅ API 성공: ${action}`);
                 return data;
                 
             } catch (error) {
-                console.error('❌ API 오류:', error);
+                clearTimeout(timeoutId);
+                if (error.name === 'AbortError') {
+                    throw new Error('연결 시간 초과');
+                }
                 throw error;
+            }
+        }
+        
+        // ========== 새로고침 ==========
+        async function refreshData() {
+            updateStatusIndicator('loading', '최신 데이터 확인 중...');
+            
+            try {
+                const result = await callAPI('getSummary');
+                currentData = result.data;
+                lastUpdated = new Date();
+                updateAllTabs();
+                updateStatusIndicator('connected', `실시간 데이터 - ${formatTime(lastUpdated)}`);
+                showNotification('✅ 최신 데이터로 업데이트되었습니다!', 'success');
+            } catch (error) {
+                updateStatusIndicator('connected', `Wedding Project - ${formatTime(lastUpdated)}`);
+                showNotification('⚠️ 서버 연결 실패, 기존 데이터 유지 중', 'warning');
             }
         }
         
         // ========== 데이터 로드 ==========
         async function loadAllData() {
+            updateStatusIndicator('loading', '데이터를 불러오는 중...');
+            
             try {
-                updateStatusIndicator('loading', '데이터를 불러오는 중...');
-                
                 const result = await callAPI('getSummary');
                 currentData = result.data;
                 lastUpdated = new Date();
-                
                 console.log('✅ 실제 데이터 로드 성공');
-                
+                updateStatusIndicator('connected', `실시간 데이터 - ${formatTime(lastUpdated)}`);
             } catch (error) {
-                console.warn('⚠️ API 연결 실패, 기본 데이터 사용:', error.message);
-                
-                // API 실패시 기본 데이터 사용
+                console.log('📊 기본 데이터 사용 중');
                 currentData = generateInitialData();
                 lastUpdated = new Date();
+                updateStatusIndicator('connected', `Wedding Project - ${formatTime(lastUpdated)}`);
             }
             
             // UI 업데이트
             updateAllTabs();
-            updateStatusIndicator('connected', `업데이트: ${formatTime(lastUpdated)}`);
+        }
+        
+        // ========== 즉시 데이터 표시 ==========
+        function initializeWithData() {
+            // 바로 기본 데이터로 시작
+            currentData = generateInitialData();
+            lastUpdated = new Date();
+            
+            // 약간의 딜레이 후 UI 업데이트 (자연스러운 로딩)
+            setTimeout(() => {
+                updateAllTabs();
+                updateStatusIndicator('connected', `Wedding Project - ${formatTime(lastUpdated)}`);
+                
+                // 백그라운드에서 실제 데이터 시도 (1초 후)
+                setTimeout(() => {
+                    loadRealDataInBackground();
+                }, 1000);
+            }, 300);
+        }
+        
+        async function loadRealDataInBackground() {
+            try {
+                // 백그라운드에서는 더 짧은 타임아웃 (3초)
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 3000);
+                
+                const url = new URL(CONFIG.API_URL);
+                url.searchParams.append('action', 'getSummary');
+                
+                const response = await fetch(url, { 
+                    signal: controller.signal,
+                    headers: { 'Accept': 'application/json' }
+                });
+                
+                clearTimeout(timeoutId);
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result && result.success && result.data) {
+                        currentData = result.data;
+                        lastUpdated = new Date();
+                        updateAllTabs();
+                        updateStatusIndicator('connected', `실시간 데이터 - ${formatTime(lastUpdated)}`);
+                    }
+                }
+            } catch (error) {
+                // 조용히 실패 (이미 기본 데이터 표시 중)
+                console.log('백그라운드 데이터 로드 실패, 기본 데이터 유지');
+            }
         }
         
         // ========== UI 업데이트 ==========
@@ -1570,8 +1638,8 @@
                 progressFill.style.width = '0%';
             }
             
-            // 데이터 로드
-            loadAllData();
+            // 바로 데이터 표시 (로딩 없이)
+            initializeWithData();
             
             console.log('✅ Wedding Project 준비 완료!');
         });
@@ -1580,7 +1648,7 @@
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && e.key === 'r') {
                 e.preventDefault();
-                loadAllData();
+                refreshData();
             }
         });
         
