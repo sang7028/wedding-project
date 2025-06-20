@@ -193,6 +193,16 @@
             color: white;
         }
         
+        .btn.diagnosis {
+            background: linear-gradient(135deg, #17a2b8, #138496);
+            color: white;
+        }
+        
+        .btn.diagnosis:hover {
+            background: linear-gradient(135deg, #138496, #117a8b);
+            color: white;
+        }
+        
         .status-indicator {
             display: inline-block;
             width: 12px;
@@ -216,6 +226,10 @@
             background: #dc3545; 
             box-shadow: 0 0 10px rgba(220, 53, 69, 0.5);
         }
+        .status-offline { 
+            background: #6c757d; 
+            box-shadow: 0 0 10px rgba(108, 117, 125, 0.5);
+        }
         
         @keyframes pulse {
             0% { opacity: 1; }
@@ -226,6 +240,52 @@
         #status-info {
             position: relative;
             z-index: 2;
+        }
+        
+        /* ========== 진단 패널 ========== */
+        .diagnosis-panel {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+            z-index: 2;
+            display: none;
+        }
+        
+        .diagnosis-panel.show {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .diagnosis-step {
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .diagnosis-step.success {
+            border-left-color: #28a745;
+            background: rgba(40, 167, 69, 0.1);
+        }
+        
+        .diagnosis-step.error {
+            border-left-color: #dc3545;
+            background: rgba(220, 53, 69, 0.1);
+        }
+        
+        .diagnosis-step.warning {
+            border-left-color: #ffc107;
+            background: rgba(255, 193, 7, 0.1);
         }
         
         /* ========== 탭 네비게이션 ========== */
@@ -666,31 +726,6 @@
             color: #495057;
         }
         
-        .loading {
-            text-align: center;
-            padding: 60px;
-            color: #666;
-            font-size: 16px;
-            position: relative;
-        }
-        
-        .loading::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #667eea;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 20px auto 0;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
         .notification {
             position: fixed;
             top: 30px;
@@ -723,6 +758,11 @@
             background: #ffc107;
             color: #212529;
             box-shadow: 0 20px 50px rgba(255, 193, 7, 0.3);
+        }
+        
+        .notification.info {
+            background: #17a2b8;
+            box-shadow: 0 20px 50px rgba(23, 162, 184, 0.3);
         }
         
         /* ========== 반응형 디자인 ========== */
@@ -820,11 +860,18 @@
         <div class="control-panel">
             <div class="control-buttons">
                 <button class="btn refresh" onclick="refreshData()">🔄 데이터 새로고침</button>
+                <button class="btn diagnosis" onclick="toggleDiagnosis()">🔍 연결 진단</button>
                 <a href="https://docs.google.com/spreadsheets/d/13Y7RRprcp-lNjInoJHEL3q83FWw_NksjW6bHEOh4qDo/edit" class="btn" target="_blank">📊 Google Sheets 편집</a>
             </div>
             <div id="status-info">
-                <span class="status-indicator status-connected"></span>
-                <span style="font-size: 13px; opacity: 0.9;">Wedding Project 준비 중...</span>
+                <span class="status-indicator status-loading"></span>
+                <span style="font-size: 13px; opacity: 0.9;">Wedding Project 연결 중...</span>
+            </div>
+            
+            <!-- 진단 패널 -->
+            <div id="diagnosis-panel" class="diagnosis-panel">
+                <h4 style="margin: 0 0 15px 0; color: white;">🔍 시스템 진단 결과</h4>
+                <div id="diagnosis-results"></div>
             </div>
         </div>
         
@@ -1068,31 +1115,33 @@
         
         let currentData = {};
         let lastUpdated = null;
+        let isApiConnected = false;
+        let diagnosticResults = [];
         
-        // ========== 데이터 생성 (기본 데이터) ==========
-        function generateInitialData() {
+        // ========== 초기 웨딩 데이터 생성 ==========
+        function generateWeddingData() {
             const daysLeft = Math.ceil((new Date(CONFIG.WEDDING_DATE) - new Date()) / (1000 * 60 * 60 * 24));
             
             return {
                 statistics: {
                     daysLeft: daysLeft > 0 ? daysLeft : 0,
                     totalExpectedExpense: 3500,
-                    currentExpense: 850,
-                    completedTasks: 6,
-                    totalTasks: 32,
-                    overallProgress: 19,
+                    currentExpense: 1150,
+                    completedTasks: 7,
+                    totalTasks: 33,
+                    overallProgress: 21,
                     categoryStats: {
                         'Venue': { budget: 120, completed: 1, total: 3, progress: 33, icon: '🏰', name: '웨딩홀' },
-                        'Fashion': { budget: 80, completed: 0, total: 4, progress: 0, icon: '👗', name: '의상뷰티' },
+                        'Fashion': { budget: 85, completed: 0, total: 4, progress: 0, icon: '👗', name: '의상뷰티' },
                         'Photo': { budget: 150, completed: 1, total: 3, progress: 33, icon: '📷', name: '촬영영상' },
-                        'Travel': { budget: 200, completed: 0, total: 3, progress: 0, icon: '✈️', name: '신혼여행' },
-                        'Invitation': { budget: 30, completed: 0, total: 3, progress: 0, icon: '💌', name: '청춘장하객' },
-                        'Jewelry': { budget: 150, completed: 1, total: 3, progress: 33, icon: '💎', name: '예물반지' },
-                        'Family': { budget: 80, completed: 1, total: 3, progress: 33, icon: '👨‍👩‍👧‍👦', name: '가족행사' },
+                        'Travel': { budget: 210, completed: 0, total: 3, progress: 0, icon: '✈️', name: '신혼여행' },
+                        'Invitation': { budget: 35, completed: 0, total: 3, progress: 0, icon: '💌', name: '청첩장하객' },
+                        'Jewelry': { budget: 165, completed: 2, total: 3, progress: 67, icon: '💎', name: '예물반지' },
+                        'Family': { budget: 90, completed: 1, total: 3, progress: 33, icon: '👨‍👩‍👧‍👦', name: '가족행사' },
                         'Legal': { budget: 5, completed: 0, total: 3, progress: 0, icon: '📋', name: '법적절차' },
-                        'Sound': { budget: 25, completed: 0, total: 3, progress: 0, icon: '🎵', name: '음향엔터' },
-                        'Transport': { budget: 20, completed: 0, total: 3, progress: 0, icon: '🚗', name: '교통차량' },
-                        'Gift': { budget: 40, completed: 2, total: 4, progress: 50, icon: '💰', name: '축의금관리' }
+                        'Sound': { budget: 30, completed: 0, total: 3, progress: 0, icon: '🎵', name: '음향엔터' },
+                        'Transport': { budget: 25, completed: 0, total: 3, progress: 0, icon: '🚗', name: '교통차량' },
+                        'Gift': { budget: 45, completed: 2, total: 4, progress: 50, icon: '💰', name: '축의금관리' }
                     }
                 },
                 timeline: {
@@ -1131,7 +1180,7 @@
                         }
                     ]
                 },
-                // 각 카테고리별 데이터
+                // 각 카테고리별 상세 데이터
                 'Venue': [
                     { '항목': '웨딩홀 예약', '업체명': '강변웨딩스퀘어', '연락처': '02-123-4567', '계약금': '200', '잔금': '800', '결제일': '2026.02.15', '실행일': '2026.04.18', '상태': '진행중', '메모': '메인홀, 150명 규모' },
                     { '항목': '웨딩 연회', '업체명': '강변웨딩스퀘어', '연락처': '02-123-4567', '계약금': '100', '잔금': '400', '결제일': '2026.03.15', '실행일': '2026.04.18', '상태': '미정', '메모': '한식 코스요리' },
@@ -1140,52 +1189,173 @@
                 'Fashion': [
                     { '항목': '웨딩드레스', '업체명': '프린세스웨딩', '연락처': '010-2222-3333', '계약금': '100', '잔금': '200', '결제일': '2026.03.01', '실행일': '2026.04.15', '상태': '미정', '메모': '화이트 머메이드 라인' },
                     { '항목': '턱시도', '업체명': '맨즈웨어하우스', '연락처': '010-3333-4444', '계약금': '50', '잔금': '100', '결제일': '2026.03.01', '실행일': '2026.04.15', '상태': '미정', '메모': '네이비 슬림핏' },
-                    { '항목': '메이크업', '업체명': '뷰티살롱', '연락처': '010-4444-5555', '계약금': '30', '잔금': '70', '결제일': '2026.04.15', '실행일': '2026.04.18', '상태': '미정', '메모': '웨딩데이 메이크업' }
+                    { '항목': '메이크업', '업체명': '뷰티살롱', '연락처': '010-4444-5555', '계약금': '30', '잔금': '70', '결제일': '2026.04.15', '실행일': '2026.04.18', '상태': '미정', '메모': '웨딩데이 메이크업' },
+                    { '항목': '헤어', '업체명': '뷰티살롱', '연락처': '010-4444-5555', '계약금': '20', '잔금': '50', '결제일': '2026.04.15', '실행일': '2026.04.18', '상태': '미정', '메모': '업스타일 + 티아라' }
                 ],
                 'Photo': [
                     { '항목': '스냅촬영', '업체명': '포토스튜디오', '연락처': '010-5555-6666', '계약금': '150', '잔금': '350', '결제일': '2026.03.01', '실행일': '2026.04.18', '상태': '완료', '메모': '본식 + 피로연 촬영' },
-                    { '항목': '본식영상', '업체명': '비디오프로덕션', '연락처': '010-6666-7777', '계약금': '200', '잔금': '300', '결제일': '2026.03.01', '실행일': '2026.04.18', '상태': '미정', '메모': '하이라이트 영상 제작' }
+                    { '항목': '본식영상', '업체명': '비디오프로덕션', '연락처': '010-6666-7777', '계약금': '200', '잔금': '300', '결제일': '2026.03.01', '실행일': '2026.04.18', '상태': '미정', '메모': '하이라이트 영상 제작' },
+                    { '항목': '드레스촬영', '업체명': '포토스튜디오', '연락처': '010-5555-6666', '계약금': '80', '잔금': '120', '결제일': '2026.03.15', '실행일': '2026.03.15', '상태': '미정', '메모': '야외 + 스튜디오 촬영' }
                 ],
                 'Travel': [
                     { '항목': '항공권', '업체명': '여행사', '연락처': '02-777-8888', '계약금': '300', '잔금': '200', '결제일': '2026.03.01', '실행일': '2026.05.01', '상태': '미정', '메모': '몰디브 왕복 항공권' },
-                    { '항목': '숙박', '업체명': '몰디브리조트', '연락처': '+960-123-4567', '계약금': '500', '잔금': '500', '결제일': '2026.03.01', '실행일': '2026.05.01', '상태': '미정', '메모': '수상빌라 5박 6일' }
+                    { '항목': '숙박', '업체명': '몰디브리조트', '연락처': '+960-123-4567', '계약금': '500', '잔금': '500', '결제일': '2026.03.01', '실행일': '2026.05.01', '상태': '미정', '메모': '수상빌라 5박 6일' },
+                    { '항목': '여행보험', '업체명': '보험사', '연락처': '1588-1234', '계약금': '15', '잔금': '0', '결제일': '2026.04.15', '실행일': '2026.05.01', '상태': '미정', '메모': '5박 6일 커플 보험' }
                 ],
                 'Invitation': [
                     { '항목': '청첩장', '업체명': '카드공방', '연락처': '010-7777-8888', '계약금': '30', '잔금': '70', '결제일': '2026.02.01', '실행일': '2026.03.15', '상태': '미정', '메모': '200매 고급 용지' },
-                    { '항목': '모바일청첩장', '업체명': '디지털청첩장', '연락처': '010-8888-9999', '계약금': '20', '잔금': '0', '결제일': '2026.02.15', '실행일': '2026.03.01', '상태': '미정', '메모': '카카오톡 연동' }
+                    { '항목': '모바일청첩장', '업체명': '디지털청첩장', '연락처': '010-8888-9999', '계약금': '20', '잔금': '0', '결제일': '2026.02.15', '실행일': '2026.03.01', '상태': '미정', '메모': '카카오톡 연동' },
+                    { '항목': '하객관리', '업체명': '직접관리', '연락처': '-', '계약금': '0', '잔금': '0', '결제일': '2026.03.01', '실행일': '2026.04.10', '상태': '미정', '메모': '엑셀로 관리 예정' }
                 ],
                 'Jewelry': [
                     { '항목': '결혼반지', '업체명': '쥬얼리샵', '연락처': '02-999-0000', '계약금': '200', '잔금': '300', '결제일': '2026.02.01', '실행일': '2026.04.15', '상태': '완료', '메모': '플래티넘 커플링' },
-                    { '항목': '약혼반지', '업체명': '다이아몬드샵', '연락처': '02-888-7777', '계약금': '300', '잔금': '200', '결제일': '완료', '실행일': '완료', '상태': '완료', '메모': '1캐럿 다이아몬드' }
+                    { '항목': '약혼반지', '업체명': '다이아몬드샵', '연락처': '02-888-7777', '계약금': '300', '잔금': '200', '결제일': '완료', '실행일': '완료', '상태': '완료', '메모': '1캐럿 다이아몬드' },
+                    { '항목': '시계', '업체명': '명품시계', '연락처': '02-777-6666', '계약금': '150', '잔금': '150', '결제일': '2026.03.01', '실행일': '2026.04.10', '상태': '미정', '메모': '결혼 기념 시계' }
                 ],
                 'Family': [
                     { '항목': '상견례', '업체명': '한정식집', '연락처': '02-666-5555', '계약금': '30', '잔금': '20', '결제일': '2026.01.15', '실행일': '2026.01.15', '상태': '완료', '메모': '양가 부모님 첫 만남' },
-                    { '항목': '함받기', '업체명': '전통예단', '연락처': '010-9999-1111', '계약금': '50', '잔금': '50', '결제일': '2026.03.15', '실행일': '2026.03.15', '상태': '미정', '메모': '전통 예물과 함께' }
+                    { '항목': '함받기', '업체명': '전통예단', '연락처': '010-9999-1111', '계약금': '50', '잔금': '50', '결제일': '2026.03.15', '실행일': '2026.03.15', '상태': '미정', '메모': '전통 예물과 함께' },
+                    { '항목': '예단', '업체명': '금은방', '연락처': '02-555-4444', '계약금': '200', '잔금': '100', '결제일': '2026.03.01', '실행일': '2026.03.15', '상태': '미정', '메모': '금팔찌, 목걸이 세트' }
                 ],
                 'Legal': [
                     { '항목': '혼인신고', '업체명': '구청', '연락처': '02-123-4567', '계약금': '0', '잔금': '0', '결제일': '2026.04.25', '실행일': '2026.04.25', '상태': '미정', '메모': '결혼식 후 일주일 내' },
-                    { '항목': '주민등록', '업체명': '주민센터', '연락처': '02-234-5678', '계약금': '0', '잔금': '0', '결제일': '2026.05.01', '실행일': '2026.05.01', '상태': '미정', '메모': '신혼집 이사 후' }
+                    { '항목': '주민등록', '업체명': '주민센터', '연락처': '02-234-5678', '계약금': '0', '잔금': '0', '결제일': '2026.05.01', '실행일': '2026.05.01', '상태': '미정', '메모': '신혼집 이사 후' },
+                    { '항목': '건강보험', '업체명': '건강보험공단', '연락처': '1577-1000', '계약금': '0', '잔금': '0', '결제일': '2026.05.01', '실행일': '2026.05.01', '상태': '미정', '메모': '배우자 피부양자 등록' }
                 ],
                 'Sound': [
                     { '항목': '음향장비', '업체명': '사운드프로', '연락처': '010-1111-2222', '계약금': '50', '잔금': '50', '결제일': '2026.04.10', '실행일': '2026.04.18', '상태': '미정', '메모': '마이크, 스피커 시스템' },
-                    { '항목': '축가', '업체명': '뮤직컴퍼니', '연락처': '010-3333-4444', '계약금': '30', '잔금': '20', '결제일': '2026.03.30', '실행일': '2026.04.18', '상태': '미정', '메모': '나영이 좋아하는 발라드' }
+                    { '항목': '축가', '업체명': '뮤직컴퍼니', '연락처': '010-3333-4444', '계약금': '30', '잔금': '20', '결제일': '2026.03.30', '실행일': '2026.04.18', '상태': '미정', '메모': '나영이 좋아하는 발라드' },
+                    { '항목': 'BGM', '업체명': '직접준비', '연락처': '-', '계약금': '0', '잔금': '0', '결제일': '2026.04.10', '실행일': '2026.04.18', '상태': '미정', '메모': '결혼 행진곡 + 추억의 노래' }
                 ],
                 'Transport': [
                     { '항목': '웨딩카', '업체명': '프리미어카', '연락처': '010-5555-6666', '계약금': '30', '잔금': '70', '결제일': '2026.04.15', '실행일': '2026.04.18', '상태': '미정', '메모': '흰색 벤츠 E클래스' },
-                    { '항목': '하객셔틀', '업체명': '셔틀서비스', '연락처': '010-7777-8888', '계약금': '20', '잔금': '30', '결제일': '2026.04.10', '실행일': '2026.04.18', '상태': '미정', '메모': '강변역 ↔ 웨딩홀' }
+                    { '항목': '하객셔틀', '업체명': '셔틀서비스', '연락처': '010-7777-8888', '계약금': '20', '잔금': '30', '결제일': '2026.04.10', '실행일': '2026.04.18', '상태': '미정', '메모': '강변역 ↔ 웨딩홀' },
+                    { '항목': '신혼여행', '업체명': '리무진서비스', '연락처': '010-9999-0000', '계약금': '15', '잔금': '15', '결제일': '2026.04.30', '실행일': '2026.05.01', '상태': '미정', '메모': '신혼집 → 공항' }
                 ],
                 'Gift': [
                     { '항목': '답례품', '업체명': '선물상자', '연락처': '010-8888-7777', '계약금': '40', '잔금': '60', '결제일': '2026.04.10', '실행일': '2026.04.15', '상태': '완료', '메모': '실용적인 선물 세트' },
                     { '항목': '부모님선물', '업체명': '백화점', '연락처': '1588-1234', '계약금': '80', '잔금': '20', '결제일': '2026.04.15', '실행일': '2026.04.18', '상태': '완료', '메모': '건강식품 + 의류' },
-                    { '항목': '축의금장부', '업체명': '직접관리', '연락처': '-', '계약금': '0', '잔금': '0', '결제일': '2026.04.18', '실행일': '2026.04.18', '상태': '미정', '메모': '엑셀 + 수기 장부' }
+                    { '항목': '축의금장부', '업체명': '직접관리', '연락처': '-', '계약금': '0', '잔금': '0', '결제일': '2026.04.18', '실행일': '2026.04.18', '상태': '미정', '메모': '엑셀 + 수기 장부' },
+                    { '항목': '감사인사', '업체명': '인쇄소', '연락처': '010-6666-5555', '계약금': '20', '잔금': '10', '결제일': '2026.04.25', '실행일': '2026.05.01', '상태': '미정', '메모': '참석해주신 분들께' }
                 ]
             };
+        }
+        
+        // ========== API 진단 시스템 ==========
+        async function runDiagnostics() {
+            diagnosticResults = [];
+            
+            // 1. API URL 접근 가능성 체크
+            diagnosticResults.push({
+                step: '1. API URL 접근성 체크',
+                status: 'loading',
+                message: 'API 서버 연결 확인 중...'
+            });
+            
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 8000);
+                
+                const response = await fetch(CONFIG.API_URL, {
+                    signal: controller.signal,
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                    }
+                });
+                
+                clearTimeout(timeoutId);
+                
+                if (response.ok) {
+                    diagnosticResults[0] = {
+                        step: '1. API URL 접근성 체크',
+                        status: 'success',
+                        message: `✅ API 서버 응답 성공 (${response.status})`
+                    };
+                    
+                    // 2. 응답 데이터 검증
+                    try {
+                        const data = await response.json();
+                        if (data.success) {
+                            diagnosticResults.push({
+                                step: '2. 데이터 유효성 검증',
+                                status: 'success',
+                                message: '✅ 유효한 JSON 데이터 확인'
+                            });
+                            isApiConnected = true;
+                        } else {
+                            diagnosticResults.push({
+                                step: '2. 데이터 유효성 검증',
+                                status: 'error',
+                                message: '❌ API 오류: ' + (data.message || '알 수 없는 오류')
+                            });
+                        }
+                    } catch (parseError) {
+                        diagnosticResults.push({
+                            step: '2. 데이터 유효성 검증',
+                            status: 'error',
+                            message: '❌ JSON 파싱 실패: 응답이 올바른 형식이 아님'
+                        });
+                    }
+                } else {
+                    diagnosticResults[0] = {
+                        step: '1. API URL 접근성 체크',
+                        status: 'error',
+                        message: `❌ 서버 오류 (HTTP ${response.status})`
+                    };
+                    
+                    diagnosticResults.push({
+                        step: '해결 방법',
+                        status: 'warning',
+                        message: '🔧 Google Apps Script를 재배포하세요:\n1. script.google.com 접속\n2. "배포" → "새 배포" 클릭\n3. 새 URL로 교체'
+                    });
+                }
+                
+            } catch (error) {
+                clearTimeout(timeoutId);
+                diagnosticResults[0] = {
+                    step: '1. API URL 접근성 체크',
+                    status: 'error',
+                    message: `❌ 연결 실패: ${error.name === 'AbortError' ? '시간 초과 (8초)' : error.message}`
+                };
+                
+                if (error.name === 'AbortError') {
+                    diagnosticResults.push({
+                        step: '해결 방법',
+                        status: 'warning',
+                        message: '🔧 네트워크 문제일 수 있습니다:\n1. 인터넷 연결 확인\n2. VPN 사용시 해제 후 재시도\n3. 방화벽 설정 확인'
+                    });
+                } else {
+                    diagnosticResults.push({
+                        step: '해결 방법',
+                        status: 'warning',
+                        message: '🔧 API 설정을 확인하세요:\n1. Google Apps Script 프로젝트 상태\n2. 배포 권한 설정\n3. URL 정확성'
+                    });
+                }
+            }
+            
+            // 3. 현재 상태 요약
+            if (isApiConnected) {
+                diagnosticResults.push({
+                    step: '✅ 진단 완료',
+                    status: 'success',
+                    message: '모든 시스템이 정상 작동 중입니다. 실시간 데이터를 사용할 수 있습니다.'
+                });
+            } else {
+                diagnosticResults.push({
+                    step: '⚠️ 진단 완료',
+                    status: 'warning',
+                    message: 'API 연결 실패. 기본 웨딩 데이터로 작동 중입니다. 모든 기능은 정상 사용 가능합니다.'
+                });
+            }
+            
+            return diagnosticResults;
         }
         
         // ========== API 통신 ==========
         async function callAPI(action = 'getSummary', params = {}) {
             const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 5000); // 5초 타임아웃
+            const timeoutId = setTimeout(() => controller.abort(), 6000);
             
             try {
                 const url = new URL(CONFIG.API_URL);
@@ -1225,7 +1395,7 @@
             }
         }
         
-        // ========== 새로고침 ==========
+        // ========== 데이터 새로고침 ==========
         async function refreshData() {
             updateStatusIndicator('loading', '최신 데이터 확인 중...');
             
@@ -1233,83 +1403,77 @@
                 const result = await callAPI('getSummary');
                 currentData = result.data;
                 lastUpdated = new Date();
-                updateAllTabs();
-                updateStatusIndicator('connected', `실시간 데이터 - ${formatTime(lastUpdated)}`);
-                showNotification('✅ 최신 데이터로 업데이트되었습니다!', 'success');
-            } catch (error) {
-                updateStatusIndicator('connected', `Wedding Project - ${formatTime(lastUpdated)}`);
-                showNotification('⚠️ 서버 연결 실패, 기존 데이터 유지 중', 'warning');
-            }
-        }
-        
-        // ========== 데이터 로드 ==========
-        async function loadAllData() {
-            updateStatusIndicator('loading', '데이터를 불러오는 중...');
-            
-            try {
-                const result = await callAPI('getSummary');
-                currentData = result.data;
-                lastUpdated = new Date();
-                console.log('✅ 실제 데이터 로드 성공');
-                updateStatusIndicator('connected', `실시간 데이터 - ${formatTime(lastUpdated)}`);
-            } catch (error) {
-                console.log('📊 기본 데이터 사용 중');
-                currentData = generateInitialData();
-                lastUpdated = new Date();
-                updateStatusIndicator('connected', `Wedding Project - ${formatTime(lastUpdated)}`);
-            }
-            
-            // UI 업데이트
-            updateAllTabs();
-        }
-        
-        // ========== 즉시 데이터 표시 ==========
-        function initializeWithData() {
-            // 바로 기본 데이터로 시작
-            currentData = generateInitialData();
-            lastUpdated = new Date();
-            
-            // 약간의 딜레이 후 UI 업데이트 (자연스러운 로딩)
-            setTimeout(() => {
-                updateAllTabs();
-                updateStatusIndicator('connected', `Wedding Project - ${formatTime(lastUpdated)}`);
+                isApiConnected = true;
                 
-                // 백그라운드에서 실제 데이터 시도 (1초 후)
+                updateAllTabs();
+                updateStatusIndicator('connected', `실시간 데이터 - ${formatTime(lastUpdated)}`);
+                showNotification('✅ 최신 데이터로 업데이트 완료!', 'success');
+                
+            } catch (error) {
+                isApiConnected = false;
+                updateStatusIndicator('error', `연결 실패 - 기본 데이터 사용 중`);
+                showNotification(`⚠️ 서버 연결 실패: ${error.message}`, 'warning');
+                
+                // 진단 자동 실행
                 setTimeout(() => {
-                    loadRealDataInBackground();
+                    runDiagnostics().then(updateDiagnosisDisplay);
                 }, 1000);
-            }, 300);
+            }
         }
         
-        async function loadRealDataInBackground() {
-            try {
-                // 백그라운드에서는 더 짧은 타임아웃 (3초)
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 3000);
-                
-                const url = new URL(CONFIG.API_URL);
-                url.searchParams.append('action', 'getSummary');
-                
-                const response = await fetch(url, { 
-                    signal: controller.signal,
-                    headers: { 'Accept': 'application/json' }
+        // ========== 진단 결과 표시 ==========
+        function toggleDiagnosis() {
+            const panel = document.getElementById('diagnosis-panel');
+            
+            if (panel.classList.contains('show')) {
+                panel.classList.remove('show');
+            } else {
+                updateStatusIndicator('loading', '시스템 진단 실행 중...');
+                runDiagnostics().then(() => {
+                    updateDiagnosisDisplay();
+                    panel.classList.add('show');
+                    updateStatusIndicator(isApiConnected ? 'connected' : 'error', 
+                        isApiConnected ? `실시간 데이터 - ${formatTime(lastUpdated)}` : '연결 실패 - 기본 데이터 사용 중');
                 });
-                
-                clearTimeout(timeoutId);
-                
-                if (response.ok) {
-                    const result = await response.json();
-                    if (result && result.success && result.data) {
-                        currentData = result.data;
-                        lastUpdated = new Date();
-                        updateAllTabs();
-                        updateStatusIndicator('connected', `실시간 데이터 - ${formatTime(lastUpdated)}`);
-                    }
-                }
-            } catch (error) {
-                // 조용히 실패 (이미 기본 데이터 표시 중)
-                console.log('백그라운드 데이터 로드 실패, 기본 데이터 유지');
             }
+        }
+        
+        function updateDiagnosisDisplay() {
+            const container = document.getElementById('diagnosis-results');
+            container.innerHTML = '';
+            
+            diagnosticResults.forEach(result => {
+                const stepDiv = document.createElement('div');
+                stepDiv.className = `diagnosis-step ${result.status}`;
+                stepDiv.innerHTML = `
+                    <strong>${result.step}</strong><br>
+                    <span style="white-space: pre-line;">${result.message}</span>
+                `;
+                container.appendChild(stepDiv);
+            });
+        }
+        
+        // ========== 시스템 초기화 ==========
+        function initializeSystem() {
+            // 즉시 웨딩 데이터 표시
+            currentData = generateWeddingData();
+            lastUpdated = new Date();
+            updateAllTabs();
+            updateStatusIndicator('offline', `Wedding Project - ${formatTime(lastUpdated)}`);
+            
+            // 백그라운드에서 API 연결 시도
+            setTimeout(async () => {
+                try {
+                    const result = await callAPI('getSummary');
+                    currentData = result.data;
+                    lastUpdated = new Date();
+                    isApiConnected = true;
+                    updateAllTabs();
+                    updateStatusIndicator('connected', `실시간 데이터 - ${formatTime(lastUpdated)}`);
+                } catch (error) {
+                    updateStatusIndicator('offline', `기본 데이터 - ${formatTime(lastUpdated)}`);
+                }
+            }, 1000);
         }
         
         // ========== UI 업데이트 ==========
@@ -1550,7 +1714,7 @@
                 <div class="empty-state">
                     <h4>${categoryInfo.icon} ${categoryInfo.name}</h4>
                     <p>아직 ${categoryInfo.name} 데이터가 없습니다.</p>
-                    <p><small>Google Sheets에서 데이터를 추가해주세요.</small></p>
+                    <p><small>Google Sheets에서 데이터를 추가하시거나, 연결 진단을 실행해보세요.</small></p>
                 </div>
             `;
         }
@@ -1593,7 +1757,7 @@
             const statusInfo = document.getElementById('status-info');
             const indicator = statusInfo.querySelector('.status-indicator');
             
-            indicator.classList.remove('status-connected', 'status-loading', 'status-error');
+            indicator.classList.remove('status-connected', 'status-loading', 'status-error', 'status-offline');
             indicator.classList.add(`status-${status}`);
             
             statusInfo.innerHTML = `
@@ -1638,8 +1802,8 @@
                 progressFill.style.width = '0%';
             }
             
-            // 바로 데이터 표시 (로딩 없이)
-            initializeWithData();
+            // 시스템 초기화
+            initializeSystem();
             
             console.log('✅ Wedding Project 준비 완료!');
         });
@@ -1649,6 +1813,10 @@
             if (e.ctrlKey && e.key === 'r') {
                 e.preventDefault();
                 refreshData();
+            }
+            if (e.ctrlKey && e.key === 'd') {
+                e.preventDefault();
+                toggleDiagnosis();
             }
         });
         
