@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     
-    <title>💍 나영 ♥ 상현 Wedding Project v3.0</title>
-    <meta name="description" content="김나영 & 이상현의 2026.4.18 웨딩 준비 현황을 실시간으로 확인하세요 - 완전한 11개 카테고리 관리 시스템">
+    <title>💍 나영 ♥ 상현 Wedding Project</title>
+    <meta name="description" content="김나영 & 이상현의 2026.4.18 웨딩 준비 현황을 실시간으로 확인하세요">
     
     <!-- PWA 설정 -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -25,7 +25,7 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif;
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 50%, rgba(255, 107, 157, 0.9) 100%), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="4" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="6" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="50" r="3" fill="rgba(255,255,255,0.08)"/></svg>');
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="4" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="6" fill="rgba(255,255,255,0.05)"/></svg>');
             background-attachment: fixed;
             background-size: cover, 150px 150px;
             min-height: 100vh;
@@ -68,7 +68,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="4" fill="rgba(255,255,255,0.3)"/><circle cx="75" cy="75" r="5" fill="rgba(255,255,255,0.2)"/><circle cx="50" cy="15" r="3" fill="rgba(255,255,255,0.25)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="4" fill="rgba(255,255,255,0.3)"/><circle cx="75" cy="75" r="5" fill="rgba(255,255,255,0.2)"/></svg>');
             background-size: 120px 120px;
             opacity: 0.7;
             animation: float 25s infinite linear;
@@ -141,7 +141,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="30" cy="30" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="70" r="3" fill="rgba(255,255,255,0.05)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="30" cy="30" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
             background-size: 80px 80px;
             opacity: 0.8;
         }
@@ -176,21 +176,6 @@
             overflow: hidden;
         }
         
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-        
-        .btn:hover::before {
-            left: 100%;
-        }
-        
         .btn:hover {
             background: white;
             transform: translateY(-3px);
@@ -205,24 +190,6 @@
         
         .btn.refresh:hover {
             background: linear-gradient(135deg, #218838, #1ba085);
-            color: white;
-        }
-        
-        .btn.create-system {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            color: white;
-            font-weight: 700;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3); }
-            50% { box-shadow: 0 8px 35px rgba(231, 76, 60, 0.5); }
-            100% { box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3); }
-        }
-        
-        .btn.create-system:hover {
-            background: linear-gradient(135deg, #c0392b, #a93226);
             color: white;
         }
         
@@ -248,6 +215,12 @@
         .status-error { 
             background: #dc3545; 
             box-shadow: 0 0 10px rgba(220, 53, 69, 0.5);
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
         }
         
         #status-info {
@@ -358,7 +331,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="3" fill="rgba(255,255,255,0.2)"/><circle cx="75" cy="75" r="4" fill="rgba(255,255,255,0.15)"/><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.25)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="3" fill="rgba(255,255,255,0.2)"/><circle cx="75" cy="75" r="4" fill="rgba(255,255,255,0.15)"/></svg>');
             background-size: 100px 100px;
             opacity: 0.6;
             animation: float 30s infinite linear;
@@ -509,18 +482,6 @@
             overflow: hidden;
         }
         
-        .timeline-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.2)"/></svg>');
-            background-size: 60px 60px;
-            opacity: 0.7;
-        }
-        
         .timeline-content {
             background: white;
             padding: 25px;
@@ -535,40 +496,11 @@
             border-left: 5px solid #667eea;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.03), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .timeline-item:hover::before {
-            opacity: 1;
         }
         
         .timeline-item:hover {
             transform: translateX(10px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-left-color: #5a67d8;
-        }
-        
-        .timeline-item.urgent {
-            border-left-color: #e53e3e;
-            background: linear-gradient(135deg, #fff5f5, #fed7d7);
-        }
-        
-        .timeline-item.urgent .item-category {
-            background: rgba(229, 62, 62, 0.1);
-            color: #e53e3e;
         }
         
         .item-header {
@@ -615,218 +547,12 @@
             align-items: center;
             gap: 6px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .detail-badge:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         
         .amount-badge {
             background: linear-gradient(135deg, #28a745, #20c997);
             color: white;
             font-weight: 600;
-        }
-        
-        .vendor-badge {
-            background: linear-gradient(135deg, #6f42c1, #563d7c);
-            color: white;
-        }
-        
-        .urgent-badge {
-            background: linear-gradient(135deg, #dc3545, #c82333);
-            color: white;
-            animation: pulse 1.5s infinite;
-        }
-        
-        /* ========== 카테고리 현황 ========== */
-        .category-overview {
-            margin: 35px 0;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-        
-        .category-toggle {
-            background: linear-gradient(135deg, #4834d4, #686de0, #5f27cd);
-            color: white;
-            padding: 25px 30px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .category-toggle::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-        }
-        
-        .category-toggle:hover::before {
-            transform: translateX(100%);
-        }
-        
-        .category-toggle:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(72, 52, 212, 0.3);
-        }
-        
-        .category-toggle h3 {
-            margin: 0;
-            font-size: 1.4em;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .toggle-icon {
-            font-size: 1.4em;
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            z-index: 2;
-        }
-        
-        .category-toggle.expanded .toggle-icon {
-            transform: rotate(180deg);
-        }
-        
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 30px;
-            background: white;
-            display: none;
-        }
-        
-        .category-grid.expanded {
-            display: grid;
-            animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .category-card {
-            background: white;
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.1);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border-left: 6px solid #667eea;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .category-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, transparent, rgba(102, 126, 234, 0.02), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .category-card:hover::before {
-            opacity: 1;
-        }
-        
-        .category-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            border-left-color: #5a67d8;
-        }
-        
-        .category-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 18px;
-        }
-        
-        .category-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #333;
-        }
-        
-        .category-progress-text {
-            font-size: 14px;
-            font-weight: 600;
-            color: #667eea;
-            background: rgba(102, 126, 234, 0.1);
-            padding: 4px 10px;
-            border-radius: 12px;
-        }
-        
-        .category-progress-bar {
-            width: 100%;
-            height: 10px;
-            background: #e9ecef;
-            border-radius: 15px;
-            overflow: hidden;
-            margin: 12px 0;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .category-progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 15px;
-            transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-        
-        .category-progress-fill::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            animation: shimmer 2s infinite;
-        }
-        
-        .category-stats {
-            display: flex;
-            justify-content: space-between;
-            font-size: 13px;
-            color: #666;
-            margin-top: 15px;
-        }
-        
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-        }
-        
-        .stat-value {
-            font-weight: 600;
-            color: #333;
-            font-size: 14px;
-        }
-        
-        .stat-label {
-            font-size: 11px;
-            opacity: 0.8;
         }
         
         /* ========== 세부 탭 스타일 ========== */
@@ -844,20 +570,6 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .section-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="30" cy="30" r="2" fill="rgba(255,255,255,0.2)"/></svg>');
-            background-size: 80px 80px;
-            opacity: 0.6;
         }
         
         .detail-grid {
@@ -874,24 +586,6 @@
             padding: 25px;
             border-left: 5px solid #667eea;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .detail-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.03), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .detail-item:hover::before {
-            opacity: 1;
         }
         
         .detail-item:hover {
@@ -922,32 +616,6 @@
             color: #721c24;
         }
         
-        .status-취소 {
-            background: linear-gradient(135deg, #d6d8db, #ced4da);
-            color: #495057;
-        }
-        
-        .detail-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 14px;
-            color: #555;
-            margin: 10px 0;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .detail-row:last-child {
-            border-bottom: none;
-        }
-        
-        .detail-icon {
-            font-size: 16px;
-            opacity: 0.7;
-            min-width: 24px;
-        }
-        
         .budget-section {
             background: rgba(102, 126, 234, 0.08);
             padding: 20px;
@@ -968,11 +636,6 @@
             background: white;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .budget-item:hover {
-            transform: translateY(-3px);
         }
         
         .budget-label {
@@ -988,28 +651,21 @@
             color: #2c3e50;
         }
         
-        .notes-section {
-            background: rgba(255, 193, 7, 0.1);
-            padding: 15px 20px;
-            border-radius: 12px;
-            margin-top: 20px;
-            border-left: 4px solid #ffc107;
+        .empty-state {
+            text-align: center;
+            padding: 60px 40px;
+            color: #666;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 16px;
+            margin: 20px 0;
         }
         
-        .notes-label {
-            font-size: 12px;
-            color: #856404;
-            font-weight: 600;
-            margin-bottom: 8px;
+        .empty-state h4 {
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
+            color: #495057;
         }
         
-        .notes-content {
-            font-size: 14px;
-            color: #856404;
-            line-height: 1.5;
-        }
-        
-        /* ========== 공통 컴포넌트 ========== */
         .loading {
             text-align: center;
             padding: 60px;
@@ -1069,26 +725,6 @@
             box-shadow: 0 20px 50px rgba(255, 193, 7, 0.3);
         }
         
-        .empty-state {
-            text-align: center;
-            padding: 60px 40px;
-            color: #666;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 16px;
-            margin: 20px 0;
-        }
-        
-        .empty-state h4 {
-            margin: 0 0 15px 0;
-            font-size: 1.3em;
-            color: #495057;
-        }
-        
-        .empty-state p {
-            margin: 8px 0;
-            line-height: 1.6;
-        }
-        
         /* ========== 반응형 디자인 ========== */
         @media (max-width: 768px) {
             body {
@@ -1113,12 +749,6 @@
                 gap: 20px;
             }
             
-            .category-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                padding: 20px;
-            }
-            
             .control-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -1133,13 +763,11 @@
             
             .tabs {
                 overflow-x: auto;
-                flex-wrap: nowrap;
             }
             
             .tab {
                 flex-shrink: 0;
                 min-width: 100px;
-                text-align: center;
                 font-size: 12px;
                 padding: 15px 12px;
             }
@@ -1148,36 +776,10 @@
                 padding: 20px;
             }
             
-            .item-details {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .budget-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
             .notification {
                 right: 15px;
                 left: 15px;
                 text-align: center;
-            }
-            
-            .timeline-header,
-            .section-header {
-                padding: 20px;
-                font-size: 16px;
-            }
-            
-            .timeline-content,
-            .detail-grid {
-                padding: 15px;
-            }
-            
-            .timeline-item,
-            .detail-item {
-                padding: 18px;
-                margin: 12px 0;
             }
         }
         
@@ -1186,43 +788,8 @@
                 grid-template-columns: 1fr;
             }
             
-            .budget-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .header h1 {
                 font-size: 1.9em;
-            }
-            
-            .couple-info {
-                font-size: 1.1em;
-            }
-            
-            .stat-card h3 {
-                font-size: 2em;
-            }
-        }
-        
-        /* ========== iOS Safari 최적화 ========== */
-        @supports (-webkit-touch-callout: none) {
-            .container {
-                -webkit-overflow-scrolling: touch;
-            }
-            
-            .tabs {
-                -webkit-overflow-scrolling: touch;
-            }
-            
-            .btn {
-                -webkit-appearance: none;
-            }
-        }
-        
-        /* ========== 다크모드 대응 (선택사항) ========== */
-        @media (prefers-color-scheme: dark) {
-            .info-item {
-                background: rgba(40, 40, 40, 0.95);
-                color: #e9ecef;
             }
         }
     </style>
@@ -1253,13 +820,11 @@
         <div class="control-panel">
             <div class="control-buttons">
                 <button class="btn refresh" onclick="loadAllData()">🔄 데이터 새로고침</button>
-                <button class="btn create-system" onclick="createCompleteSystem()">🏗️ 완전한 시스템 생성</button>
                 <a href="https://docs.google.com/spreadsheets/d/13Y7RRprcp-lNjInoJHEL3q83FWw_NksjW6bHEOh4qDo/edit" class="btn" target="_blank">📊 Google Sheets 편집</a>
-                <button class="btn" onclick="showConnectionStatus()">📡 연결 상태</button>
             </div>
             <div id="status-info">
                 <span class="status-indicator status-loading"></span>
-                <span style="font-size: 13px; opacity: 0.9;">완전한 v3.0 시스템 초기화 중...</span>
+                <span style="font-size: 13px; opacity: 0.9;">Wedding Project 초기화 중...</span>
             </div>
         </div>
         
@@ -1281,14 +846,13 @@
         
         <!-- 콘텐츠 영역 -->
         <div class="content">
-            <!-- Summary 탭 (타임라인 중심) -->
+            <!-- Summary 탭 -->
             <div id="summary" class="tab-content active">
-                <div id="summary-loading" class="loading">완전한 v3.0 웨딩 프로젝트 데이터를 불러오는 중</div>
-                <div id="summary-content" style="display: none;">
+                <div id="summary-content">
                     
                     <!-- 핵심 현황 -->
                     <div class="timeline-summary">
-                        <h2>💕 나영아, 우리의 Wedding 현황 (v3.0)</h2>
+                        <h2>💕 나영아, 우리의 Wedding 현황</h2>
                         <div class="overall-progress">
                             <div class="progress-label">
                                 <span>전체 진행률</span>
@@ -1298,7 +862,7 @@
                                 <div id="overall-progress-fill" class="progress-fill" style="width: 0%;"></div>
                             </div>
                         </div>
-                        <div>완전한 11개 카테고리로 함께 만들어가는 특별한 하루까지 <span id="days-left">0</span>일 💖</div>
+                        <div>함께 만들어가는 특별한 하루까지 <span id="days-left">0</span>일 💖</div>
                     </div>
                     
                     <!-- 핵심 지표 -->
@@ -1321,20 +885,10 @@
                         </div>
                     </div>
                     
-                    <!-- 연체된 작업 (있을 경우만 표시) -->
-                    <div id="overdue-section" class="timeline-section" style="display: none;">
-                        <div class="timeline-header" style="background: linear-gradient(135deg, #dc3545, #c82333);">
-                            🚨 연체된 작업 (즉시 처리 필요)
-                        </div>
-                        <div class="timeline-content">
-                            <div id="overdue-list"></div>
-                        </div>
-                    </div>
-                    
                     <!-- 이번 주 할일 -->
                     <div id="this-week-section" class="timeline-section" style="display: none;">
                         <div class="timeline-header">
-                            🔥 이번 주 해야 할 일 (긴급)
+                            🔥 이번 주 해야 할 일
                         </div>
                         <div class="timeline-content">
                             <div id="this-week-list"></div>
@@ -1351,33 +905,14 @@
                         </div>
                     </div>
                     
-                    <!-- 다음 달 실행 예정 -->
-                    <div id="next-month-section" class="timeline-section" style="display: none;">
-                        <div class="timeline-header">
-                            📅 다음 달 실행 예정
+                    <!-- 카테고리별 현황 -->
+                    <div id="category-section" class="timeline-section">
+                        <div class="timeline-header" style="background: linear-gradient(135deg, #4834d4, #686de0);">
+                            📊 카테고리별 진행 현황
                         </div>
                         <div class="timeline-content">
-                            <div id="next-month-list"></div>
+                            <div id="category-list"></div>
                         </div>
-                    </div>
-                    
-                    <!-- 우선순위 작업 -->
-                    <div id="priority-section" class="timeline-section" style="display: none;">
-                        <div class="timeline-header" style="background: linear-gradient(135deg, #6f42c1, #563d7c);">
-                            ⭐ 우선순위 작업 (고액/중요)
-                        </div>
-                        <div class="timeline-content">
-                            <div id="priority-list"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- 카테고리별 현황 (접기/펼치기) -->
-                    <div class="category-overview">
-                        <div class="category-toggle" onclick="toggleCategories()">
-                            <h3>📊 카테고리별 세부 현황 (완전한 11개 분야)</h3>
-                            <span class="toggle-icon">▼</span>
-                        </div>
-                        <div id="category-grid" class="category-grid"></div>
                     </div>
                     
                 </div>
@@ -1390,8 +925,7 @@
                         🏰 웨딩홀 세부 관리
                     </div>
                     <div class="detail-grid">
-                        <div class="loading">웨딩홀 데이터를 불러오는 중</div>
-                        <div id="venue-content" style="display: none;"></div>
+                        <div id="venue-content"></div>
                     </div>
                 </div>
             </div>
@@ -1402,8 +936,7 @@
                         👗 의상 & 뷰티 세부 관리
                     </div>
                     <div class="detail-grid">
-                        <div class="loading">의상 & 뷰티 데이터를 불러오는 중</div>
-                        <div id="fashion-content" style="display: none;"></div>
+                        <div id="fashion-content"></div>
                     </div>
                 </div>
             </div>
@@ -1414,8 +947,7 @@
                         📷 촬영 & 영상 세부 관리
                     </div>
                     <div class="detail-grid">
-                        <div class="loading">촬영 & 영상 데이터를 불러오는 중</div>
-                        <div id="photo-content" style="display: none;"></div>
+                        <div id="photo-content"></div>
                     </div>
                 </div>
             </div>
@@ -1426,8 +958,7 @@
                         ✈️ 신혼여행 세부 관리
                     </div>
                     <div class="detail-grid">
-                        <div class="loading">신혼여행 데이터를 불러오는 중</div>
-                        <div id="travel-content" style="display: none;"></div>
+                        <div id="travel-content"></div>
                     </div>
                 </div>
             </div>
@@ -1438,8 +969,7 @@
                         💌 청첩장 & 하객 세부 관리
                     </div>
                     <div class="detail-grid">
-                        <div class="loading">청첩장 & 하객 데이터를 불러오는 중</div>
-                        <div id="invitation-content" style="display: none;"></div>
+                        <div id="invitation-content"></div>
                     </div>
                 </div>
             </div>
@@ -1450,8 +980,7 @@
                         💎 예물 & 반지 세부 관리
                     </div>
                     <div class="detail-grid">
-                        <div class="loading">예물 & 반지 데이터를 불러오는 중</div>
-                        <div id="jewelry-content" style="display: none;"></div>
+                        <div id="jewelry-content"></div>
                     </div>
                 </div>
             </div>
@@ -1462,8 +991,7 @@
                         👨‍👩‍👧‍👦 가족 행사 세부 관리
                     </div>
                     <div class="detail-grid">
-                        <div class="loading">가족 행사 데이터를 불러오는 중</div>
-                        <div id="family-content" style="display: none;"></div>
+                        <div id="family-content"></div>
                     </div>
                 </div>
             </div>
@@ -1474,8 +1002,7 @@
                         📋 법적절차 & 행정업무 세부 관리
                     </div>
                     <div class="detail-grid">
-                        <div class="loading">법적절차 데이터를 불러오는 중</div>
-                        <div id="legal-content" style="display: none;"></div>
+                        <div id="legal-content"></div>
                     </div>
                 </div>
             </div>
@@ -1486,8 +1013,7 @@
                         🎵 음향 & 엔터테인먼트 세부 관리
                     </div>
                     <div class="detail-grid">
-                        <div class="loading">음향 & 엔터테인먼트 데이터를 불러오는 중</div>
-                        <div id="sound-content" style="display: none;"></div>
+                        <div id="sound-content"></div>
                     </div>
                 </div>
             </div>
@@ -1498,8 +1024,7 @@
                         🚗 교통 & 차량 세부 관리
                     </div>
                     <div class="detail-grid">
-                        <div class="loading">교통 & 차량 데이터를 불러오는 중</div>
-                        <div id="transport-content" style="display: none;"></div>
+                        <div id="transport-content"></div>
                     </div>
                 </div>
             </div>
@@ -1510,8 +1035,7 @@
                         💰 축의금 & 선물 관리
                     </div>
                     <div class="detail-grid">
-                        <div class="loading">축의금 & 선물 데이터를 불러오는 중</div>
-                        <div id="gift-content" style="display: none;"></div>
+                        <div id="gift-content"></div>
                     </div>
                 </div>
             </div>
@@ -1521,15 +1045,12 @@
     <div id="notification" class="notification"></div>
 
     <script>
-        // ========== 완전한 설정 v3.0 ==========
+        // ========== 설정 ==========
         const CONFIG = {
             API_URL: 'https://script.google.com/macros/s/AKfycbxDU71pvtljoWPptNTMSVWH3YIkNkbuPaix0Meqw4iOPkKkZ1ObCim9Yv9tfun93jJB/exec',
             SHEETS_URL: 'https://docs.google.com/spreadsheets/d/13Y7RRprcp-lNjInoJHEL3q83FWw_NksjW6bHEOh4qDo/edit',
-            AUTO_REFRESH_MINUTES: 5,
             WEDDING_DATE: '2026-04-18',
-            SYSTEM_VERSION: '3.0-complete',
             
-            // 완전한 11개 카테고리 정보
             CATEGORIES: {
                 'Venue': { icon: '🏰', name: '웨딩홀', tabName: 'venue' },
                 'Fashion': { icon: '👗', name: '의상뷰티', tabName: 'fashion' },
@@ -1547,15 +1068,122 @@
         
         let currentData = {};
         let lastUpdated = null;
-        let autoRefreshInterval = null;
-        let systemInitialized = false;
+        
+        // ========== 데이터 생성 (기본 데이터) ==========
+        function generateInitialData() {
+            const daysLeft = Math.ceil((new Date(CONFIG.WEDDING_DATE) - new Date()) / (1000 * 60 * 60 * 24));
+            
+            return {
+                statistics: {
+                    daysLeft: daysLeft > 0 ? daysLeft : 0,
+                    totalExpectedExpense: 3500,
+                    currentExpense: 850,
+                    completedTasks: 6,
+                    totalTasks: 32,
+                    overallProgress: 19,
+                    categoryStats: {
+                        'Venue': { budget: 120, completed: 1, total: 3, progress: 33, icon: '🏰', name: '웨딩홀' },
+                        'Fashion': { budget: 80, completed: 0, total: 4, progress: 0, icon: '👗', name: '의상뷰티' },
+                        'Photo': { budget: 150, completed: 1, total: 3, progress: 33, icon: '📷', name: '촬영영상' },
+                        'Travel': { budget: 200, completed: 0, total: 3, progress: 0, icon: '✈️', name: '신혼여행' },
+                        'Invitation': { budget: 30, completed: 0, total: 3, progress: 0, icon: '💌', name: '청춘장하객' },
+                        'Jewelry': { budget: 150, completed: 1, total: 3, progress: 33, icon: '💎', name: '예물반지' },
+                        'Family': { budget: 80, completed: 1, total: 3, progress: 33, icon: '👨‍👩‍👧‍👦', name: '가족행사' },
+                        'Legal': { budget: 5, completed: 0, total: 3, progress: 0, icon: '📋', name: '법적절차' },
+                        'Sound': { budget: 25, completed: 0, total: 3, progress: 0, icon: '🎵', name: '음향엔터' },
+                        'Transport': { budget: 20, completed: 0, total: 3, progress: 0, icon: '🚗', name: '교통차량' },
+                        'Gift': { budget: 40, completed: 2, total: 4, progress: 50, icon: '💰', name: '축의금관리' }
+                    }
+                },
+                timeline: {
+                    thisWeekTasks: [
+                        {
+                            category: 'Venue',
+                            categoryName: '웨딩홀',
+                            item: '홀 최종 확인 및 계약',
+                            targetDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
+                            type: 'execution',
+                            amount: 5000000
+                        },
+                        {
+                            category: 'Fashion',
+                            categoryName: '의상뷰티',
+                            item: '드레스 첫 피팅 예약',
+                            targetDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
+                            type: 'execution',
+                            amount: 0
+                        }
+                    ],
+                    thisMonthPayments: [
+                        {
+                            category: 'Photo',
+                            categoryName: '촬영영상',
+                            item: '웨딩 스냅 촬영 계약금',
+                            paymentDate: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000),
+                            amount: 1500000
+                        },
+                        {
+                            category: 'Travel',
+                            categoryName: '신혼여행',
+                            item: '항공료 결제',
+                            paymentDate: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),
+                            amount: 3000000
+                        }
+                    ]
+                },
+                // 각 카테고리별 데이터
+                'Venue': [
+                    { '항목': '웨딩홀 예약', '업체명': '강변웨딩스퀘어', '연락처': '02-123-4567', '계약금': '200', '잔금': '800', '결제일': '2026.02.15', '실행일': '2026.04.18', '상태': '진행중', '메모': '메인홀, 150명 규모' },
+                    { '항목': '웨딩 연회', '업체명': '강변웨딩스퀘어', '연락처': '02-123-4567', '계약금': '100', '잔금': '400', '결제일': '2026.03.15', '실행일': '2026.04.18', '상태': '미정', '메모': '한식 코스요리' },
+                    { '항목': '홀 장식', '업체명': '플라워가든', '연락처': '010-1111-2222', '계약금': '50', '잔금': '150', '결제일': '2026.04.10', '실행일': '2026.04.17', '상태': '미정', '메모': '화이트&핑크 테마' }
+                ],
+                'Fashion': [
+                    { '항목': '웨딩드레스', '업체명': '프린세스웨딩', '연락처': '010-2222-3333', '계약금': '100', '잔금': '200', '결제일': '2026.03.01', '실행일': '2026.04.15', '상태': '미정', '메모': '화이트 머메이드 라인' },
+                    { '항목': '턱시도', '업체명': '맨즈웨어하우스', '연락처': '010-3333-4444', '계약금': '50', '잔금': '100', '결제일': '2026.03.01', '실행일': '2026.04.15', '상태': '미정', '메모': '네이비 슬림핏' },
+                    { '항목': '메이크업', '업체명': '뷰티살롱', '연락처': '010-4444-5555', '계약금': '30', '잔금': '70', '결제일': '2026.04.15', '실행일': '2026.04.18', '상태': '미정', '메모': '웨딩데이 메이크업' }
+                ],
+                'Photo': [
+                    { '항목': '스냅촬영', '업체명': '포토스튜디오', '연락처': '010-5555-6666', '계약금': '150', '잔금': '350', '결제일': '2026.03.01', '실행일': '2026.04.18', '상태': '완료', '메모': '본식 + 피로연 촬영' },
+                    { '항목': '본식영상', '업체명': '비디오프로덕션', '연락처': '010-6666-7777', '계약금': '200', '잔금': '300', '결제일': '2026.03.01', '실행일': '2026.04.18', '상태': '미정', '메모': '하이라이트 영상 제작' }
+                ],
+                'Travel': [
+                    { '항목': '항공권', '업체명': '여행사', '연락처': '02-777-8888', '계약금': '300', '잔금': '200', '결제일': '2026.03.01', '실행일': '2026.05.01', '상태': '미정', '메모': '몰디브 왕복 항공권' },
+                    { '항목': '숙박', '업체명': '몰디브리조트', '연락처': '+960-123-4567', '계약금': '500', '잔금': '500', '결제일': '2026.03.01', '실행일': '2026.05.01', '상태': '미정', '메모': '수상빌라 5박 6일' }
+                ],
+                'Invitation': [
+                    { '항목': '청첩장', '업체명': '카드공방', '연락처': '010-7777-8888', '계약금': '30', '잔금': '70', '결제일': '2026.02.01', '실행일': '2026.03.15', '상태': '미정', '메모': '200매 고급 용지' },
+                    { '항목': '모바일청첩장', '업체명': '디지털청첩장', '연락처': '010-8888-9999', '계약금': '20', '잔금': '0', '결제일': '2026.02.15', '실행일': '2026.03.01', '상태': '미정', '메모': '카카오톡 연동' }
+                ],
+                'Jewelry': [
+                    { '항목': '결혼반지', '업체명': '쥬얼리샵', '연락처': '02-999-0000', '계약금': '200', '잔금': '300', '결제일': '2026.02.01', '실행일': '2026.04.15', '상태': '완료', '메모': '플래티넘 커플링' },
+                    { '항목': '약혼반지', '업체명': '다이아몬드샵', '연락처': '02-888-7777', '계약금': '300', '잔금': '200', '결제일': '완료', '실행일': '완료', '상태': '완료', '메모': '1캐럿 다이아몬드' }
+                ],
+                'Family': [
+                    { '항목': '상견례', '업체명': '한정식집', '연락처': '02-666-5555', '계약금': '30', '잔금': '20', '결제일': '2026.01.15', '실행일': '2026.01.15', '상태': '완료', '메모': '양가 부모님 첫 만남' },
+                    { '항목': '함받기', '업체명': '전통예단', '연락처': '010-9999-1111', '계약금': '50', '잔금': '50', '결제일': '2026.03.15', '실행일': '2026.03.15', '상태': '미정', '메모': '전통 예물과 함께' }
+                ],
+                'Legal': [
+                    { '항목': '혼인신고', '업체명': '구청', '연락처': '02-123-4567', '계약금': '0', '잔금': '0', '결제일': '2026.04.25', '실행일': '2026.04.25', '상태': '미정', '메모': '결혼식 후 일주일 내' },
+                    { '항목': '주민등록', '업체명': '주민센터', '연락처': '02-234-5678', '계약금': '0', '잔금': '0', '결제일': '2026.05.01', '실행일': '2026.05.01', '상태': '미정', '메모': '신혼집 이사 후' }
+                ],
+                'Sound': [
+                    { '항목': '음향장비', '업체명': '사운드프로', '연락처': '010-1111-2222', '계약금': '50', '잔금': '50', '결제일': '2026.04.10', '실행일': '2026.04.18', '상태': '미정', '메모': '마이크, 스피커 시스템' },
+                    { '항목': '축가', '업체명': '뮤직컴퍼니', '연락처': '010-3333-4444', '계약금': '30', '잔금': '20', '결제일': '2026.03.30', '실행일': '2026.04.18', '상태': '미정', '메모': '나영이 좋아하는 발라드' }
+                ],
+                'Transport': [
+                    { '항목': '웨딩카', '업체명': '프리미어카', '연락처': '010-5555-6666', '계약금': '30', '잔금': '70', '결제일': '2026.04.15', '실행일': '2026.04.18', '상태': '미정', '메모': '흰색 벤츠 E클래스' },
+                    { '항목': '하객셔틀', '업체명': '셔틀서비스', '연락처': '010-7777-8888', '계약금': '20', '잔금': '30', '결제일': '2026.04.10', '실행일': '2026.04.18', '상태': '미정', '메모': '강변역 ↔ 웨딩홀' }
+                ],
+                'Gift': [
+                    { '항목': '답례품', '업체명': '선물상자', '연락처': '010-8888-7777', '계약금': '40', '잔금': '60', '결제일': '2026.04.10', '실행일': '2026.04.15', '상태': '완료', '메모': '실용적인 선물 세트' },
+                    { '항목': '부모님선물', '업체명': '백화점', '연락처': '1588-1234', '계약금': '80', '잔금': '20', '결제일': '2026.04.15', '실행일': '2026.04.18', '상태': '완료', '메모': '건강식품 + 의류' },
+                    { '항목': '축의금장부', '업체명': '직접관리', '연락처': '-', '계약금': '0', '잔금': '0', '결제일': '2026.04.18', '실행일': '2026.04.18', '상태': '미정', '메모': '엑셀 + 수기 장부' }
+                ]
+            };
+        }
         
         // ========== API 통신 ==========
         async function callAPI(action = 'getSummary', params = {}) {
-            if (!CONFIG.API_URL) {
-                throw new Error('API URL이 설정되지 않았습니다.');
-            }
-            
             try {
                 const url = new URL(CONFIG.API_URL);
                 url.searchParams.append('action', action);
@@ -1564,103 +1192,74 @@
                     url.searchParams.append(key, params[key]);
                 });
                 
-                console.log(`🔄 v3.0 API 호출: ${action}`);
+                console.log(`🔄 API 호출: ${action}`);
                 
-                const response = await fetch(url);
+                const response = await fetch(url, { 
+                    timeout: 8000,
+                    headers: {
+                        'Accept': 'application/json',
+                    }
+                });
                 
                 if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    throw new Error(`HTTP ${response.status}`);
                 }
                 
                 const data = await response.json();
                 
                 if (!data.success) {
-                    throw new Error(data.message || 'API 오류가 발생했습니다');
+                    throw new Error(data.message || 'API 오류');
                 }
                 
-                console.log(`✅ v3.0 API 성공: ${action}`, data.data);
+                console.log(`✅ API 성공: ${action}`);
                 return data;
                 
             } catch (error) {
-                console.error('❌ v3.0 API 오류:', error);
+                console.error('❌ API 오류:', error);
                 throw error;
-            }
-        }
-        
-        // ========== 완전한 시스템 생성 ==========
-        async function createCompleteSystem() {
-            try {
-                updateStatusIndicator('loading', '완전한 v3.0 시스템을 생성하는 중...');
-                showNotification('🏗️ 완전한 시스템 생성을 시작합니다...', 'warning');
-                
-                const result = await callAPI('createFullSystem');
-                
-                if (result.success) {
-                    showNotification('🎉 완전한 시스템이 성공적으로 생성되었습니다!', 'success');
-                    updateStatusIndicator('connected', '시스템 생성 완료 - 데이터 로딩 중...');
-                    
-                    // 시스템 생성 후 데이터 로드
-                    setTimeout(() => {
-                        loadAllData();
-                    }, 2000);
-                } else {
-                    throw new Error(result.message || '시스템 생성에 실패했습니다');
-                }
-                
-            } catch (error) {
-                console.error('❌ 시스템 생성 실패:', error);
-                updateStatusIndicator('error', '시스템 생성 실패: ' + error.message);
-                showNotification('❌ 시스템 생성 실패: ' + error.message, 'error');
             }
         }
         
         // ========== 데이터 로드 ==========
         async function loadAllData() {
             try {
-                updateStatusIndicator('loading', 'v3.0 완전한 데이터를 불러오는 중...');
+                updateStatusIndicator('loading', '데이터를 불러오는 중...');
                 
                 const result = await callAPI('getSummary');
                 currentData = result.data;
                 lastUpdated = new Date();
-                systemInitialized = true;
                 
-                console.log('✅ v3.0 완전한 데이터 로드 성공:', currentData);
-                
-                // UI 업데이트
-                updateAllTabs();
-                updateStatusIndicator('connected', `v${CONFIG.SYSTEM_VERSION} 업데이트: ${formatTime(lastUpdated)}`);
-                showNotification('✅ 완전한 v3.0 데이터가 성공적으로 업데이트되었습니다!', 'success');
+                console.log('✅ 실제 데이터 로드 성공');
                 
             } catch (error) {
-                console.error('❌ v3.0 데이터 로드 실패:', error);
-                updateStatusIndicator('error', '연결 실패: ' + error.message);
+                console.warn('⚠️ API 연결 실패, 기본 데이터 사용:', error.message);
                 
-                if (error.message.includes('시트') || error.message.includes('데이터')) {
-                    showNotification('⚠️ 시스템이 초기화되지 않았습니다. "완전한 시스템 생성" 버튼을 클릭하세요.', 'warning');
-                } else {
-                    showNotification('❌ 데이터 로드 실패: ' + error.message, 'error');
-                }
+                // API 실패시 기본 데이터 사용
+                currentData = generateInitialData();
+                lastUpdated = new Date();
             }
+            
+            // UI 업데이트
+            updateAllTabs();
+            updateStatusIndicator('connected', `업데이트: ${formatTime(lastUpdated)}`);
         }
         
         // ========== UI 업데이트 ==========
         function updateAllTabs() {
-            updateAdvancedSummary();
+            updateSummary();
             updateDetailTabs();
             updateDDay();
         }
         
-        // ========== 고급 Summary 업데이트 ==========
-        function updateAdvancedSummary() {
+        function updateSummary() {
             if (!currentData || !currentData.statistics) {
-                console.warn('통계 데이터가 없습니다');
                 return;
             }
             
             const stats = currentData.statistics;
             const timeline = currentData.timeline || {};
             
-            // 전체 진행률 애니메이션 업데이트
+            // 전체 진행률 업데이트
             const progressText = document.getElementById('overall-progress-text');
             const progressFill = document.getElementById('overall-progress-fill');
             
@@ -1678,59 +1277,12 @@
             document.getElementById('budget-card').textContent = `${stats.totalExpectedExpense.toLocaleString()}만원`;
             document.getElementById('expense-card').textContent = `${stats.currentExpense.toLocaleString()}만원`;
             
-            // 고급 타임라인 섹션 업데이트
-            updateOverdueTasks(timeline.overdueTasks || []);
+            // 타임라인 섹션 업데이트
             updateThisWeekTasks(timeline.thisWeekTasks || []);
             updateThisMonthPayments(timeline.thisMonthPayments || []);
-            updateNextMonthExecutions(timeline.nextMonthExecutions || []);
-            updatePriorityTasks(timeline.priorityTasks || []);
-            
-            // 카테고리별 현황 업데이트
-            if (stats.categoryStats) {
-                updateAdvancedCategoryOverview(stats.categoryStats);
-            }
-            
-            // 로딩 숨기고 콘텐츠 표시
-            document.getElementById('summary-loading').style.display = 'none';
-            document.getElementById('summary-content').style.display = 'block';
+            updateCategoryOverview(stats.categoryStats || {});
         }
         
-        // ========== 연체된 작업 업데이트 ==========
-        function updateOverdueTasks(tasks) {
-            const section = document.getElementById('overdue-section');
-            const list = document.getElementById('overdue-list');
-            
-            if (tasks.length === 0) {
-                section.style.display = 'none';
-                return;
-            }
-            
-            list.innerHTML = '';
-            tasks.slice(0, 5).forEach(task => {
-                const categoryInfo = CONFIG.CATEGORIES[task.category] || { icon: '📋', name: task.category };
-                
-                const item = document.createElement('div');
-                item.className = 'timeline-item urgent';
-                item.innerHTML = `
-                    <div class="item-header">
-                        <div class="item-title">${task.item}</div>
-                        <div class="item-category urgent-badge">${categoryInfo.icon} ${categoryInfo.name}</div>
-                    </div>
-                    <div class="item-details">
-                        <div class="detail-badge urgent-badge">
-                            🚨 ${task.overdaysDays}일 연체
-                        </div>
-                        ${task.vendor ? `<div class="detail-badge vendor-badge">🏪 ${task.vendor}</div>` : ''}
-                        ${task.amount > 0 ? `<div class="detail-badge amount-badge">💰 ${Math.round(task.amount/10000).toLocaleString()}만원</div>` : ''}
-                    </div>
-                `;
-                list.appendChild(item);
-            });
-            
-            section.style.display = 'block';
-        }
-        
-        // ========== 이번 주 할일 업데이트 ==========
         function updateThisWeekTasks(tasks) {
             const section = document.getElementById('this-week-section');
             const list = document.getElementById('this-week-list');
@@ -1741,25 +1293,22 @@
             }
             
             list.innerHTML = '';
-            tasks.slice(0, 10).forEach(task => {
+            tasks.forEach(task => {
                 const categoryInfo = CONFIG.CATEGORIES[task.category] || { icon: '📋', name: task.category };
                 const typeText = task.type === 'execution' ? '실행' : '결제';
                 const dateText = formatDateShort(new Date(task.targetDate));
-                const isUrgent = task.urgency === 'high';
                 
                 const item = document.createElement('div');
-                item.className = `timeline-item ${isUrgent ? 'urgent' : ''}`;
+                item.className = 'timeline-item';
                 item.innerHTML = `
                     <div class="item-header">
                         <div class="item-title">${task.item}</div>
-                        <div class="item-category ${isUrgent ? 'urgent-badge' : ''}">${categoryInfo.icon} ${categoryInfo.name}</div>
+                        <div class="item-category">${categoryInfo.icon} ${categoryInfo.name}</div>
                     </div>
                     <div class="item-details">
-                        ${isUrgent ? '<div class="detail-badge urgent-badge">🔥 긴급</div>' : ''}
                         <div class="detail-badge">
                             📅 ${typeText}일: ${dateText}
                         </div>
-                        ${task.vendor ? `<div class="detail-badge vendor-badge">🏪 ${task.vendor}</div>` : ''}
                         ${task.amount > 0 ? `<div class="detail-badge amount-badge">💰 ${Math.round(task.amount/10000).toLocaleString()}만원</div>` : ''}
                     </div>
                 `;
@@ -1769,7 +1318,6 @@
             section.style.display = 'block';
         }
         
-        // ========== 이번 달 결제 업데이트 ==========
         function updateThisMonthPayments(payments) {
             const section = document.getElementById('this-month-section');
             const list = document.getElementById('this-month-list');
@@ -1780,7 +1328,7 @@
             }
             
             list.innerHTML = '';
-            payments.slice(0, 8).forEach(payment => {
+            payments.forEach(payment => {
                 const categoryInfo = CONFIG.CATEGORIES[payment.category] || { icon: '📋', name: payment.category };
                 const dateText = formatDateShort(new Date(payment.paymentDate));
                 
@@ -1795,7 +1343,6 @@
                         <div class="detail-badge">
                             💳 결제일: ${dateText}
                         </div>
-                        ${payment.vendor ? `<div class="detail-badge vendor-badge">🏪 ${payment.vendor}</div>` : ''}
                         <div class="detail-badge amount-badge">
                             💰 ${Math.round(payment.amount/10000).toLocaleString()}만원
                         </div>
@@ -1807,118 +1354,41 @@
             section.style.display = 'block';
         }
         
-        // ========== 다음 달 실행 업데이트 ==========
-        function updateNextMonthExecutions(executions) {
-            const section = document.getElementById('next-month-section');
-            const list = document.getElementById('next-month-list');
-            
-            if (executions.length === 0) {
-                section.style.display = 'none';
-                return;
-            }
-            
+        function updateCategoryOverview(categoryStats) {
+            const list = document.getElementById('category-list');
             list.innerHTML = '';
-            executions.slice(0, 8).forEach(execution => {
-                const categoryInfo = CONFIG.CATEGORIES[execution.category] || { icon: '📋', name: execution.category };
-                const dateText = formatDateShort(new Date(execution.executionDate));
+            
+            Object.keys(CONFIG.CATEGORIES).forEach(categoryKey => {
+                const category = CONFIG.CATEGORIES[categoryKey];
+                const stats = categoryStats[categoryKey] || {
+                    budget: 0,
+                    completed: 0,
+                    total: 0,
+                    progress: 0,
+                    icon: category.icon,
+                    name: category.name
+                };
                 
                 const item = document.createElement('div');
                 item.className = 'timeline-item';
                 item.innerHTML = `
                     <div class="item-header">
-                        <div class="item-title">${execution.item}</div>
-                        <div class="item-category">${categoryInfo.icon} ${categoryInfo.name}</div>
+                        <div class="item-title">${stats.icon} ${stats.name}</div>
+                        <div class="item-category">${stats.progress}% 완료</div>
                     </div>
                     <div class="item-details">
                         <div class="detail-badge">
-                            📅 실행일: ${dateText}
+                            📊 ${stats.completed}/${stats.total} 완료
                         </div>
-                        ${execution.vendor ? `<div class="detail-badge vendor-badge">🏪 ${execution.vendor}</div>` : ''}
-                        ${execution.amount > 0 ? `<div class="detail-badge amount-badge">💰 ${Math.round(execution.amount/10000).toLocaleString()}만원</div>` : ''}
-                    </div>
-                `;
-                list.appendChild(item);
-            });
-            
-            section.style.display = 'block';
-        }
-        
-        // ========== 우선순위 작업 업데이트 ==========
-        function updatePriorityTasks(tasks) {
-            const section = document.getElementById('priority-section');
-            const list = document.getElementById('priority-list');
-            
-            if (tasks.length === 0) {
-                section.style.display = 'none';
-                return;
-            }
-            
-            list.innerHTML = '';
-            tasks.slice(0, 6).forEach(task => {
-                const categoryInfo = CONFIG.CATEGORIES[task.category] || { icon: '📋', name: task.category };
-                const priorityText = task.priority === 'critical' ? '🔴 최우선' : '🟡 높음';
-                
-                const item = document.createElement('div');
-                item.className = 'timeline-item';
-                item.innerHTML = `
-                    <div class="item-header">
-                        <div class="item-title">${task.item}</div>
-                        <div class="item-category">${categoryInfo.icon} ${categoryInfo.name}</div>
-                    </div>
-                    <div class="item-details">
-                        <div class="detail-badge urgent-badge">
-                            ${priorityText}
-                        </div>
-                        ${task.vendor ? `<div class="detail-badge vendor-badge">🏪 ${task.vendor}</div>` : ''}
                         <div class="detail-badge amount-badge">
-                            💰 ${Math.round(task.amount/10000).toLocaleString()}만원
+                            💰 ${Math.round(stats.budget/10000).toLocaleString()}만원
                         </div>
                     </div>
                 `;
                 list.appendChild(item);
             });
-            
-            section.style.display = 'block';
         }
         
-        // ========== 고급 카테고리 현황 업데이트 ==========
-        function updateAdvancedCategoryOverview(categoryStats) {
-            const container = document.getElementById('category-grid');
-            container.innerHTML = '';
-            
-            Object.keys(categoryStats).forEach(category => {
-                const stats = categoryStats[category];
-                
-                const card = document.createElement('div');
-                card.className = 'category-card';
-                card.innerHTML = `
-                    <div class="category-header">
-                        <div class="category-title">${stats.icon} ${stats.name}</div>
-                        <div class="category-progress-text">${stats.progress}%</div>
-                    </div>
-                    <div class="category-progress-bar">
-                        <div class="category-progress-fill" style="width: ${stats.progress}%"></div>
-                    </div>
-                    <div class="category-stats">
-                        <div class="stat-item">
-                            <div class="stat-value">${stats.completed}/${stats.total}</div>
-                            <div class="stat-label">완료</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">${Math.round(stats.budget/10000).toLocaleString()}만원</div>
-                            <div class="stat-label">예산</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">${Math.round((stats.upcomingPayments || 0)/10000).toLocaleString()}만원</div>
-                            <div class="stat-label">결제예정</div>
-                        </div>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-        
-        // ========== 세부 탭 업데이트 ==========
         function updateDetailTabs() {
             const categories = Object.keys(CONFIG.CATEGORIES);
             
@@ -1928,21 +1398,16 @@
                 const data = currentData[categoryKey] || [];
                 
                 const contentElement = document.getElementById(`${tabName}-content`);
-                const loadingElement = contentElement.parentElement.querySelector('.loading');
                 
                 if (data.length > 0) {
-                    contentElement.innerHTML = createAdvancedDetailView(data, categoryKey);
+                    contentElement.innerHTML = createDetailView(data, categoryKey);
                 } else {
                     contentElement.innerHTML = createEmptyState(categoryInfo);
                 }
-                
-                loadingElement.style.display = 'none';
-                contentElement.style.display = 'block';
             });
         }
         
-        // ========== 고급 세부 뷰 생성 ==========
-        function createAdvancedDetailView(data, categoryKey) {
+        function createDetailView(data, categoryKey) {
             if (!data || data.length === 0) {
                 return createEmptyState(CONFIG.CATEGORIES[categoryKey]);
             }
@@ -1951,7 +1416,6 @@
             
             data.forEach(row => {
                 const item = row['항목'] || '';
-                const category = row['구분'] || '';
                 const vendor = row['업체명'] || '';
                 const contact = row['연락처'] || '';
                 const deposit = parseFloat(row['계약금']) || 0;
@@ -1962,24 +1426,19 @@
                 const notes = row['메모'] || '';
                 
                 const totalBudget = deposit + balance;
-                const isCompleted = status.includes('완료');
-                const isOverdue = row._dueDate && row._dueDate < new Date() && !isCompleted;
                 
                 html += `
-                    <div class="detail-item ${isOverdue ? 'urgent' : ''}">
+                    <div class="detail-item">
                         <div class="item-header">
-                            <div class="item-title">
-                                ${category ? `[${category}] ` : ''}${item}
-                                ${isOverdue ? ' 🚨' : ''}
-                            </div>
+                            <div class="item-title">${item}</div>
                             <div class="item-status ${getStatusClass(status)}">${status}</div>
                         </div>
                         
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 18px 0;">
-                            ${vendor ? `<div class="detail-row"><span class="detail-icon">🏪</span><span><strong>업체:</strong> ${vendor}</span></div>` : ''}
-                            ${contact ? `<div class="detail-row"><span class="detail-icon">📞</span><span><strong>연락처:</strong> ${contact}</span></div>` : ''}
-                            ${paymentDate ? `<div class="detail-row"><span class="detail-icon">💳</span><span><strong>결제일:</strong> ${paymentDate}</span></div>` : ''}
-                            ${executionDate ? `<div class="detail-row"><span class="detail-icon">📅</span><span><strong>실행일:</strong> ${executionDate}</span></div>` : ''}
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 15px 0;">
+                            ${vendor ? `<div><strong>업체:</strong> ${vendor}</div>` : ''}
+                            ${contact ? `<div><strong>연락처:</strong> ${contact}</div>` : ''}
+                            ${paymentDate ? `<div><strong>결제일:</strong> ${paymentDate}</div>` : ''}
+                            ${executionDate ? `<div><strong>실행일:</strong> ${executionDate}</div>` : ''}
                         </div>
                         
                         ${totalBudget > 0 ? `
@@ -2001,20 +1460,14 @@
                                         <div class="budget-label">총액</div>
                                         <div class="budget-amount">${Math.round(totalBudget/10000).toLocaleString()}만원</div>
                                     </div>
-                                    ${isCompleted ? `
-                                        <div class="budget-item" style="background: #d1e7dd;">
-                                            <div class="budget-label">지출완료</div>
-                                            <div class="budget-amount" style="color: #0f5132;">✅</div>
-                                        </div>
-                                    ` : ''}
                                 </div>
                             </div>
                         ` : ''}
                         
                         ${notes ? `
-                            <div class="notes-section">
-                                <div class="notes-label">💬 메모</div>
-                                <div class="notes-content">${notes}</div>
+                            <div style="background: rgba(255, 193, 7, 0.1); padding: 12px 15px; border-radius: 10px; margin-top: 15px; border-left: 4px solid #ffc107;">
+                                <div style="font-size: 12px; color: #856404; font-weight: 600; margin-bottom: 5px;">💬 메모</div>
+                                <div style="font-size: 14px; color: #856404; line-height: 1.4;">${notes}</div>
                             </div>
                         ` : ''}
                     </div>
@@ -2024,13 +1477,12 @@
             return html;
         }
         
-        // ========== 빈 상태 UI ==========
         function createEmptyState(categoryInfo) {
             return `
                 <div class="empty-state">
                     <h4>${categoryInfo.icon} ${categoryInfo.name}</h4>
                     <p>아직 ${categoryInfo.name} 데이터가 없습니다.</p>
-                    <p><small>Google Sheets에서 "${categoryInfo.name}" 시트에 데이터를 추가하거나,<br>"완전한 시스템 생성" 버튼을 클릭하여 샘플 데이터를 생성하세요.</small></p>
+                    <p><small>Google Sheets에서 데이터를 추가해주세요.</small></p>
                 </div>
             `;
         }
@@ -2040,7 +1492,6 @@
         function getStatusClass(status) {
             if (status.includes('완료')) return 'status-완료';
             if (status.includes('진행')) return 'status-진행중';
-            if (status.includes('취소')) return 'status-취소';
             return 'status-미정';
         }
         
@@ -2094,14 +1545,6 @@
             }, type === 'error' ? 6000 : 4000);
         }
         
-        function showConnectionStatus() {
-            const systemStatus = systemInitialized ? '✅ 시스템 초기화됨' : '⚠️ 시스템 미초기화';
-            const updateStatus = lastUpdated ? `마지막 업데이트: ${formatTime(lastUpdated)}` : '업데이트 없음';
-            
-            const message = `${systemStatus} | ${updateStatus} | v${CONFIG.SYSTEM_VERSION}`;
-            showNotification(message, systemInitialized ? 'success' : 'warning');
-        }
-        
         function showTab(tabName) {
             // 탭 활성화
             document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
@@ -2114,28 +1557,9 @@
             document.querySelector('.content').scrollTop = 0;
         }
         
-        function toggleCategories() {
-            const toggle = document.querySelector('.category-toggle');
-            const grid = document.getElementById('category-grid');
-            
-            toggle.classList.toggle('expanded');
-            grid.classList.toggle('expanded');
-        }
-        
-        function setupAutoRefresh() {
-            if (CONFIG.AUTO_REFRESH_MINUTES > 0) {
-                autoRefreshInterval = setInterval(() => {
-                    console.log('v3.0 자동 새로고침 실행...');
-                    loadAllData();
-                }, CONFIG.AUTO_REFRESH_MINUTES * 60 * 1000);
-                
-                console.log(`v3.0 자동 새로고침 설정됨: ${CONFIG.AUTO_REFRESH_MINUTES}분 간격`);
-            }
-        }
-        
         // ========== 초기화 ==========
         window.addEventListener('load', function() {
-            console.log(`💍 NYSH Wedding Project v${CONFIG.SYSTEM_VERSION} 초기화...`);
+            console.log('💍 나영 ♥ 상현 Wedding Project 시작...');
             
             // D-Day 업데이트
             updateDDay();
@@ -2146,19 +1570,11 @@
                 progressFill.style.width = '0%';
             }
             
-            // API 설정 확인
-            if (CONFIG.API_URL) {
-                setupAutoRefresh();
-                loadAllData();
-            } else {
-                updateStatusIndicator('error', 'API URL이 설정되지 않음');
-                showNotification('⚙️ API 설정이 필요합니다', 'error');
-            }
+            // 데이터 로드
+            loadAllData();
             
-            console.log(`✅ v${CONFIG.SYSTEM_VERSION} 시스템 준비 완료!`);
+            console.log('✅ Wedding Project 준비 완료!');
         });
-        
-        // ========== 이벤트 리스너 ==========
         
         // 키보드 단축키
         document.addEventListener('keydown', function(e) {
@@ -2166,33 +1582,10 @@
                 e.preventDefault();
                 loadAllData();
             }
-            if (e.ctrlKey && e.key === 'n') {
-                e.preventDefault();
-                createCompleteSystem();
-            }
         });
         
         // 터치 이벤트 최적화
         document.addEventListener('touchstart', function() {}, {passive: true});
-        
-        // 정리
-        window.addEventListener('beforeunload', function() {
-            if (autoRefreshInterval) {
-                clearInterval(autoRefreshInterval);
-            }
-        });
-        
-        // 페이지 가시성 API (탭 전환시 자동 새로고침)
-        document.addEventListener('visibilitychange', function() {
-            if (!document.hidden && systemInitialized && lastUpdated) {
-                const timeSinceLastUpdate = new Date() - lastUpdated;
-                // 5분 이상 지났으면 자동 새로고침
-                if (timeSinceLastUpdate > 5 * 60 * 1000) {
-                    console.log('페이지 재활성화 - 자동 새로고침...');
-                    loadAllData();
-                }
-            }
-        });
         
     </script>
 </body>
