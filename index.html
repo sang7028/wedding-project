@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     
-    <title>💍 나영 ♥ 상현 Wedding Project</title>
-    <meta name="description" content="김나영 & 이상현의 2026.4.18 웨딩 준비 현황을 실시간으로 확인하세요">
+    <title>💍 나영 ♥ 상현 Wedding Project v1.0</title>
+    <meta name="description" content="김나영 & 이상현의 2026.4.18 웨딩 준비 통합 관리">
     
     <!-- PWA 설정 -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -24,163 +24,101 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 50%, rgba(255, 107, 157, 0.9) 100%), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="4" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="6" fill="rgba(255,255,255,0.05)"/></svg>');
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(255, 107, 157, 0.9) 100%);
             background-attachment: fixed;
-            background-size: cover, 150px 150px;
             min-height: 100vh;
-            padding: 10px;
-            line-height: 1.6;
+            padding: 8px;
+            line-height: 1.5;
             color: #333;
+            font-size: 14px;
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 600px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.98);
-            border-radius: 20px;
-            box-shadow: 0 30px 100px rgba(0,0,0,0.3);
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             overflow: hidden;
-            backdrop-filter: blur(25px);
-            animation: slideIn 0.8s ease-out;
-            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(20px);
+            animation: slideIn 0.6s ease-out;
         }
         
         @keyframes slideIn {
-            from { opacity: 0; transform: translateY(40px) scale(0.95); }
+            from { opacity: 0; transform: translateY(30px) scale(0.96); }
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
         
-        /* ========== 헤더 섹션 ========== */
+        /* ========== 헤더 ========== */
         .header {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 30%, #fecfef 70%, #ffa8cc 100%);
-            padding: 40px 30px;
+            background: linear-gradient(135deg, #ff9a9e 0%, #ffa8cc 100%);
+            padding: 20px 16px;
             text-align: center;
             color: #333;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="4" fill="rgba(255,255,255,0.3)"/><circle cx="75" cy="75" r="5" fill="rgba(255,255,255,0.2)"/></svg>');
-            background-size: 120px 120px;
-            opacity: 0.7;
-            animation: float 25s infinite linear;
-        }
-        
-        @keyframes float {
-            from { transform: translateX(-30px) translateY(-10px); }
-            to { transform: translateX(30px) translateY(10px); }
         }
         
         .header h1 {
-            margin: 0 0 20px 0;
-            font-size: 2.6em;
-            font-weight: 300;
-            position: relative;
-            z-index: 2;
-            text-shadow: 0 3px 20px rgba(0,0,0,0.1);
-            letter-spacing: -0.5px;
+            font-size: 1.6em;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+            letter-spacing: -0.3px;
         }
         
         .couple-info {
-            margin: 25px 0;
-            font-size: 1.3em;
-            font-weight: 500;
-            position: relative;
-            z-index: 2;
-            opacity: 0.95;
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin: 8px 0;
         }
         
         .wedding-info {
             display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 2;
+            justify-content: space-between;
+            margin-top: 12px;
+            font-size: 0.8em;
         }
         
         .info-item {
-            background: rgba(255,255,255,0.95);
-            padding: 18px 30px;
-            border-radius: 30px;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 0.95em;
-            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.9);
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-weight: 500;
         }
         
-        .info-item:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-        }
-
-        /* ========== 제어판 섹션 ========== */
+        /* ========== 제어판 ========== */
         .control-panel {
-            background: linear-gradient(135deg, #667eea, #764ba2, #6c5ce7);
-            padding: 25px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 16px;
             text-align: center;
             color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .control-panel::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="30" cy="30" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: 80px 80px;
-            opacity: 0.8;
         }
         
         .control-buttons {
             display: flex;
             justify-content: center;
-            gap: 18px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
+            gap: 8px;
+            margin-bottom: 12px;
         }
         
         .btn {
-            background: rgba(255,255,255,0.95);
+            background: rgba(255,255,255,0.9);
             color: #667eea;
             border: none;
-            padding: 14px 28px;
-            border-radius: 30px;
-            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            border: 1px solid rgba(255,255,255,0.2);
-            position: relative;
-            overflow: hidden;
+            gap: 4px;
         }
         
         .btn:hover {
             background: white;
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            color: #5a67d8;
+            transform: translateY(-1px);
         }
         
         .btn.refresh {
@@ -188,33 +126,30 @@
             color: white;
         }
         
-        .btn.refresh:hover {
-            background: linear-gradient(135deg, #218838, #1ba085);
-            color: white;
-        }
-        
         .status-indicator {
             display: inline-block;
-            width: 12px;
-            height: 12px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
-            margin-right: 10px;
+            margin-right: 6px;
             animation: pulse 2s infinite;
-            position: relative;
-            z-index: 2;
         }
         
         .status-connected { 
             background: #28a745; 
-            box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+            box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
         }
         .status-loading { 
             background: #ffc107; 
-            box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+            box-shadow: 0 0 8px rgba(255, 193, 7, 0.5);
         }
         .status-error { 
             background: #dc3545; 
-            box-shadow: 0 0 10px rgba(220, 53, 69, 0.5);
+            box-shadow: 0 0 8px rgba(220, 53, 69, 0.5);
+        }
+        .status-offline { 
+            background: #6c757d; 
+            box-shadow: 0 0 8px rgba(108, 117, 125, 0.5);
         }
         
         @keyframes pulse {
@@ -224,81 +159,57 @@
         }
         
         #status-info {
-            position: relative;
-            z-index: 2;
+            font-size: 11px;
+            opacity: 0.9;
         }
         
         /* ========== 탭 네비게이션 ========== */
         .tabs {
             display: flex;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            background: #f8f9fa;
             border-bottom: 1px solid #dee2e6;
-            overflow-x: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            box-shadow: inset 0 -2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .tabs::-webkit-scrollbar {
-            display: none;
         }
         
         .tab {
-            padding: 18px 20px;
+            flex: 1;
+            padding: 12px 8px;
             cursor: pointer;
             border: none;
             background: none;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 500;
             color: #666;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            white-space: nowrap;
-            min-width: 120px;
-            position: relative;
-            flex-shrink: 0;
-            border-radius: 0;
+            transition: all 0.3s ease;
             text-align: center;
-        }
-        
-        .tab::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: #667eea;
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+            position: relative;
         }
         
         .tab.active {
             background: white;
             color: #667eea;
             font-weight: 600;
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
         }
         
         .tab.active::after {
-            transform: scaleX(1);
-        }
-        
-        .tab:hover:not(.active) {
-            background: rgba(255,255,255,0.7);
-            color: #495057;
-            transform: translateY(-2px);
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #667eea;
         }
         
         /* ========== 콘텐츠 영역 ========== */
         .content {
-            padding: 30px;
-            min-height: 600px;
+            padding: 16px;
             background: white;
+            min-height: 400px;
         }
         
         .tab-content {
             display: none;
-            animation: fadeIn 0.5s ease-in;
+            animation: fadeIn 0.4s ease-in;
         }
         
         .tab-content.active {
@@ -306,247 +217,132 @@
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* ========== Summary 타임라인 스타일 ========== */
-        
-        .timeline-summary {
-            background: linear-gradient(135deg, #ff6b9d, #ffa8cc, #ff9a9e);
+        /* ========== Summary 스타일 ========== */
+        .summary-header {
+            background: linear-gradient(135deg, #ff6b9d, #ffa8cc);
             color: white;
-            padding: 35px 30px;
-            border-radius: 20px;
-            margin: 30px 0;
+            padding: 16px;
+            border-radius: 12px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(255, 107, 157, 0.3);
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 20px;
         }
         
-        .timeline-summary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="3" fill="rgba(255,255,255,0.2)"/><circle cx="75" cy="75" r="4" fill="rgba(255,255,255,0.15)"/></svg>');
-            background-size: 100px 100px;
-            opacity: 0.6;
-            animation: float 30s infinite linear;
+        .summary-header h2 {
+            font-size: 1.2em;
+            font-weight: 500;
+            margin: 0 0 8px 0;
         }
         
-        .timeline-summary h2 {
-            margin: 0 0 20px 0;
-            font-size: 1.6em;
-            font-weight: 300;
-            line-height: 1.3;
-            position: relative;
-            z-index: 2;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        
-        .overall-progress {
-            background: rgba(255,255,255,0.2);
-            border-radius: 18px;
-            padding: 20px;
-            margin: 25px 0;
-            position: relative;
-            z-index: 2;
-            backdrop-filter: blur(10px);
-        }
-        
-        .progress-label {
+        .progress-info {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-            font-weight: 600;
+            font-size: 0.9em;
+            margin-top: 8px;
         }
         
-        .progress-bar {
-            width: 100%;
-            height: 14px;
-            background: rgba(255,255,255,0.3);
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #ffffff, #f0f0f0, #ffffff);
-            border-radius: 20px;
-            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-        
-        .progress-fill::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-            animation: shimmer 2.5s infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        
-        /* ========== 메인 통계 카드 ========== */
-        .main-stats {
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
         }
         
         .stat-card {
-            background: linear-gradient(135deg, #667eea, #764ba2, #6c5ce7);
+            background: linear-gradient(135deg, #667eea, #6c5ce7);
             color: white;
-            padding: 30px 25px;
-            border-radius: 20px;
+            padding: 16px;
+            border-radius: 12px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: cardShimmer 4s infinite;
-        }
-        
-        @keyframes cardShimmer {
-            0% { transform: translateX(-100%) translateY(-100%); }
-            100% { transform: translateX(100%) translateY(100%); }
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 30px 70px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
         }
         
         .stat-card h3 {
-            margin: 0 0 12px 0;
-            font-size: 2.2em;
+            font-size: 1.4em;
             font-weight: 300;
-            text-shadow: 0 3px 20px rgba(0,0,0,0.2);
-            position: relative;
-            z-index: 2;
+            margin: 0 0 4px 0;
         }
         
         .stat-card p {
-            margin: 0;
+            font-size: 0.8em;
             opacity: 0.9;
-            font-size: 14px;
-            font-weight: 500;
-            position: relative;
-            z-index: 2;
+            margin: 0;
         }
         
-        /* ========== 타임라인 섹션들 ========== */
-        .timeline-section {
-            margin: 35px 0;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        /* ========== 일정 섹션 ========== */
+        .schedule-section {
+            margin: 20px 0;
         }
         
-        .timeline-header {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24, #d63031);
+        .section-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            padding: 25px 30px;
-            font-size: 1.4em;
+            padding: 12px 16px;
+            border-radius: 8px 8px 0 0;
+            font-size: 0.9em;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 12px;
-            position: relative;
-            overflow: hidden;
+            gap: 8px;
         }
         
-        .timeline-content {
+        .section-content {
+            background: #f8f9ff;
+            border-radius: 0 0 8px 8px;
+            padding: 12px;
+        }
+        
+        .schedule-item {
             background: white;
-            padding: 25px;
-            position: relative;
-        }
-        
-        .timeline-item {
-            background: linear-gradient(135deg, #f8f9ff, #faf6ff, #f0f8ff);
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 16px;
-            border-left: 5px solid #667eea;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-        
-        .timeline-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
         
         .item-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-            gap: 12px;
+            margin-bottom: 8px;
         }
         
         .item-title {
-            font-size: 16px;
+            font-size: 0.9em;
             font-weight: 600;
             color: #2c3e50;
-            line-height: 1.4;
         }
         
         .item-category {
             background: rgba(102, 126, 234, 0.1);
             color: #667eea;
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.7em;
             font-weight: 600;
-            white-space: nowrap;
         }
         
         .item-details {
             display: flex;
-            gap: 15px;
             flex-wrap: wrap;
-            font-size: 14px;
+            gap: 8px;
+            font-size: 0.8em;
             color: #555;
         }
         
         .detail-badge {
-            background: rgba(255,255,255,0.8);
-            padding: 8px 14px;
-            border-radius: 18px;
-            font-size: 12px;
+            background: #f8f9fa;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.7em;
             font-weight: 500;
             display: flex;
             align-items: center;
-            gap: 6px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            gap: 4px;
         }
         
         .amount-badge {
@@ -555,158 +351,105 @@
             font-weight: 600;
         }
         
-        /* ========== 세부 탭 스타일 ========== */
-        .detail-section {
-            margin: 30px 0;
+        .urgent {
+            border-left-color: #dc3545;
         }
         
-        .section-header {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 25px 30px;
-            border-radius: 20px 20px 0 0;
-            font-size: 18px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .urgent .item-category {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
         }
         
-        .detail-grid {
-            background: white;
-            border-radius: 0 0 20px 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        
-        .detail-item {
+        /* ========== 카테고리 관리 ========== */
+        .category-item {
             background: linear-gradient(135deg, #f8f9ff, #faf6ff);
-            margin: 20px;
-            border-radius: 16px;
-            padding: 25px;
-            border-left: 5px solid #667eea;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin: 8px 0;
+            border-radius: 8px;
+            padding: 16px;
+            border-left: 4px solid #667eea;
         }
         
-        .detail-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        .category-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
-        .item-status {
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            white-space: nowrap;
-        }
-        
-        .status-완료 {
-            background: linear-gradient(135deg, #d1e7dd, #a3d9a4);
-            color: #0f5132;
-        }
-        
-        .status-진행중 {
-            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-            color: #664d03;
-        }
-        
-        .status-미정 {
-            background: linear-gradient(135deg, #f8d7da, #fab1a0);
-            color: #721c24;
-        }
-        
-        .budget-section {
-            background: rgba(102, 126, 234, 0.08);
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 20px;
-        }
-        
-        .budget-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            font-size: 14px;
-        }
-        
-        .budget-item {
-            text-align: center;
-            padding: 15px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        
-        .budget-label {
-            font-size: 12px;
-            color: #666;
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 8px;
-            font-weight: 500;
         }
         
-        .budget-amount {
-            font-size: 16px;
+        .category-name {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .category-progress {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 0.7em;
+            font-weight: 600;
+        }
+        
+        .category-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 8px;
+            font-size: 0.8em;
+        }
+        
+        .category-stat {
+            text-align: center;
+            padding: 8px;
+            background: white;
+            border-radius: 6px;
+        }
+        
+        .stat-label {
+            font-size: 0.7em;
+            color: #666;
+            margin-bottom: 4px;
+        }
+        
+        .stat-value {
             font-weight: 600;
             color: #2c3e50;
         }
         
         .empty-state {
             text-align: center;
-            padding: 60px 40px;
+            padding: 40px 20px;
             color: #666;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 16px;
+            background: #f8f9fa;
+            border-radius: 8px;
             margin: 20px 0;
         }
         
         .empty-state h4 {
-            margin: 0 0 15px 0;
-            font-size: 1.3em;
+            margin: 0 0 8px 0;
+            font-size: 1.1em;
             color: #495057;
-        }
-        
-        .loading {
-            text-align: center;
-            padding: 60px;
-            color: #666;
-            font-size: 16px;
-            position: relative;
-        }
-        
-        .loading::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #667eea;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 20px auto 0;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
         
         .notification {
             position: fixed;
-            top: 30px;
-            right: 30px;
+            top: 20px;
+            right: 20px;
             background: #28a745;
             color: white;
-            padding: 18px 30px;
-            border-radius: 30px;
+            padding: 12px 20px;
+            border-radius: 20px;
             z-index: 1000;
             opacity: 0;
             transform: translateY(-20px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 20px 50px rgba(40, 167, 69, 0.3);
-            font-size: 14px;
-            max-width: calc(100vw - 60px);
-            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+            font-size: 12px;
+            max-width: calc(100vw - 40px);
         }
         
         .notification.show {
@@ -716,80 +459,64 @@
         
         .notification.error {
             background: #dc3545;
-            box-shadow: 0 20px 50px rgba(220, 53, 69, 0.3);
         }
         
         .notification.warning {
             background: #ffc107;
             color: #212529;
-            box-shadow: 0 20px 50px rgba(255, 193, 7, 0.3);
         }
         
-        /* ========== 반응형 디자인 ========== */
-        @media (max-width: 768px) {
+        /* ========== 반응형 최적화 ========== */
+        @media (max-width: 480px) {
             body {
-                padding: 5px;
+                padding: 4px;
+                font-size: 13px;
+            }
+            
+            .container {
+                border-radius: 12px;
             }
             
             .header {
-                padding: 30px 20px;
+                padding: 16px 12px;
             }
             
             .header h1 {
-                font-size: 2.2em;
+                font-size: 1.4em;
             }
             
             .wedding-info {
                 flex-direction: column;
-                gap: 15px;
+                gap: 8px;
             }
             
-            .main-stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
+            .info-item {
+                padding: 6px 10px;
+                font-size: 0.75em;
             }
             
             .control-buttons {
                 flex-direction: column;
-                align-items: center;
-                gap: 12px;
+                gap: 6px;
             }
             
             .btn {
-                min-width: 280px;
-                padding: 16px 30px;
-                font-size: 15px;
+                padding: 10px 16px;
+                font-size: 11px;
             }
             
-            .tabs {
-                overflow-x: auto;
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
             }
             
             .tab {
-                flex-shrink: 0;
-                min-width: 100px;
-                font-size: 12px;
-                padding: 15px 12px;
+                padding: 10px 6px;
+                font-size: 10px;
             }
             
             .content {
-                padding: 20px;
-            }
-            
-            .notification {
-                right: 15px;
-                left: 15px;
-                text-align: center;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .main-stats {
-                grid-template-columns: 1fr;
-            }
-            
-            .header h1 {
-                font-size: 1.9em;
+                padding: 12px;
             }
         }
     </style>
@@ -805,10 +532,7 @@
             </div>
             <div class="wedding-info">
                 <div class="info-item">
-                    <strong>💍 Wedding Day:</strong> <span id="wedding-date">2026.4.18 (SAT) 16:30</span>
-                </div>
-                <div class="info-item">
-                    <strong>🏨 장소:</strong> <span id="venue-name">강변 웨딩 스퀘어</span>
+                    <strong>💍 Wedding Day:</strong> 2026.4.18 (SAT)
                 </div>
                 <div class="info-item">
                     <strong>⏰ D-Day:</strong> <span id="dday">계산중...</span>
@@ -819,223 +543,105 @@
         <!-- 제어판 -->
         <div class="control-panel">
             <div class="control-buttons">
-                <button class="btn refresh" onclick="loadAllData()">🔄 데이터 새로고침</button>
-                <a href="https://docs.google.com/spreadsheets/d/13Y7RRprcp-lNjInoJHEL3q83FWw_NksjW6bHEOh4qDo/edit" class="btn" target="_blank">📊 Google Sheets 편집</a>
+                <button class="btn refresh" onclick="refreshData()">🔄 새로고침</button>
+                <a href="https://docs.google.com/spreadsheets/d/13Y7RRprcp-lNjInoJHEL3q83FWw_NksjW6bHEOh4qDo/edit" class="btn" target="_blank">📊 스프레드시트</a>
             </div>
             <div id="status-info">
                 <span class="status-indicator status-loading"></span>
-                <span style="font-size: 13px; opacity: 0.9;">Wedding Project 초기화 중...</span>
+                <span>Wedding Project 연결 중...</span>
             </div>
         </div>
         
         <!-- 탭 네비게이션 -->
         <div class="tabs">
-            <button class="tab active" onclick="showTab('summary')">💍 Summary</button>
-            <button class="tab" onclick="showTab('venue')">🏰 웨딩홀</button>
-            <button class="tab" onclick="showTab('fashion')">👗 의상뷰티</button>
-            <button class="tab" onclick="showTab('photo')">📷 촬영영상</button>
-            <button class="tab" onclick="showTab('travel')">✈️ 신혼여행</button>
-            <button class="tab" onclick="showTab('invitation')">💌 청첩장하객</button>
-            <button class="tab" onclick="showTab('jewelry')">💎 예물반지</button>
-            <button class="tab" onclick="showTab('family')">👨‍👩‍👧‍👦 가족행사</button>
-            <button class="tab" onclick="showTab('legal')">📋 법적절차</button>
-            <button class="tab" onclick="showTab('sound')">🎵 음향엔터</button>
-            <button class="tab" onclick="showTab('transport')">🚗 교통차량</button>
-            <button class="tab" onclick="showTab('gift')">💰 축의금관리</button>
+            <button class="tab active" onclick="showTab('summary')">📋 Summary</button>
+            <button class="tab" onclick="showTab('schedule')">📅 일정관리</button>
+            <button class="tab" onclick="showTab('categories')">📊 카테고리</button>
         </div>
         
         <!-- 콘텐츠 영역 -->
         <div class="content">
             <!-- Summary 탭 -->
             <div id="summary" class="tab-content active">
-                <div id="summary-content">
-                    
-                    <!-- 핵심 현황 -->
-                    <div class="timeline-summary">
-                        <h2>💕 나영아, 우리의 Wedding 현황</h2>
-                        <div class="overall-progress">
-                            <div class="progress-label">
-                                <span>전체 진행률</span>
-                                <span id="overall-progress-text">0%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div id="overall-progress-fill" class="progress-fill" style="width: 0%;"></div>
-                            </div>
-                        </div>
-                        <div>함께 만들어가는 특별한 하루까지 <span id="days-left">0</span>일 💖</div>
+                <div class="summary-header">
+                    <h2>💕 우리의 Wedding 현황</h2>
+                    <div class="progress-info">
+                        <span>전체 진행률: <span id="overall-progress">0%</span></span>
+                        <span>D-<span id="days-left">0</span></span>
                     </div>
-                    
-                    <!-- 핵심 지표 -->
-                    <div class="main-stats">
-                        <div class="stat-card">
-                            <h3 id="dday-card">0일</h3>
-                            <p>D-Day</p>
-                        </div>
-                        <div class="stat-card">
-                            <h3 id="progress-card">0%</h3>
-                            <p>전체 진행률</p>
-                        </div>
-                        <div class="stat-card">
-                            <h3 id="budget-card">0만원</h3>
-                            <p>예상 총 지출</p>
-                        </div>
-                        <div class="stat-card">
-                            <h3 id="expense-card">0만원</h3>
-                            <p>현재 지출</p>
-                        </div>
-                    </div>
-                    
-                    <!-- 이번 주 할일 -->
-                    <div id="this-week-section" class="timeline-section" style="display: none;">
-                        <div class="timeline-header">
-                            🔥 이번 주 해야 할 일
-                        </div>
-                        <div class="timeline-content">
-                            <div id="this-week-list"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- 이번 달 결제 예정 -->
-                    <div id="this-month-section" class="timeline-section" style="display: none;">
-                        <div class="timeline-header">
-                            💳 이번 달 결제 예정
-                        </div>
-                        <div class="timeline-content">
-                            <div id="this-month-list"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- 카테고리별 현황 -->
-                    <div id="category-section" class="timeline-section">
-                        <div class="timeline-header" style="background: linear-gradient(135deg, #4834d4, #686de0);">
-                            📊 카테고리별 진행 현황
-                        </div>
-                        <div class="timeline-content">
-                            <div id="category-list"></div>
-                        </div>
-                    </div>
-                    
                 </div>
-            </div>
-            
-            <!-- 세부 탭들 -->
-            <div id="venue" class="tab-content">
-                <div class="detail-section">
-                    <div class="section-header">
-                        🏰 웨딩홀 세부 관리
+                
+                <!-- 핵심 지표 -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3 id="dday-card">0일</h3>
+                        <p>D-Day</p>
                     </div>
-                    <div class="detail-grid">
-                        <div id="venue-content"></div>
+                    <div class="stat-card">
+                        <h3 id="progress-card">0%</h3>
+                        <p>진행률</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="budget-card">0만원</h3>
+                        <p>총 예산</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="remaining-card">0만원</h3>
+                        <p>남은 결제</p>
+                    </div>
+                </div>
+                
+                <!-- 이번 주 일정 -->
+                <div id="this-week-section" class="schedule-section" style="display: none;">
+                    <div class="section-header">
+                        🔥 이번 주 일정
+                    </div>
+                    <div class="section-content">
+                        <div id="this-week-list"></div>
+                    </div>
+                </div>
+                
+                <!-- 이번 달 결제 -->
+                <div id="this-month-section" class="schedule-section" style="display: none;">
+                    <div class="section-header">
+                        💳 이번 달 결제
+                    </div>
+                    <div class="section-content">
+                        <div id="this-month-list"></div>
+                    </div>
+                </div>
+                
+                <!-- 다가오는 일정 -->
+                <div id="upcoming-section" class="schedule-section">
+                    <div class="section-header">
+                        📅 다가오는 일정 (실행일 순)
+                    </div>
+                    <div class="section-content">
+                        <div id="upcoming-list"></div>
                     </div>
                 </div>
             </div>
             
-            <div id="fashion" class="tab-content">
-                <div class="detail-section">
+            <!-- 일정관리 탭 -->
+            <div id="schedule" class="tab-content">
+                <div class="schedule-section">
                     <div class="section-header">
-                        👗 의상 & 뷰티 세부 관리
+                        📅 전체 일정 관리
                     </div>
-                    <div class="detail-grid">
-                        <div id="fashion-content"></div>
+                    <div class="section-content">
+                        <div id="all-schedule-list"></div>
                     </div>
                 </div>
             </div>
             
-            <div id="photo" class="tab-content">
-                <div class="detail-section">
+            <!-- 카테고리 탭 -->
+            <div id="categories" class="tab-content">
+                <div class="schedule-section">
                     <div class="section-header">
-                        📷 촬영 & 영상 세부 관리
+                        📊 카테고리별 현황
                     </div>
-                    <div class="detail-grid">
-                        <div id="photo-content"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="travel" class="tab-content">
-                <div class="detail-section">
-                    <div class="section-header">
-                        ✈️ 신혼여행 세부 관리
-                    </div>
-                    <div class="detail-grid">
-                        <div id="travel-content"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="invitation" class="tab-content">
-                <div class="detail-section">
-                    <div class="section-header">
-                        💌 청첩장 & 하객 세부 관리
-                    </div>
-                    <div class="detail-grid">
-                        <div id="invitation-content"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="jewelry" class="tab-content">
-                <div class="detail-section">
-                    <div class="section-header">
-                        💎 예물 & 반지 세부 관리
-                    </div>
-                    <div class="detail-grid">
-                        <div id="jewelry-content"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="family" class="tab-content">
-                <div class="detail-section">
-                    <div class="section-header">
-                        👨‍👩‍👧‍👦 가족 행사 세부 관리
-                    </div>
-                    <div class="detail-grid">
-                        <div id="family-content"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="legal" class="tab-content">
-                <div class="detail-section">
-                    <div class="section-header">
-                        📋 법적절차 & 행정업무 세부 관리
-                    </div>
-                    <div class="detail-grid">
-                        <div id="legal-content"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="sound" class="tab-content">
-                <div class="detail-section">
-                    <div class="section-header">
-                        🎵 음향 & 엔터테인먼트 세부 관리
-                    </div>
-                    <div class="detail-grid">
-                        <div id="sound-content"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="transport" class="tab-content">
-                <div class="detail-section">
-                    <div class="section-header">
-                        🚗 교통 & 차량 세부 관리
-                    </div>
-                    <div class="detail-grid">
-                        <div id="transport-content"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="gift" class="tab-content">
-                <div class="detail-section">
-                    <div class="section-header">
-                        💰 축의금 & 선물 관리
-                    </div>
-                    <div class="detail-grid">
-                        <div id="gift-content"></div>
+                    <div class="section-content">
+                        <div id="category-list"></div>
                     </div>
                 </div>
             </div>
@@ -1051,155 +657,80 @@
             SHEETS_URL: 'https://docs.google.com/spreadsheets/d/13Y7RRprcp-lNjInoJHEL3q83FWw_NksjW6bHEOh4qDo/edit',
             WEDDING_DATE: '2026-04-18',
             
+            // 통합된 카테고리 구조
             CATEGORIES: {
-                'Venue': { icon: '🏰', name: '웨딩홀', tabName: 'venue' },
-                'Fashion': { icon: '👗', name: '의상뷰티', tabName: 'fashion' },
-                'Photo': { icon: '📷', name: '촬영영상', tabName: 'photo' },
-                'Travel': { icon: '✈️', name: '신혼여행', tabName: 'travel' },
-                'Invitation': { icon: '💌', name: '청첩장하객', tabName: 'invitation' },
-                'Jewelry': { icon: '💎', name: '예물반지', tabName: 'jewelry' },
-                'Family': { icon: '👨‍👩‍👧‍👦', name: '가족행사', tabName: 'family' },
-                'Legal': { icon: '📋', name: '법적절차', tabName: 'legal' },
-                'Sound': { icon: '🎵', name: '음향엔터', tabName: 'sound' },
-                'Transport': { icon: '🚗', name: '교통차량', tabName: 'transport' },
-                'Gift': { icon: '💰', name: '축의금관리', tabName: 'gift' }
+                '웨딩당일': { icon: '💒', color: '#ff6b9d' },
+                '예물선물': { icon: '💎', color: '#667eea' },
+                '여행이동': { icon: '✈️', color: '#28a745' },
+                '행정절차': { icon: '📋', color: '#6c757d' }
             }
         };
         
         let currentData = {};
         let lastUpdated = null;
+        let isApiConnected = false;
         
-        // ========== 데이터 생성 (기본 데이터) ==========
-        function generateInitialData() {
+        // ========== 기본 웨딩 데이터 (API 실패시 대체) ==========
+        function generateDefaultData() {
             const daysLeft = Math.ceil((new Date(CONFIG.WEDDING_DATE) - new Date()) / (1000 * 60 * 60 * 24));
             
             return {
                 statistics: {
                     daysLeft: daysLeft > 0 ? daysLeft : 0,
-                    totalExpectedExpense: 3500,
-                    currentExpense: 850,
-                    completedTasks: 6,
-                    totalTasks: 32,
-                    overallProgress: 19,
-                    categoryStats: {
-                        'Venue': { budget: 120, completed: 1, total: 3, progress: 33, icon: '🏰', name: '웨딩홀' },
-                        'Fashion': { budget: 80, completed: 0, total: 4, progress: 0, icon: '👗', name: '의상뷰티' },
-                        'Photo': { budget: 150, completed: 1, total: 3, progress: 33, icon: '📷', name: '촬영영상' },
-                        'Travel': { budget: 200, completed: 0, total: 3, progress: 0, icon: '✈️', name: '신혼여행' },
-                        'Invitation': { budget: 30, completed: 0, total: 3, progress: 0, icon: '💌', name: '청춘장하객' },
-                        'Jewelry': { budget: 150, completed: 1, total: 3, progress: 33, icon: '💎', name: '예물반지' },
-                        'Family': { budget: 80, completed: 1, total: 3, progress: 33, icon: '👨‍👩‍👧‍👦', name: '가족행사' },
-                        'Legal': { budget: 5, completed: 0, total: 3, progress: 0, icon: '📋', name: '법적절차' },
-                        'Sound': { budget: 25, completed: 0, total: 3, progress: 0, icon: '🎵', name: '음향엔터' },
-                        'Transport': { budget: 20, completed: 0, total: 3, progress: 0, icon: '🚗', name: '교통차량' },
-                        'Gift': { budget: 40, completed: 2, total: 4, progress: 50, icon: '💰', name: '축의금관리' }
+                    totalBudget: 3500,
+                    completedBudget: 850,
+                    remainingBudget: 2650,
+                    completedTasks: 5,
+                    totalTasks: 24,
+                    overallProgress: 21
+                },
+                upcomingSchedule: [
+                    {
+                        category: '웨딩당일',
+                        item: '웨딩홀 최종 확인',
+                        vendor: '강변웨딩스퀘어',
+                        executionDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
+                        amount: 500,
+                        status: '진행중',
+                        urgency: 'high'
+                    },
+                    {
+                        category: '예물선물',
+                        item: '웨딩링 제작 완료',
+                        vendor: '쥬얼리샵',
+                        executionDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+                        amount: 300,
+                        status: '미정',
+                        urgency: 'normal'
+                    },
+                    {
+                        category: '여행이동',
+                        item: '신혼여행 항공권 예약',
+                        vendor: '여행사',
+                        executionDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000),
+                        amount: 200,
+                        status: '미정',
+                        urgency: 'normal'
                     }
-                },
-                timeline: {
-                    thisWeekTasks: [
-                        {
-                            category: 'Venue',
-                            categoryName: '웨딩홀',
-                            item: '홀 최종 확인 및 계약',
-                            targetDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
-                            type: 'execution',
-                            amount: 5000000
-                        },
-                        {
-                            category: 'Fashion',
-                            categoryName: '의상뷰티',
-                            item: '드레스 첫 피팅 예약',
-                            targetDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),
-                            type: 'execution',
-                            amount: 0
-                        }
-                    ],
-                    thisMonthPayments: [
-                        {
-                            category: 'Photo',
-                            categoryName: '촬영영상',
-                            item: '웨딩 스냅 촬영 계약금',
-                            paymentDate: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000),
-                            amount: 1500000
-                        },
-                        {
-                            category: 'Travel',
-                            categoryName: '신혼여행',
-                            item: '항공료 결제',
-                            paymentDate: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),
-                            amount: 3000000
-                        }
-                    ]
-                },
-                // 각 카테고리별 데이터
-                'Venue': [
-                    { '항목': '웨딩홀 예약', '업체명': '강변웨딩스퀘어', '연락처': '02-123-4567', '계약금': '200', '잔금': '800', '결제일': '2026.02.15', '실행일': '2026.04.18', '상태': '진행중', '메모': '메인홀, 150명 규모' },
-                    { '항목': '웨딩 연회', '업체명': '강변웨딩스퀘어', '연락처': '02-123-4567', '계약금': '100', '잔금': '400', '결제일': '2026.03.15', '실행일': '2026.04.18', '상태': '미정', '메모': '한식 코스요리' },
-                    { '항목': '홀 장식', '업체명': '플라워가든', '연락처': '010-1111-2222', '계약금': '50', '잔금': '150', '결제일': '2026.04.10', '실행일': '2026.04.17', '상태': '미정', '메모': '화이트&핑크 테마' }
-                ],
-                'Fashion': [
-                    { '항목': '웨딩드레스', '업체명': '프린세스웨딩', '연락처': '010-2222-3333', '계약금': '100', '잔금': '200', '결제일': '2026.03.01', '실행일': '2026.04.15', '상태': '미정', '메모': '화이트 머메이드 라인' },
-                    { '항목': '턱시도', '업체명': '맨즈웨어하우스', '연락처': '010-3333-4444', '계약금': '50', '잔금': '100', '결제일': '2026.03.01', '실행일': '2026.04.15', '상태': '미정', '메모': '네이비 슬림핏' },
-                    { '항목': '메이크업', '업체명': '뷰티살롱', '연락처': '010-4444-5555', '계약금': '30', '잔금': '70', '결제일': '2026.04.15', '실행일': '2026.04.18', '상태': '미정', '메모': '웨딩데이 메이크업' }
-                ],
-                'Photo': [
-                    { '항목': '스냅촬영', '업체명': '포토스튜디오', '연락처': '010-5555-6666', '계약금': '150', '잔금': '350', '결제일': '2026.03.01', '실행일': '2026.04.18', '상태': '완료', '메모': '본식 + 피로연 촬영' },
-                    { '항목': '본식영상', '업체명': '비디오프로덕션', '연락처': '010-6666-7777', '계약금': '200', '잔금': '300', '결제일': '2026.03.01', '실행일': '2026.04.18', '상태': '미정', '메모': '하이라이트 영상 제작' }
-                ],
-                'Travel': [
-                    { '항목': '항공권', '업체명': '여행사', '연락처': '02-777-8888', '계약금': '300', '잔금': '200', '결제일': '2026.03.01', '실행일': '2026.05.01', '상태': '미정', '메모': '몰디브 왕복 항공권' },
-                    { '항목': '숙박', '업체명': '몰디브리조트', '연락처': '+960-123-4567', '계약금': '500', '잔금': '500', '결제일': '2026.03.01', '실행일': '2026.05.01', '상태': '미정', '메모': '수상빌라 5박 6일' }
-                ],
-                'Invitation': [
-                    { '항목': '청첩장', '업체명': '카드공방', '연락처': '010-7777-8888', '계약금': '30', '잔금': '70', '결제일': '2026.02.01', '실행일': '2026.03.15', '상태': '미정', '메모': '200매 고급 용지' },
-                    { '항목': '모바일청첩장', '업체명': '디지털청첩장', '연락처': '010-8888-9999', '계약금': '20', '잔금': '0', '결제일': '2026.02.15', '실행일': '2026.03.01', '상태': '미정', '메모': '카카오톡 연동' }
-                ],
-                'Jewelry': [
-                    { '항목': '결혼반지', '업체명': '쥬얼리샵', '연락처': '02-999-0000', '계약금': '200', '잔금': '300', '결제일': '2026.02.01', '실행일': '2026.04.15', '상태': '완료', '메모': '플래티넘 커플링' },
-                    { '항목': '약혼반지', '업체명': '다이아몬드샵', '연락처': '02-888-7777', '계약금': '300', '잔금': '200', '결제일': '완료', '실행일': '완료', '상태': '완료', '메모': '1캐럿 다이아몬드' }
-                ],
-                'Family': [
-                    { '항목': '상견례', '업체명': '한정식집', '연락처': '02-666-5555', '계약금': '30', '잔금': '20', '결제일': '2026.01.15', '실행일': '2026.01.15', '상태': '완료', '메모': '양가 부모님 첫 만남' },
-                    { '항목': '함받기', '업체명': '전통예단', '연락처': '010-9999-1111', '계약금': '50', '잔금': '50', '결제일': '2026.03.15', '실행일': '2026.03.15', '상태': '미정', '메모': '전통 예물과 함께' }
-                ],
-                'Legal': [
-                    { '항목': '혼인신고', '업체명': '구청', '연락처': '02-123-4567', '계약금': '0', '잔금': '0', '결제일': '2026.04.25', '실행일': '2026.04.25', '상태': '미정', '메모': '결혼식 후 일주일 내' },
-                    { '항목': '주민등록', '업체명': '주민센터', '연락처': '02-234-5678', '계약금': '0', '잔금': '0', '결제일': '2026.05.01', '실행일': '2026.05.01', '상태': '미정', '메모': '신혼집 이사 후' }
-                ],
-                'Sound': [
-                    { '항목': '음향장비', '업체명': '사운드프로', '연락처': '010-1111-2222', '계약금': '50', '잔금': '50', '결제일': '2026.04.10', '실행일': '2026.04.18', '상태': '미정', '메모': '마이크, 스피커 시스템' },
-                    { '항목': '축가', '업체명': '뮤직컴퍼니', '연락처': '010-3333-4444', '계약금': '30', '잔금': '20', '결제일': '2026.03.30', '실행일': '2026.04.18', '상태': '미정', '메모': '나영이 좋아하는 발라드' }
-                ],
-                'Transport': [
-                    { '항목': '웨딩카', '업체명': '프리미어카', '연락처': '010-5555-6666', '계약금': '30', '잔금': '70', '결제일': '2026.04.15', '실행일': '2026.04.18', '상태': '미정', '메모': '흰색 벤츠 E클래스' },
-                    { '항목': '하객셔틀', '업체명': '셔틀서비스', '연락처': '010-7777-8888', '계약금': '20', '잔금': '30', '결제일': '2026.04.10', '실행일': '2026.04.18', '상태': '미정', '메모': '강변역 ↔ 웨딩홀' }
-                ],
-                'Gift': [
-                    { '항목': '답례품', '업체명': '선물상자', '연락처': '010-8888-7777', '계약금': '40', '잔금': '60', '결제일': '2026.04.10', '실행일': '2026.04.15', '상태': '완료', '메모': '실용적인 선물 세트' },
-                    { '항목': '부모님선물', '업체명': '백화점', '연락처': '1588-1234', '계약금': '80', '잔금': '20', '결제일': '2026.04.15', '실행일': '2026.04.18', '상태': '완료', '메모': '건강식품 + 의류' },
-                    { '항목': '축의금장부', '업체명': '직접관리', '연락처': '-', '계약금': '0', '잔금': '0', '결제일': '2026.04.18', '실행일': '2026.04.18', '상태': '미정', '메모': '엑셀 + 수기 장부' }
                 ]
             };
         }
         
         // ========== API 통신 ==========
-        async function callAPI(action = 'getSummary', params = {}) {
+        async function callAPI(action = 'getSummary') {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000);
+            
             try {
                 const url = new URL(CONFIG.API_URL);
                 url.searchParams.append('action', action);
                 
-                Object.keys(params).forEach(key => {
-                    url.searchParams.append(key, params[key]);
-                });
-                
-                console.log(`🔄 API 호출: ${action}`);
-                
                 const response = await fetch(url, { 
-                    timeout: 8000,
-                    headers: {
-                        'Accept': 'application/json',
-                    }
+                    signal: controller.signal,
+                    headers: { 'Accept': 'application/json' }
                 });
+                
+                clearTimeout(timeoutId);
                 
                 if (!response.ok) {
                     throw new Error(`HTTP ${response.status}`);
@@ -1211,43 +742,47 @@
                     throw new Error(data.message || 'API 오류');
                 }
                 
-                console.log(`✅ API 성공: ${action}`);
                 return data;
                 
             } catch (error) {
-                console.error('❌ API 오류:', error);
+                clearTimeout(timeoutId);
+                if (error.name === 'AbortError') {
+                    throw new Error('연결 시간 초과');
+                }
                 throw error;
             }
         }
         
-        // ========== 데이터 로드 ==========
-        async function loadAllData() {
+        // ========== 데이터 새로고침 ==========
+        async function refreshData() {
+            updateStatusIndicator('loading', '최신 데이터 확인 중...');
+            
             try {
-                updateStatusIndicator('loading', '데이터를 불러오는 중...');
-                
                 const result = await callAPI('getSummary');
                 currentData = result.data;
                 lastUpdated = new Date();
+                isApiConnected = true;
                 
-                console.log('✅ 실제 데이터 로드 성공');
+                updateAllTabs();
+                updateStatusIndicator('connected', `실시간 데이터 - ${formatTime(lastUpdated)}`);
+                showNotification('✅ 최신 데이터로 업데이트 완료!', 'success');
                 
             } catch (error) {
-                console.warn('⚠️ API 연결 실패, 기본 데이터 사용:', error.message);
-                
-                // API 실패시 기본 데이터 사용
-                currentData = generateInitialData();
+                isApiConnected = false;
+                currentData = generateDefaultData();
                 lastUpdated = new Date();
+                
+                updateAllTabs();
+                updateStatusIndicator('error', `연결 실패 - 기본 데이터 사용 중`);
+                showNotification(`⚠️ 서버 연결 실패: ${error.message}`, 'warning');
             }
-            
-            // UI 업데이트
-            updateAllTabs();
-            updateStatusIndicator('connected', `업데이트: ${formatTime(lastUpdated)}`);
         }
         
         // ========== UI 업데이트 ==========
         function updateAllTabs() {
             updateSummary();
-            updateDetailTabs();
+            updateSchedule();
+            updateCategories();
             updateDDay();
         }
         
@@ -1257,244 +792,198 @@
             }
             
             const stats = currentData.statistics;
-            const timeline = currentData.timeline || {};
-            
-            // 전체 진행률 업데이트
-            const progressText = document.getElementById('overall-progress-text');
-            const progressFill = document.getElementById('overall-progress-fill');
-            
-            if (progressText && progressFill) {
-                progressText.textContent = `${stats.overallProgress}%`;
-                setTimeout(() => {
-                    progressFill.style.width = `${stats.overallProgress}%`;
-                }, 600);
-            }
             
             // 핵심 지표 업데이트
+            document.getElementById('overall-progress').textContent = `${stats.overallProgress}%`;
             document.getElementById('days-left').textContent = stats.daysLeft;
             document.getElementById('dday-card').textContent = `${stats.daysLeft}일`;
             document.getElementById('progress-card').textContent = `${stats.overallProgress}%`;
-            document.getElementById('budget-card').textContent = `${stats.totalExpectedExpense.toLocaleString()}만원`;
-            document.getElementById('expense-card').textContent = `${stats.currentExpense.toLocaleString()}만원`;
+            document.getElementById('budget-card').textContent = `${stats.totalBudget}만원`;
+            document.getElementById('remaining-card').textContent = `${stats.remainingBudget}만원`;
             
-            // 타임라인 섹션 업데이트
-            updateThisWeekTasks(timeline.thisWeekTasks || []);
-            updateThisMonthPayments(timeline.thisMonthPayments || []);
-            updateCategoryOverview(stats.categoryStats || {});
+            // 다가오는 일정 업데이트
+            updateUpcomingSchedule(currentData.upcomingSchedule || []);
         }
         
-        function updateThisWeekTasks(tasks) {
-            const section = document.getElementById('this-week-section');
-            const list = document.getElementById('this-week-list');
+        function updateUpcomingSchedule(schedules) {
+            const upcomingList = document.getElementById('upcoming-list');
             
-            if (tasks.length === 0) {
-                section.style.display = 'none';
+            if (!schedules || schedules.length === 0) {
+                upcomingList.innerHTML = `
+                    <div class="empty-state">
+                        <h4>📅 예정된 일정 없음</h4>
+                        <p>모든 일정이 완료되었거나 아직 등록되지 않았습니다.</p>
+                    </div>
+                `;
                 return;
             }
             
-            list.innerHTML = '';
-            tasks.forEach(task => {
-                const categoryInfo = CONFIG.CATEGORIES[task.category] || { icon: '📋', name: task.category };
-                const typeText = task.type === 'execution' ? '실행' : '결제';
-                const dateText = formatDateShort(new Date(task.targetDate));
+            // 실행일 기준으로 정렬
+            const sortedSchedules = schedules.sort((a, b) => new Date(a.executionDate) - new Date(b.executionDate));
+            
+            upcomingList.innerHTML = '';
+            
+            sortedSchedules.forEach(schedule => {
+                const categoryInfo = CONFIG.CATEGORIES[schedule.category] || { icon: '📋', color: '#667eea' };
+                const executionDate = new Date(schedule.executionDate);
+                const today = new Date();
+                const daysUntil = Math.ceil((executionDate - today) / (1000 * 60 * 60 * 24));
+                
+                const isUrgent = daysUntil <= 7 && daysUntil >= 0;
                 
                 const item = document.createElement('div');
-                item.className = 'timeline-item';
+                item.className = `schedule-item ${isUrgent ? 'urgent' : ''}`;
                 item.innerHTML = `
                     <div class="item-header">
-                        <div class="item-title">${task.item}</div>
-                        <div class="item-category">${categoryInfo.icon} ${categoryInfo.name}</div>
+                        <div class="item-title">${schedule.item}</div>
+                        <div class="item-category">${categoryInfo.icon} ${schedule.category}</div>
                     </div>
                     <div class="item-details">
                         <div class="detail-badge">
-                            📅 ${typeText}일: ${dateText}
+                            🏢 ${schedule.vendor || '업체 미정'}
                         </div>
-                        ${task.amount > 0 ? `<div class="detail-badge amount-badge">💰 ${Math.round(task.amount/10000).toLocaleString()}만원</div>` : ''}
+                        <div class="detail-badge">
+                            📅 ${formatDateShort(executionDate)} ${daysUntil > 0 ? `(${daysUntil}일 후)` : daysUntil === 0 ? '(오늘!)' : '(지남)'}
+                        </div>
+                        ${schedule.amount > 0 ? `<div class="detail-badge amount-badge">💰 ${schedule.amount}만원</div>` : ''}
+                        <div class="detail-badge">
+                            📊 ${schedule.status || '미정'}
+                        </div>
                     </div>
                 `;
-                list.appendChild(item);
+                
+                upcomingList.appendChild(item);
             });
-            
-            section.style.display = 'block';
         }
         
-        function updateThisMonthPayments(payments) {
-            const section = document.getElementById('this-month-section');
-            const list = document.getElementById('this-month-list');
+        function updateSchedule() {
+            // 전체 일정 관리 탭 업데이트
+            const scheduleList = document.getElementById('all-schedule-list');
             
-            if (payments.length === 0) {
-                section.style.display = 'none';
+            if (!currentData.upcomingSchedule || currentData.upcomingSchedule.length === 0) {
+                scheduleList.innerHTML = `
+                    <div class="empty-state">
+                        <h4>📋 등록된 일정 없음</h4>
+                        <p>스프레드시트에서 일정을 추가해주세요.</p>
+                    </div>
+                `;
                 return;
             }
             
-            list.innerHTML = '';
-            payments.forEach(payment => {
-                const categoryInfo = CONFIG.CATEGORIES[payment.category] || { icon: '📋', name: payment.category };
-                const dateText = formatDateShort(new Date(payment.paymentDate));
-                
-                const item = document.createElement('div');
-                item.className = 'timeline-item';
-                item.innerHTML = `
-                    <div class="item-header">
-                        <div class="item-title">${payment.item}</div>
-                        <div class="item-category">${categoryInfo.icon} ${categoryInfo.name}</div>
-                    </div>
-                    <div class="item-details">
-                        <div class="detail-badge">
-                            💳 결제일: ${dateText}
-                        </div>
-                        <div class="detail-badge amount-badge">
-                            💰 ${Math.round(payment.amount/10000).toLocaleString()}만원
-                        </div>
-                    </div>
-                `;
-                list.appendChild(item);
+            // 카테고리별로 그룹화
+            const schedulesByCategory = {};
+            currentData.upcomingSchedule.forEach(schedule => {
+                if (!schedulesByCategory[schedule.category]) {
+                    schedulesByCategory[schedule.category] = [];
+                }
+                schedulesByCategory[schedule.category].push(schedule);
             });
             
-            section.style.display = 'block';
+            scheduleList.innerHTML = '';
+            
+            Object.keys(schedulesByCategory).forEach(categoryKey => {
+                const categoryInfo = CONFIG.CATEGORIES[categoryKey] || { icon: '📋', color: '#667eea' };
+                const schedules = schedulesByCategory[categoryKey];
+                
+                const categoryDiv = document.createElement('div');
+                categoryDiv.innerHTML = `
+                    <div class="category-item">
+                        <div class="category-header">
+                            <div class="category-name">${categoryInfo.icon} ${categoryKey}</div>
+                            <div class="category-progress">${schedules.length}개 항목</div>
+                        </div>
+                        <div id="schedule-${categoryKey}"></div>
+                    </div>
+                `;
+                
+                const scheduleContainer = categoryDiv.querySelector(`#schedule-${categoryKey}`);
+                
+                schedules.forEach(schedule => {
+                    const scheduleItem = document.createElement('div');
+                    scheduleItem.style.cssText = 'margin: 8px 0; padding: 8px; background: rgba(255,255,255,0.8); border-radius: 6px; font-size: 0.8em;';
+                    scheduleItem.innerHTML = `
+                        <div style="font-weight: 600; margin-bottom: 4px;">${schedule.item}</div>
+                        <div style="color: #666;">
+                            📅 ${formatDateShort(new Date(schedule.executionDate))} | 
+                            🏢 ${schedule.vendor || '업체 미정'} | 
+                            💰 ${schedule.amount || 0}만원
+                        </div>
+                    `;
+                    scheduleContainer.appendChild(scheduleItem);
+                });
+                
+                scheduleList.appendChild(categoryDiv);
+            });
         }
         
-        function updateCategoryOverview(categoryStats) {
-            const list = document.getElementById('category-list');
-            list.innerHTML = '';
+        function updateCategories() {
+            const categoryList = document.getElementById('category-list');
+            
+            // 카테고리별 통계 계산
+            const categoryStats = {};
+            Object.keys(CONFIG.CATEGORIES).forEach(categoryKey => {
+                categoryStats[categoryKey] = {
+                    total: 0,
+                    completed: 0,
+                    budget: 0,
+                    remaining: 0
+                };
+            });
+            
+            if (currentData.upcomingSchedule) {
+                currentData.upcomingSchedule.forEach(schedule => {
+                    const cat = categoryStats[schedule.category];
+                    if (cat) {
+                        cat.total++;
+                        cat.budget += schedule.amount || 0;
+                        if (schedule.status === '완료') {
+                            cat.completed++;
+                        } else {
+                            cat.remaining += schedule.amount || 0;
+                        }
+                    }
+                });
+            }
+            
+            categoryList.innerHTML = '';
             
             Object.keys(CONFIG.CATEGORIES).forEach(categoryKey => {
-                const category = CONFIG.CATEGORIES[categoryKey];
-                const stats = categoryStats[categoryKey] || {
-                    budget: 0,
-                    completed: 0,
-                    total: 0,
-                    progress: 0,
-                    icon: category.icon,
-                    name: category.name
-                };
-                
-                const item = document.createElement('div');
-                item.className = 'timeline-item';
-                item.innerHTML = `
-                    <div class="item-header">
-                        <div class="item-title">${stats.icon} ${stats.name}</div>
-                        <div class="item-category">${stats.progress}% 완료</div>
-                    </div>
-                    <div class="item-details">
-                        <div class="detail-badge">
-                            📊 ${stats.completed}/${stats.total} 완료
-                        </div>
-                        <div class="detail-badge amount-badge">
-                            💰 ${Math.round(stats.budget/10000).toLocaleString()}만원
-                        </div>
-                    </div>
-                `;
-                list.appendChild(item);
-            });
-        }
-        
-        function updateDetailTabs() {
-            const categories = Object.keys(CONFIG.CATEGORIES);
-            
-            categories.forEach(categoryKey => {
                 const categoryInfo = CONFIG.CATEGORIES[categoryKey];
-                const tabName = categoryInfo.tabName;
-                const data = currentData[categoryKey] || [];
+                const stats = categoryStats[categoryKey];
+                const progress = stats.total > 0 ? Math.round((stats.completed / stats.total) * 100) : 0;
                 
-                const contentElement = document.getElementById(`${tabName}-content`);
-                
-                if (data.length > 0) {
-                    contentElement.innerHTML = createDetailView(data, categoryKey);
-                } else {
-                    contentElement.innerHTML = createEmptyState(categoryInfo);
-                }
-            });
-        }
-        
-        function createDetailView(data, categoryKey) {
-            if (!data || data.length === 0) {
-                return createEmptyState(CONFIG.CATEGORIES[categoryKey]);
-            }
-            
-            let html = '';
-            
-            data.forEach(row => {
-                const item = row['항목'] || '';
-                const vendor = row['업체명'] || '';
-                const contact = row['연락처'] || '';
-                const deposit = parseFloat(row['계약금']) || 0;
-                const balance = parseFloat(row['잔금']) || 0;
-                const paymentDate = row['결제일'] || '';
-                const executionDate = row['실행일'] || '';
-                const status = row['상태'] || '미정';
-                const notes = row['메모'] || '';
-                
-                const totalBudget = deposit + balance;
-                
-                html += `
-                    <div class="detail-item">
-                        <div class="item-header">
-                            <div class="item-title">${item}</div>
-                            <div class="item-status ${getStatusClass(status)}">${status}</div>
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'category-item';
+                categoryDiv.innerHTML = `
+                    <div class="category-header">
+                        <div class="category-name">${categoryInfo.icon} ${categoryKey}</div>
+                        <div class="category-progress">${progress}% 완료</div>
+                    </div>
+                    <div class="category-details">
+                        <div class="category-stat">
+                            <div class="stat-label">전체 항목</div>
+                            <div class="stat-value">${stats.total}개</div>
                         </div>
-                        
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin: 15px 0;">
-                            ${vendor ? `<div><strong>업체:</strong> ${vendor}</div>` : ''}
-                            ${contact ? `<div><strong>연락처:</strong> ${contact}</div>` : ''}
-                            ${paymentDate ? `<div><strong>결제일:</strong> ${paymentDate}</div>` : ''}
-                            ${executionDate ? `<div><strong>실행일:</strong> ${executionDate}</div>` : ''}
+                        <div class="category-stat">
+                            <div class="stat-label">완료 항목</div>
+                            <div class="stat-value">${stats.completed}개</div>
                         </div>
-                        
-                        ${totalBudget > 0 ? `
-                            <div class="budget-section">
-                                <div class="budget-grid">
-                                    ${deposit > 0 ? `
-                                        <div class="budget-item">
-                                            <div class="budget-label">계약금</div>
-                                            <div class="budget-amount">${Math.round(deposit/10000).toLocaleString()}만원</div>
-                                        </div>
-                                    ` : ''}
-                                    ${balance > 0 ? `
-                                        <div class="budget-item">
-                                            <div class="budget-label">잔금</div>
-                                            <div class="budget-amount">${Math.round(balance/10000).toLocaleString()}만원</div>
-                                        </div>
-                                    ` : ''}
-                                    <div class="budget-item">
-                                        <div class="budget-label">총액</div>
-                                        <div class="budget-amount">${Math.round(totalBudget/10000).toLocaleString()}만원</div>
-                                    </div>
-                                </div>
-                            </div>
-                        ` : ''}
-                        
-                        ${notes ? `
-                            <div style="background: rgba(255, 193, 7, 0.1); padding: 12px 15px; border-radius: 10px; margin-top: 15px; border-left: 4px solid #ffc107;">
-                                <div style="font-size: 12px; color: #856404; font-weight: 600; margin-bottom: 5px;">💬 메모</div>
-                                <div style="font-size: 14px; color: #856404; line-height: 1.4;">${notes}</div>
-                            </div>
-                        ` : ''}
+                        <div class="category-stat">
+                            <div class="stat-label">총 예산</div>
+                            <div class="stat-value">${stats.budget}만원</div>
+                        </div>
+                        <div class="category-stat">
+                            <div class="stat-label">남은 결제</div>
+                            <div class="stat-value">${stats.remaining}만원</div>
+                        </div>
                     </div>
                 `;
+                
+                categoryList.appendChild(categoryDiv);
             });
-            
-            return html;
-        }
-        
-        function createEmptyState(categoryInfo) {
-            return `
-                <div class="empty-state">
-                    <h4>${categoryInfo.icon} ${categoryInfo.name}</h4>
-                    <p>아직 ${categoryInfo.name} 데이터가 없습니다.</p>
-                    <p><small>Google Sheets에서 데이터를 추가해주세요.</small></p>
-                </div>
-            `;
         }
         
         // ========== 유틸리티 함수들 ==========
-        
-        function getStatusClass(status) {
-            if (status.includes('완료')) return 'status-완료';
-            if (status.includes('진행')) return 'status-진행중';
-            return 'status-미정';
-        }
-        
         function updateDDay() {
             const weddingDate = new Date(CONFIG.WEDDING_DATE);
             const today = new Date();
@@ -1523,14 +1012,9 @@
         
         function updateStatusIndicator(status, message) {
             const statusInfo = document.getElementById('status-info');
-            const indicator = statusInfo.querySelector('.status-indicator');
-            
-            indicator.classList.remove('status-connected', 'status-loading', 'status-error');
-            indicator.classList.add(`status-${status}`);
-            
             statusInfo.innerHTML = `
                 <span class="status-indicator status-${status}"></span>
-                <span style="font-size: 13px; opacity: 0.9;">${message}</span>
+                <span>${message}</span>
             `;
         }
         
@@ -1542,7 +1026,7 @@
             
             setTimeout(() => {
                 notification.classList.remove('show');
-            }, type === 'error' ? 6000 : 4000);
+            }, type === 'error' ? 5000 : 3000);
         }
         
         function showTab(tabName) {
@@ -1552,40 +1036,34 @@
             
             event.target.classList.add('active');
             document.getElementById(tabName).classList.add('active');
-            
-            // 스크롤을 맨 위로
-            document.querySelector('.content').scrollTop = 0;
         }
         
         // ========== 초기화 ==========
         window.addEventListener('load', function() {
-            console.log('💍 나영 ♥ 상현 Wedding Project 시작...');
+            console.log('💍 나영 ♥ 상현 Wedding Project v1.0 시작...');
             
             // D-Day 업데이트
             updateDDay();
             
-            // 진행률 바 초기화
-            const progressFill = document.getElementById('overall-progress-fill');
-            if (progressFill) {
-                progressFill.style.width = '0%';
-            }
+            // 기본 데이터로 초기화
+            currentData = generateDefaultData();
+            lastUpdated = new Date();
+            updateAllTabs();
+            updateStatusIndicator('offline', `Wedding Project v1.0 - ${formatTime(lastUpdated)}`);
             
-            // 데이터 로드
-            loadAllData();
+            // 백그라운드에서 API 연결 시도
+            setTimeout(refreshData, 1000);
             
-            console.log('✅ Wedding Project 준비 완료!');
+            console.log('✅ Wedding Project v1.0 준비 완료!');
         });
         
         // 키보드 단축키
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && e.key === 'r') {
                 e.preventDefault();
-                loadAllData();
+                refreshData();
             }
         });
-        
-        // 터치 이벤트 최적화
-        document.addEventListener('touchstart', function() {}, {passive: true});
         
     </script>
 </body>
